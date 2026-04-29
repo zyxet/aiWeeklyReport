@@ -1,0 +1,11 @@
+# 忽略配置文件和敏感信息
+config.md
+*.json
+# 忽略临时文件
+*.tmp
+*.log
+.DS_Store
+# 保留所有数据文件和输出文件
+# data/*.md
+# output/*.md
+
