@@ -117,7 +117,6 @@ aiWeeklyReport/
 
 - **定时任务 | Scheduled Tasks:** 周一到周五自动执行
 - **数据持久化 | Data Persistence:** 所有产出自动提交到本仓库
-- **通知渠道 | Notification:** 周报完成后推送到飞书私聊
 
 ---
 
