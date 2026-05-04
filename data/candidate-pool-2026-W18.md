@@ -1,66 +1,100 @@
-# 候选池 · W18 情报收集（2026-04-28 ~ 2026-05-01）
+# 开源情报候选池 — 2026年第18周 (W18)
 
-> 数据来源：GitHub Trending、GitHub Search API、SignalForges AI Briefing、掘金/CSND 极客日报  
-> 采集时间：2026-05-01  
-> 筛选标准：日增 stars > 200，聚焦 Agent 框架、LLM 工具、RAG、代码生成方向
-
----
-
-## 🔥 High（日增 > 1000 或生态级项目）
-
-| 项目名称 | Stars 增速 | 一句话定位 | 链接 |
-|---|---|---|---|
-| warpdotdev/warp | +8,399（5/1） | 基于 Rust 的 AI 智能终端 IDE，深度集成命令补全、语义搜索与协作笔记 | https://github.com/warpdotdev/warp |
-| mattpocock/skills | +6,187（5/1） | 从 `.claude` 目录直接开源的 Claude Agent 技能集合，定义工程级最佳实践 | https://github.com/mattpocock/skills |
-| obra/superpowers | +1,632（5/1） | 17.4 万星 Agent 技能框架 & 软件工程方法论，持续统治 Trending 榜 | https://github.com/obra/superpowers |
-| tauricresearch/TradingAgents | +2,023（5/1） | 多智能体 LLM 金融交易框架，内置行情/基本面/量化策略专职 Agent | https://github.com/TauricResearch/TradingAgents |
-| bytedance/deer-flow | 55,736 total | 字节跳动开源多 Agent 工作流编排框架，支持记忆、工具调用与子 Agent 沙箱 | https://github.com/bytedance/deer-flow |
-| free-claude-code | +2,949（4/28） | 社区版 Claude Code 替代品，TOS 风险需注意 | https://github.com/Alishahryar1/free-claude-code |
-| mvanhorn/last30days-skill | +1,308（4/30） | 跨平台实时情报 Agent（Reddit/X/YouTube/HN/Polymarket），自动多源调研 | https://github.com/mvanhorn/last30days-skill |
-| NousResearch/hermes-agent | +917（4/30） | "随你成长"的自适应 Agent 框架，研究实验室级进化架构 | https://github.com/NousResearch/hermes-agent |
+> **收集周期**: 2026-04-28 ~ 2026-05-04  
+> **生成时间**: 2026-05-01 20:08 (手动补执行)  
+> **执行类型**: manual (cron 任务未触发)
 
 ---
 
-## 🚀 Medium（日增 200–1000 或重要框架/工具）
+## 候选项目列表
 
-| 项目名称 | Stars 增速 | 一句话定位 | 链接 |
-|---|---|---|---|
-| microsoft/VibeVoice | +757（4/28）/ +586（4/30） | 微软开源前沿语音 AI，多语言实时合成与语音交互 | https://github.com/microsoft/VibeVoice |
-| virattt/ai-hedge-fund | 55k total | AI 驱动对冲基金模拟系统，多 Agent 协作做投资决策 | https://github.com/virattt/ai-hedge-fund |
-| ComposioHQ/awesome-codex-skills | +611（5/1） | Codex CLI 与 API 的精选实用技能清单，自动化工作流 | https://github.com/ComposioHQ/awesome-codex-skills |
-| shareAI-lab/learn-claude-code | +919（4/30） | "Bash is all you need"——从零手搓 nano Agent harness 的教育突破 | https://github.com/shareAI-lab/learn-claude-code |
-| thedotmack/claude-mem | +373（4/30） | Claude Code 记忆插件，用 agent-sdk 解决上下文持久化痛点 | https://github.com/thedotmack/claude-mem |
-| 1jehuang/jcode | 1.9k total（5/1） | Coding Agent Harness，轻量级 bash 包装器编排 LLM Agent | https://github.com/1jehuang/jcode |
-| dirac-run | 933 total | 专注效率的 Coding Agent，Hash Anchored 编辑降低 API 成本 50-80% | https://github.com/dirac-run |
-| infiniflow/ragflow | 76,525 total | RAG 引擎与 Agent 能力深度融合的"知识引擎" | https://github.com/infiniflow/ragflow |
-| mem0ai/mem0 | 51,397 total | 通用 Agent 记忆层，跨平台持久化基础设施 | https://github.com/mem0ai/mem0 |
-| OpenHands/OpenHands | 70,126 total | AI 驱动软件开发平台（原 OpenDevin），开源代码生成 | https://github.com/OpenHands/OpenHands |
-| browserbase/skills | +314（4/28）/ 824（5/1） | 带网页浏览工具的 Claude Agent SDK，扩展 Agent 网络能力 | https://github.com/browserbase/skills |
-| nikopueringer/CorridorKey | +397（5/1） | 完美绿屏键算法，AI 视频处理工具 | https://github.com/nikopueringer/CorridorKey |
+### 1. warpdotdev/warp — Agentic Terminal IDE
+- **Stars**: 49.2k (↑ 近期上榜)
+- **定位**: Agentic开发环境，从终端出发
+- **Why**: Warp 是一个原生终端应用，但内置了Agent能力——可以理解用户意图、执行命令、解释输出。这是终端AI化的标志性产品。
+- **URL**: https://github.com/warpdotdev/warp
+
+### 2. TauricResearch/TradingAgents — 多Agent金融交易框架
+- **Stars**: 57.7k (↑ 快速增长)
+- **定位**: 对冲基金风格的多Agent LLM金融交易系统
+- **Why**: 实现了基本面、情绪、技术、宏观四个Agent的团队决策。将多Agent编排应用于量化交易，是Agent落地的商业场景之一。
+- **URL**: https://github.com/tauricresearch/tradingagents
+
+### 3. obra/superpowers — Agentic技能框架
+- **Stars**: 174.6k (↑ 持续增长)
+- **定位**: Agent技能框架 & 软件工程方法论
+- **Why**: 已超过174k stars，是目前最大的Agent技能生态之一。提供可安装的技能库和开发方法论。
+- **URL**: https://github.com/obra/superpowers
+
+### 4. bytedance/deer-flow — 字节开源SuperAgent
+- **Stars**: ~1.8k (↑  trending Python)
+- **定位**: 长周期SuperAgent harness，研究、编码、创作
+- **Why**: 字节跳动开源，支持sandbox、记忆、工具、技能、子Agent和消息网关。推荐用Doubao-Seed-2.0-Code、DeepSeek v3.2和Kimi 2.5运行。
+- **URL**: https://github.com/bytedance/deer-flow
+
+### 5. lukilabs/craft-agents-oss — 新Agent框架
+- **Stars**: 5.6k (↑ 新上榜)
+- **定位**: 新兴的Agent框架（详细信息待补充）
+- **URL**: https://github.com/lukilabs/craft-agents-oss
+
+### 6. 1jehuang/jcode — Coding Agent Harness
+- **Stars**: 1.9k (↑ 新上榜)
+- **定位**: Coding Agent Harness
+- **Why**: 专注代码生成场景的Agent框架，轻量级harness。
+- **URL**: https://github.com/1jehuang/jcode
+
+### 7. openai-agents-python — OpenAI官方多Agent SDK
+- **Stars**: 22.8k (↑ 751 日增)
+- **定位**: OpenAI官方多Agent协调Python SDK
+- **Why**: 支持Agent、Tools、Guardrails、Human-in-the-Loop、Tracing、Sandbox Agents、Realtime Voice Agent。OpenAI官方出品，生态完整。
+- **URL**: https://github.com/openai/openai-agents-python
+
+### 8. DheerG/swarms — Claude Code多Agent团队插件
+- **Stars**: ~新仓库
+- **定位**: Claude Code的多Agent团队编排插件
+- **Why**: 基于数百次会话迭代优化，将规则、阶段和批准流程打包为可移植的插件。支持Code/Writing/General三种模式，Balanced/Ultra两种团队形态。
+- **URL**: https://github.com/DheerG/swarms
+
+### 9. mattpocock/skills — 工程师Claude技能库
+- **Stars**: 49.4k (↑ 快速增长)
+- **定位**: 来自 `.claude` 目录的真实工程师技能
+- **Why**: 展示了如何将Claude Code技能系统化、工程化。
+- **URL**: https://github.com/mattpocock/skills
+
+### 10. sickn33/antigravity-awesome-skills — 1400+ Agent技能库
+- **Stars**: ~1k
+- **定位**: 可安装的GitHub技能库，覆盖Claude Code、Cursor、Codex CLI等
+- **Why**: 1400+ skills，提供安装器CLI、工作流编排。技能生态正在爆发。
+- **URL**: https://github.com/sickn33/antigravity-awesome-skills
+
+### 11. NousResearch/hermes-agent — 自进化Agent
+- **Stars**: 65k+ (↑ v0.8.0发布)
+- **定位**: 闭环自进化Agent框架
+- **Why**: v0.8.0发布（209 merged PRs），新增Browser Use、远程后端、worktree并行。支持200+模型。
+- **URL**: https://github.com/NousResearch/hermes-agent
+
+### 12. lsdefine/GenericAgent — 自进化Agent
+- **Stars**: 1.9k
+- **定位**: 从3.3K行种子自生长技能树
+- **Why**: 自进化概念的代表项目之一，与hermes-agent、evolver构成"Agent自进化"赛道。
+- **URL**: https://github.com/lsdefine/GenericAgent
 
 ---
 
-## 👁️ Watch（新兴项目 / < 1000 stars / 概念验证级）
+## 本周观察
 
-| 项目名称 | Stars 增速 | 一句话定位 | 链接 |
-|---|---|---|---|
-| lukilabs/craft-agents-oss | 5.6k total（5/1） | 结构化 Agent 工作流编排框架，轻量级生产级 | https://github.com/lukilabs/craft-agents-oss |
-| HunxByts/GhostTrack | +1,036（5/1） | 手机号/位置追踪工具，HackerNews 热议但非纯 AI | https://github.com/HunxByts/GhostTrack |
-| soxoj/maigret | 20.8k total（5/1） | 通过用户名从 3000+ 站点收集个人档案的 OSINT 工具 | https://github.com/soxoj/maigret |
-| iamgio/quarkdown | 13.1k total（5/1） | Markdown 超集——从想法到论文/演示/网站/书籍的知识构建 | https://github.com/iamgio/quarkdown |
-| GNAP (farol-team/gnap) | N/A | Git-Native Agent Protocol：用 Git 仓库作为 Agent 任务看板的协调协议 | https://github.com/farol-team/gnap |
-| arxiv:2604.25917 | N/A | 递归多智能体系统（MIT/Stanford/Harvard），"Agent 的群体智能" | https://arxiv.org/abs/2604.25917 |
+**主题1: Agent技能生态爆发**  
+superpowers(174k)、mattpocock/skills(49k)、antigravity-awesome-skills(1k+) 共同指向一个方向：Agent不再只是框架，而是技能生态。开发者正在将"Agent能做什么"拆分成可安装、可复用、可组合的技能单元。
 
----
+**主题2: 多Agent团队从概念到产品**  
+DheerG/swarms（Claude Code插件）、TauricResearch/TradingAgents（对冲基金）、openai-agents-python（官方SDK）——多Agent协作正在从论文走向实际产品。
 
-## 📊 趋势观察
+**主题3: 终端AI化**  
+warp（终端IDE）+ jcode（Coding Harness）+ Terminal Agent Benchmark论文——终端正在成为Agent的主要交互界面。
 
-1. **Claude Code 生态爆发**：mattpocock/skills、obra/superpowers、learn-claude-code、claude-mem 等项目形成完整技能/记忆/教育矩阵，社区正从"用 Agent"转向"造 Agent 基础设施"。
-2. **金融 Agent 升温**：TradingAgents（+2,023）、ai-hedge-fund（55k）、last30days-skill（情报驱动）形成量化+研究的闭环。
-3. **语音 AI 入场**：微软 VibeVoice 连续多日上榜，标志着语音合成从闭源（ElevenLabs）走向开源竞争。
-4. **Agent 协调协议萌芽**：GNAP 提出用 Git 作为多 Agent 任务看板，被 DeerFlow、OpenHands、VoltAgent 等多个框架社区讨论。
-5. **终端即 IDE**：Warp（+8,399）登顶 Trending，AI 命令补全+语义搜索正在重新定义开发者工作流入口。
+**主题4: 大厂入场SuperAgent**  
+bytedance/deer-flow（字节）+ OpenAI Agents SDK + 微软Synthetic Computers论文——大厂正在定义"SuperAgent"的标准形态。
 
 ---
 
-*W18 补跑完成。数据截止 2026-05-01。*
+*Candidate Pool Size: 12 projects*
