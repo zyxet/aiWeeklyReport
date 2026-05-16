@@ -1,0 +1,3128 @@
+# AI 开源情报系统 - 2026年执行日历
+# 生成时间: 2026-05-16 22:53:57
+# 修改规则: 只改 task_definitions 里的模板和描述，不要改 schedule 部分
+# 复核脚本读取此文件判断计划 vs 实际
+
+year: 2026
+version: 1
+
+task_definitions:
+  monday-collect:
+    name: 周一情报收集
+    weekday: 1
+    hour: 9
+    output_template: "data/os-pool-{year}-W{week}.md"
+    description: "搜索 GitHub Trending、HuggingFace Papers、中文技术媒体，收集本周 LLM/AI Agent 开源项目候选池"
+  tuesday-paper-collect:
+    name: 周二论文雷达
+    weekday: 2
+    hour: 9
+    output_template: "data/paper-pool-{year}-W{week}.md"
+    description: "访问 arXiv cs.CL/cs.LG/cs.AI，搜索 HuggingFace Papers，收集过去7天 LLM 与 Agent 相关论文"
+  wednesday-filter:
+    name: 周三深度筛选
+    weekday: 3
+    hour: 14
+    output_template: "data/os-shortlist-{year}-W{week}.md"
+    description: "从候选池筛选高质量项目，验证 Star 数、技术测评、媒体 coverage，生成短名单"
+    depends_on: ["monday-collect"]
+  thursday-paper-filter:
+    name: 周四论文精选
+    weekday: 4
+    hour: 14
+    output_template: "data/paper-shortlist-{year}-W{week}.md"
+    description: "对候选论文评分（创新性/实用性/技术深度/机构背书/代码可得性），保留6-8篇，标记论文+开源关联"
+    depends_on: ["tuesday-paper-collect"]
+  friday-report:
+    name: 周五周报生成
+    weekday: 5
+    hour: 17
+    output_template: "data/weekly-report-{year}-W{week}.md"
+    description: "深度扫描精选项目，生成结构化《AI开源周报》"
+    depends_on: ["wednesday-filter"]
+  friday-paper-merge:
+    name: 周五论文-开源联动
+    weekday: 5
+    hour: 19
+    output_template: "data/weekly-report-{year}-W{week}.md"
+    description: "生成论文-开源映射表（A/B/C/D类），合并生成联动版周报"
+    depends_on: ["friday-report", "thursday-paper-filter"]
+
+schedule:
+  "2026-01-01":
+    week: "W01"
+    tasks:
+      - task_id: "thursday-paper-filter"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-01-02":
+    week: "W01"
+    tasks:
+      - task_id: "friday-report"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+      - task_id: "friday-paper-merge"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-01-03":
+    week: "W01"
+    tasks:
+      []  # rest day
+  "2026-01-04":
+    week: "W01"
+    tasks:
+      []  # rest day
+  "2026-01-05":
+    week: "W02"
+    tasks:
+      - task_id: "monday-collect"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-01-06":
+    week: "W02"
+    tasks:
+      - task_id: "tuesday-paper-collect"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-01-07":
+    week: "W02"
+    tasks:
+      - task_id: "wednesday-filter"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-01-08":
+    week: "W02"
+    tasks:
+      - task_id: "thursday-paper-filter"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-01-09":
+    week: "W02"
+    tasks:
+      - task_id: "friday-report"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+      - task_id: "friday-paper-merge"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-01-10":
+    week: "W02"
+    tasks:
+      []  # rest day
+  "2026-01-11":
+    week: "W02"
+    tasks:
+      []  # rest day
+  "2026-01-12":
+    week: "W03"
+    tasks:
+      - task_id: "monday-collect"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-01-13":
+    week: "W03"
+    tasks:
+      - task_id: "tuesday-paper-collect"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-01-14":
+    week: "W03"
+    tasks:
+      - task_id: "wednesday-filter"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-01-15":
+    week: "W03"
+    tasks:
+      - task_id: "thursday-paper-filter"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-01-16":
+    week: "W03"
+    tasks:
+      - task_id: "friday-report"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+      - task_id: "friday-paper-merge"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-01-17":
+    week: "W03"
+    tasks:
+      []  # rest day
+  "2026-01-18":
+    week: "W03"
+    tasks:
+      []  # rest day
+  "2026-01-19":
+    week: "W04"
+    tasks:
+      - task_id: "monday-collect"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-01-20":
+    week: "W04"
+    tasks:
+      - task_id: "tuesday-paper-collect"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-01-21":
+    week: "W04"
+    tasks:
+      - task_id: "wednesday-filter"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-01-22":
+    week: "W04"
+    tasks:
+      - task_id: "thursday-paper-filter"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-01-23":
+    week: "W04"
+    tasks:
+      - task_id: "friday-report"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+      - task_id: "friday-paper-merge"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-01-24":
+    week: "W04"
+    tasks:
+      []  # rest day
+  "2026-01-25":
+    week: "W04"
+    tasks:
+      []  # rest day
+  "2026-01-26":
+    week: "W05"
+    tasks:
+      - task_id: "monday-collect"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-01-27":
+    week: "W05"
+    tasks:
+      - task_id: "tuesday-paper-collect"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-01-28":
+    week: "W05"
+    tasks:
+      - task_id: "wednesday-filter"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-01-29":
+    week: "W05"
+    tasks:
+      - task_id: "thursday-paper-filter"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-01-30":
+    week: "W05"
+    tasks:
+      - task_id: "friday-report"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+      - task_id: "friday-paper-merge"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-01-31":
+    week: "W05"
+    tasks:
+      []  # rest day
+  "2026-02-01":
+    week: "W05"
+    tasks:
+      []  # rest day
+  "2026-02-02":
+    week: "W06"
+    tasks:
+      - task_id: "monday-collect"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-02-03":
+    week: "W06"
+    tasks:
+      - task_id: "tuesday-paper-collect"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-02-04":
+    week: "W06"
+    tasks:
+      - task_id: "wednesday-filter"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-02-05":
+    week: "W06"
+    tasks:
+      - task_id: "thursday-paper-filter"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-02-06":
+    week: "W06"
+    tasks:
+      - task_id: "friday-report"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+      - task_id: "friday-paper-merge"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-02-07":
+    week: "W06"
+    tasks:
+      []  # rest day
+  "2026-02-08":
+    week: "W06"
+    tasks:
+      []  # rest day
+  "2026-02-09":
+    week: "W07"
+    tasks:
+      - task_id: "monday-collect"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-02-10":
+    week: "W07"
+    tasks:
+      - task_id: "tuesday-paper-collect"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-02-11":
+    week: "W07"
+    tasks:
+      - task_id: "wednesday-filter"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-02-12":
+    week: "W07"
+    tasks:
+      - task_id: "thursday-paper-filter"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-02-13":
+    week: "W07"
+    tasks:
+      - task_id: "friday-report"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+      - task_id: "friday-paper-merge"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-02-14":
+    week: "W07"
+    tasks:
+      []  # rest day
+  "2026-02-15":
+    week: "W07"
+    tasks:
+      []  # rest day
+  "2026-02-16":
+    week: "W08"
+    tasks:
+      - task_id: "monday-collect"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-02-17":
+    week: "W08"
+    tasks:
+      - task_id: "tuesday-paper-collect"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-02-18":
+    week: "W08"
+    tasks:
+      - task_id: "wednesday-filter"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-02-19":
+    week: "W08"
+    tasks:
+      - task_id: "thursday-paper-filter"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-02-20":
+    week: "W08"
+    tasks:
+      - task_id: "friday-report"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+      - task_id: "friday-paper-merge"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-02-21":
+    week: "W08"
+    tasks:
+      []  # rest day
+  "2026-02-22":
+    week: "W08"
+    tasks:
+      []  # rest day
+  "2026-02-23":
+    week: "W09"
+    tasks:
+      - task_id: "monday-collect"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-02-24":
+    week: "W09"
+    tasks:
+      - task_id: "tuesday-paper-collect"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-02-25":
+    week: "W09"
+    tasks:
+      - task_id: "wednesday-filter"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-02-26":
+    week: "W09"
+    tasks:
+      - task_id: "thursday-paper-filter"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-02-27":
+    week: "W09"
+    tasks:
+      - task_id: "friday-report"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+      - task_id: "friday-paper-merge"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-02-28":
+    week: "W09"
+    tasks:
+      []  # rest day
+  "2026-03-01":
+    week: "W09"
+    tasks:
+      []  # rest day
+  "2026-03-02":
+    week: "W10"
+    tasks:
+      - task_id: "monday-collect"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-03-03":
+    week: "W10"
+    tasks:
+      - task_id: "tuesday-paper-collect"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-03-04":
+    week: "W10"
+    tasks:
+      - task_id: "wednesday-filter"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-03-05":
+    week: "W10"
+    tasks:
+      - task_id: "thursday-paper-filter"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-03-06":
+    week: "W10"
+    tasks:
+      - task_id: "friday-report"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+      - task_id: "friday-paper-merge"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-03-07":
+    week: "W10"
+    tasks:
+      []  # rest day
+  "2026-03-08":
+    week: "W10"
+    tasks:
+      []  # rest day
+  "2026-03-09":
+    week: "W11"
+    tasks:
+      - task_id: "monday-collect"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-03-10":
+    week: "W11"
+    tasks:
+      - task_id: "tuesday-paper-collect"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-03-11":
+    week: "W11"
+    tasks:
+      - task_id: "wednesday-filter"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-03-12":
+    week: "W11"
+    tasks:
+      - task_id: "thursday-paper-filter"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-03-13":
+    week: "W11"
+    tasks:
+      - task_id: "friday-report"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+      - task_id: "friday-paper-merge"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-03-14":
+    week: "W11"
+    tasks:
+      []  # rest day
+  "2026-03-15":
+    week: "W11"
+    tasks:
+      []  # rest day
+  "2026-03-16":
+    week: "W12"
+    tasks:
+      - task_id: "monday-collect"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-03-17":
+    week: "W12"
+    tasks:
+      - task_id: "tuesday-paper-collect"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-03-18":
+    week: "W12"
+    tasks:
+      - task_id: "wednesday-filter"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-03-19":
+    week: "W12"
+    tasks:
+      - task_id: "thursday-paper-filter"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-03-20":
+    week: "W12"
+    tasks:
+      - task_id: "friday-report"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+      - task_id: "friday-paper-merge"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-03-21":
+    week: "W12"
+    tasks:
+      []  # rest day
+  "2026-03-22":
+    week: "W12"
+    tasks:
+      []  # rest day
+  "2026-03-23":
+    week: "W13"
+    tasks:
+      - task_id: "monday-collect"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-03-24":
+    week: "W13"
+    tasks:
+      - task_id: "tuesday-paper-collect"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-03-25":
+    week: "W13"
+    tasks:
+      - task_id: "wednesday-filter"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-03-26":
+    week: "W13"
+    tasks:
+      - task_id: "thursday-paper-filter"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-03-27":
+    week: "W13"
+    tasks:
+      - task_id: "friday-report"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+      - task_id: "friday-paper-merge"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-03-28":
+    week: "W13"
+    tasks:
+      []  # rest day
+  "2026-03-29":
+    week: "W13"
+    tasks:
+      []  # rest day
+  "2026-03-30":
+    week: "W14"
+    tasks:
+      - task_id: "monday-collect"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-03-31":
+    week: "W14"
+    tasks:
+      - task_id: "tuesday-paper-collect"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-04-01":
+    week: "W14"
+    tasks:
+      - task_id: "wednesday-filter"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-04-02":
+    week: "W14"
+    tasks:
+      - task_id: "thursday-paper-filter"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-04-03":
+    week: "W14"
+    tasks:
+      - task_id: "friday-report"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+      - task_id: "friday-paper-merge"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-04-04":
+    week: "W14"
+    tasks:
+      []  # rest day
+  "2026-04-05":
+    week: "W14"
+    tasks:
+      []  # rest day
+  "2026-04-06":
+    week: "W15"
+    tasks:
+      - task_id: "monday-collect"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-04-07":
+    week: "W15"
+    tasks:
+      - task_id: "tuesday-paper-collect"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-04-08":
+    week: "W15"
+    tasks:
+      - task_id: "wednesday-filter"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-04-09":
+    week: "W15"
+    tasks:
+      - task_id: "thursday-paper-filter"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-04-10":
+    week: "W15"
+    tasks:
+      - task_id: "friday-report"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+      - task_id: "friday-paper-merge"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-04-11":
+    week: "W15"
+    tasks:
+      []  # rest day
+  "2026-04-12":
+    week: "W15"
+    tasks:
+      []  # rest day
+  "2026-04-13":
+    week: "W16"
+    tasks:
+      - task_id: "monday-collect"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-04-14":
+    week: "W16"
+    tasks:
+      - task_id: "tuesday-paper-collect"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-04-15":
+    week: "W16"
+    tasks:
+      - task_id: "wednesday-filter"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-04-16":
+    week: "W16"
+    tasks:
+      - task_id: "thursday-paper-filter"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-04-17":
+    week: "W16"
+    tasks:
+      - task_id: "friday-report"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+      - task_id: "friday-paper-merge"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-04-18":
+    week: "W16"
+    tasks:
+      []  # rest day
+  "2026-04-19":
+    week: "W16"
+    tasks:
+      []  # rest day
+  "2026-04-20":
+    week: "W17"
+    tasks:
+      - task_id: "monday-collect"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-04-21":
+    week: "W17"
+    tasks:
+      - task_id: "tuesday-paper-collect"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-04-22":
+    week: "W17"
+    tasks:
+      - task_id: "wednesday-filter"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-04-23":
+    week: "W17"
+    tasks:
+      - task_id: "thursday-paper-filter"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-04-24":
+    week: "W17"
+    tasks:
+      - task_id: "friday-report"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+      - task_id: "friday-paper-merge"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-04-25":
+    week: "W17"
+    tasks:
+      []  # rest day
+  "2026-04-26":
+    week: "W17"
+    tasks:
+      []  # rest day
+  "2026-04-27":
+    week: "W18"
+    tasks:
+      - task_id: "monday-collect"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-04-28":
+    week: "W18"
+    tasks:
+      - task_id: "tuesday-paper-collect"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-04-29":
+    week: "W18"
+    tasks:
+      - task_id: "wednesday-filter"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-04-30":
+    week: "W18"
+    tasks:
+      - task_id: "thursday-paper-filter"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-05-01":
+    week: "W18"
+    tasks:
+      - task_id: "friday-report"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+      - task_id: "friday-paper-merge"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-05-02":
+    week: "W18"
+    tasks:
+      []  # rest day
+  "2026-05-03":
+    week: "W18"
+    tasks:
+      []  # rest day
+  "2026-05-04":
+    week: "W19"
+    tasks:
+      - task_id: "monday-collect"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-05-05":
+    week: "W19"
+    tasks:
+      - task_id: "tuesday-paper-collect"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-05-06":
+    week: "W19"
+    tasks:
+      - task_id: "wednesday-filter"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-05-07":
+    week: "W19"
+    tasks:
+      - task_id: "thursday-paper-filter"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-05-08":
+    week: "W19"
+    tasks:
+      - task_id: "friday-report"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+      - task_id: "friday-paper-merge"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-05-09":
+    week: "W19"
+    tasks:
+      []  # rest day
+  "2026-05-10":
+    week: "W19"
+    tasks:
+      []  # rest day
+  "2026-05-11":
+    week: "W20"
+    tasks:
+      - task_id: "monday-collect"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-05-12":
+    week: "W20"
+    tasks:
+      - task_id: "tuesday-paper-collect"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-05-13":
+    week: "W20"
+    tasks:
+      - task_id: "wednesday-filter"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-05-14":
+    week: "W20"
+    tasks:
+      - task_id: "thursday-paper-filter"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-05-15":
+    week: "W20"
+    tasks:
+      - task_id: "friday-report"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+      - task_id: "friday-paper-merge"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-05-16":
+    week: "W20"
+    tasks:
+      []  # rest day
+  "2026-05-17":
+    week: "W20"
+    tasks:
+      []  # rest day
+  "2026-05-18":
+    week: "W21"
+    tasks:
+      - task_id: "monday-collect"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-05-19":
+    week: "W21"
+    tasks:
+      - task_id: "tuesday-paper-collect"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-05-20":
+    week: "W21"
+    tasks:
+      - task_id: "wednesday-filter"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-05-21":
+    week: "W21"
+    tasks:
+      - task_id: "thursday-paper-filter"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-05-22":
+    week: "W21"
+    tasks:
+      - task_id: "friday-report"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+      - task_id: "friday-paper-merge"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-05-23":
+    week: "W21"
+    tasks:
+      []  # rest day
+  "2026-05-24":
+    week: "W21"
+    tasks:
+      []  # rest day
+  "2026-05-25":
+    week: "W22"
+    tasks:
+      - task_id: "monday-collect"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-05-26":
+    week: "W22"
+    tasks:
+      - task_id: "tuesday-paper-collect"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-05-27":
+    week: "W22"
+    tasks:
+      - task_id: "wednesday-filter"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-05-28":
+    week: "W22"
+    tasks:
+      - task_id: "thursday-paper-filter"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-05-29":
+    week: "W22"
+    tasks:
+      - task_id: "friday-report"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+      - task_id: "friday-paper-merge"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-05-30":
+    week: "W22"
+    tasks:
+      []  # rest day
+  "2026-05-31":
+    week: "W22"
+    tasks:
+      []  # rest day
+  "2026-06-01":
+    week: "W23"
+    tasks:
+      - task_id: "monday-collect"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-06-02":
+    week: "W23"
+    tasks:
+      - task_id: "tuesday-paper-collect"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-06-03":
+    week: "W23"
+    tasks:
+      - task_id: "wednesday-filter"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-06-04":
+    week: "W23"
+    tasks:
+      - task_id: "thursday-paper-filter"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-06-05":
+    week: "W23"
+    tasks:
+      - task_id: "friday-report"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+      - task_id: "friday-paper-merge"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-06-06":
+    week: "W23"
+    tasks:
+      []  # rest day
+  "2026-06-07":
+    week: "W23"
+    tasks:
+      []  # rest day
+  "2026-06-08":
+    week: "W24"
+    tasks:
+      - task_id: "monday-collect"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-06-09":
+    week: "W24"
+    tasks:
+      - task_id: "tuesday-paper-collect"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-06-10":
+    week: "W24"
+    tasks:
+      - task_id: "wednesday-filter"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-06-11":
+    week: "W24"
+    tasks:
+      - task_id: "thursday-paper-filter"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-06-12":
+    week: "W24"
+    tasks:
+      - task_id: "friday-report"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+      - task_id: "friday-paper-merge"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-06-13":
+    week: "W24"
+    tasks:
+      []  # rest day
+  "2026-06-14":
+    week: "W24"
+    tasks:
+      []  # rest day
+  "2026-06-15":
+    week: "W25"
+    tasks:
+      - task_id: "monday-collect"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-06-16":
+    week: "W25"
+    tasks:
+      - task_id: "tuesday-paper-collect"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-06-17":
+    week: "W25"
+    tasks:
+      - task_id: "wednesday-filter"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-06-18":
+    week: "W25"
+    tasks:
+      - task_id: "thursday-paper-filter"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-06-19":
+    week: "W25"
+    tasks:
+      - task_id: "friday-report"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+      - task_id: "friday-paper-merge"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-06-20":
+    week: "W25"
+    tasks:
+      []  # rest day
+  "2026-06-21":
+    week: "W25"
+    tasks:
+      []  # rest day
+  "2026-06-22":
+    week: "W26"
+    tasks:
+      - task_id: "monday-collect"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-06-23":
+    week: "W26"
+    tasks:
+      - task_id: "tuesday-paper-collect"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-06-24":
+    week: "W26"
+    tasks:
+      - task_id: "wednesday-filter"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-06-25":
+    week: "W26"
+    tasks:
+      - task_id: "thursday-paper-filter"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-06-26":
+    week: "W26"
+    tasks:
+      - task_id: "friday-report"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+      - task_id: "friday-paper-merge"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-06-27":
+    week: "W26"
+    tasks:
+      []  # rest day
+  "2026-06-28":
+    week: "W26"
+    tasks:
+      []  # rest day
+  "2026-06-29":
+    week: "W27"
+    tasks:
+      - task_id: "monday-collect"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-06-30":
+    week: "W27"
+    tasks:
+      - task_id: "tuesday-paper-collect"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-07-01":
+    week: "W27"
+    tasks:
+      - task_id: "wednesday-filter"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-07-02":
+    week: "W27"
+    tasks:
+      - task_id: "thursday-paper-filter"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-07-03":
+    week: "W27"
+    tasks:
+      - task_id: "friday-report"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+      - task_id: "friday-paper-merge"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-07-04":
+    week: "W27"
+    tasks:
+      []  # rest day
+  "2026-07-05":
+    week: "W27"
+    tasks:
+      []  # rest day
+  "2026-07-06":
+    week: "W28"
+    tasks:
+      - task_id: "monday-collect"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-07-07":
+    week: "W28"
+    tasks:
+      - task_id: "tuesday-paper-collect"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-07-08":
+    week: "W28"
+    tasks:
+      - task_id: "wednesday-filter"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-07-09":
+    week: "W28"
+    tasks:
+      - task_id: "thursday-paper-filter"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-07-10":
+    week: "W28"
+    tasks:
+      - task_id: "friday-report"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+      - task_id: "friday-paper-merge"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-07-11":
+    week: "W28"
+    tasks:
+      []  # rest day
+  "2026-07-12":
+    week: "W28"
+    tasks:
+      []  # rest day
+  "2026-07-13":
+    week: "W29"
+    tasks:
+      - task_id: "monday-collect"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-07-14":
+    week: "W29"
+    tasks:
+      - task_id: "tuesday-paper-collect"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-07-15":
+    week: "W29"
+    tasks:
+      - task_id: "wednesday-filter"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-07-16":
+    week: "W29"
+    tasks:
+      - task_id: "thursday-paper-filter"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-07-17":
+    week: "W29"
+    tasks:
+      - task_id: "friday-report"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+      - task_id: "friday-paper-merge"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-07-18":
+    week: "W29"
+    tasks:
+      []  # rest day
+  "2026-07-19":
+    week: "W29"
+    tasks:
+      []  # rest day
+  "2026-07-20":
+    week: "W30"
+    tasks:
+      - task_id: "monday-collect"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-07-21":
+    week: "W30"
+    tasks:
+      - task_id: "tuesday-paper-collect"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-07-22":
+    week: "W30"
+    tasks:
+      - task_id: "wednesday-filter"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-07-23":
+    week: "W30"
+    tasks:
+      - task_id: "thursday-paper-filter"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-07-24":
+    week: "W30"
+    tasks:
+      - task_id: "friday-report"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+      - task_id: "friday-paper-merge"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-07-25":
+    week: "W30"
+    tasks:
+      []  # rest day
+  "2026-07-26":
+    week: "W30"
+    tasks:
+      []  # rest day
+  "2026-07-27":
+    week: "W31"
+    tasks:
+      - task_id: "monday-collect"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-07-28":
+    week: "W31"
+    tasks:
+      - task_id: "tuesday-paper-collect"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-07-29":
+    week: "W31"
+    tasks:
+      - task_id: "wednesday-filter"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-07-30":
+    week: "W31"
+    tasks:
+      - task_id: "thursday-paper-filter"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-07-31":
+    week: "W31"
+    tasks:
+      - task_id: "friday-report"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+      - task_id: "friday-paper-merge"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-08-01":
+    week: "W31"
+    tasks:
+      []  # rest day
+  "2026-08-02":
+    week: "W31"
+    tasks:
+      []  # rest day
+  "2026-08-03":
+    week: "W32"
+    tasks:
+      - task_id: "monday-collect"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-08-04":
+    week: "W32"
+    tasks:
+      - task_id: "tuesday-paper-collect"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-08-05":
+    week: "W32"
+    tasks:
+      - task_id: "wednesday-filter"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-08-06":
+    week: "W32"
+    tasks:
+      - task_id: "thursday-paper-filter"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-08-07":
+    week: "W32"
+    tasks:
+      - task_id: "friday-report"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+      - task_id: "friday-paper-merge"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-08-08":
+    week: "W32"
+    tasks:
+      []  # rest day
+  "2026-08-09":
+    week: "W32"
+    tasks:
+      []  # rest day
+  "2026-08-10":
+    week: "W33"
+    tasks:
+      - task_id: "monday-collect"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-08-11":
+    week: "W33"
+    tasks:
+      - task_id: "tuesday-paper-collect"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-08-12":
+    week: "W33"
+    tasks:
+      - task_id: "wednesday-filter"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-08-13":
+    week: "W33"
+    tasks:
+      - task_id: "thursday-paper-filter"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-08-14":
+    week: "W33"
+    tasks:
+      - task_id: "friday-report"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+      - task_id: "friday-paper-merge"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-08-15":
+    week: "W33"
+    tasks:
+      []  # rest day
+  "2026-08-16":
+    week: "W33"
+    tasks:
+      []  # rest day
+  "2026-08-17":
+    week: "W34"
+    tasks:
+      - task_id: "monday-collect"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-08-18":
+    week: "W34"
+    tasks:
+      - task_id: "tuesday-paper-collect"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-08-19":
+    week: "W34"
+    tasks:
+      - task_id: "wednesday-filter"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-08-20":
+    week: "W34"
+    tasks:
+      - task_id: "thursday-paper-filter"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-08-21":
+    week: "W34"
+    tasks:
+      - task_id: "friday-report"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+      - task_id: "friday-paper-merge"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-08-22":
+    week: "W34"
+    tasks:
+      []  # rest day
+  "2026-08-23":
+    week: "W34"
+    tasks:
+      []  # rest day
+  "2026-08-24":
+    week: "W35"
+    tasks:
+      - task_id: "monday-collect"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-08-25":
+    week: "W35"
+    tasks:
+      - task_id: "tuesday-paper-collect"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-08-26":
+    week: "W35"
+    tasks:
+      - task_id: "wednesday-filter"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-08-27":
+    week: "W35"
+    tasks:
+      - task_id: "thursday-paper-filter"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-08-28":
+    week: "W35"
+    tasks:
+      - task_id: "friday-report"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+      - task_id: "friday-paper-merge"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-08-29":
+    week: "W35"
+    tasks:
+      []  # rest day
+  "2026-08-30":
+    week: "W35"
+    tasks:
+      []  # rest day
+  "2026-08-31":
+    week: "W36"
+    tasks:
+      - task_id: "monday-collect"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-09-01":
+    week: "W36"
+    tasks:
+      - task_id: "tuesday-paper-collect"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-09-02":
+    week: "W36"
+    tasks:
+      - task_id: "wednesday-filter"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-09-03":
+    week: "W36"
+    tasks:
+      - task_id: "thursday-paper-filter"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-09-04":
+    week: "W36"
+    tasks:
+      - task_id: "friday-report"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+      - task_id: "friday-paper-merge"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-09-05":
+    week: "W36"
+    tasks:
+      []  # rest day
+  "2026-09-06":
+    week: "W36"
+    tasks:
+      []  # rest day
+  "2026-09-07":
+    week: "W37"
+    tasks:
+      - task_id: "monday-collect"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-09-08":
+    week: "W37"
+    tasks:
+      - task_id: "tuesday-paper-collect"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-09-09":
+    week: "W37"
+    tasks:
+      - task_id: "wednesday-filter"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-09-10":
+    week: "W37"
+    tasks:
+      - task_id: "thursday-paper-filter"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-09-11":
+    week: "W37"
+    tasks:
+      - task_id: "friday-report"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+      - task_id: "friday-paper-merge"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-09-12":
+    week: "W37"
+    tasks:
+      []  # rest day
+  "2026-09-13":
+    week: "W37"
+    tasks:
+      []  # rest day
+  "2026-09-14":
+    week: "W38"
+    tasks:
+      - task_id: "monday-collect"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-09-15":
+    week: "W38"
+    tasks:
+      - task_id: "tuesday-paper-collect"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-09-16":
+    week: "W38"
+    tasks:
+      - task_id: "wednesday-filter"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-09-17":
+    week: "W38"
+    tasks:
+      - task_id: "thursday-paper-filter"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-09-18":
+    week: "W38"
+    tasks:
+      - task_id: "friday-report"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+      - task_id: "friday-paper-merge"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-09-19":
+    week: "W38"
+    tasks:
+      []  # rest day
+  "2026-09-20":
+    week: "W38"
+    tasks:
+      []  # rest day
+  "2026-09-21":
+    week: "W39"
+    tasks:
+      - task_id: "monday-collect"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-09-22":
+    week: "W39"
+    tasks:
+      - task_id: "tuesday-paper-collect"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-09-23":
+    week: "W39"
+    tasks:
+      - task_id: "wednesday-filter"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-09-24":
+    week: "W39"
+    tasks:
+      - task_id: "thursday-paper-filter"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-09-25":
+    week: "W39"
+    tasks:
+      - task_id: "friday-report"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+      - task_id: "friday-paper-merge"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-09-26":
+    week: "W39"
+    tasks:
+      []  # rest day
+  "2026-09-27":
+    week: "W39"
+    tasks:
+      []  # rest day
+  "2026-09-28":
+    week: "W40"
+    tasks:
+      - task_id: "monday-collect"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-09-29":
+    week: "W40"
+    tasks:
+      - task_id: "tuesday-paper-collect"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-09-30":
+    week: "W40"
+    tasks:
+      - task_id: "wednesday-filter"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-10-01":
+    week: "W40"
+    tasks:
+      - task_id: "thursday-paper-filter"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-10-02":
+    week: "W40"
+    tasks:
+      - task_id: "friday-report"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+      - task_id: "friday-paper-merge"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-10-03":
+    week: "W40"
+    tasks:
+      []  # rest day
+  "2026-10-04":
+    week: "W40"
+    tasks:
+      []  # rest day
+  "2026-10-05":
+    week: "W41"
+    tasks:
+      - task_id: "monday-collect"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-10-06":
+    week: "W41"
+    tasks:
+      - task_id: "tuesday-paper-collect"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-10-07":
+    week: "W41"
+    tasks:
+      - task_id: "wednesday-filter"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-10-08":
+    week: "W41"
+    tasks:
+      - task_id: "thursday-paper-filter"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-10-09":
+    week: "W41"
+    tasks:
+      - task_id: "friday-report"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+      - task_id: "friday-paper-merge"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-10-10":
+    week: "W41"
+    tasks:
+      []  # rest day
+  "2026-10-11":
+    week: "W41"
+    tasks:
+      []  # rest day
+  "2026-10-12":
+    week: "W42"
+    tasks:
+      - task_id: "monday-collect"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-10-13":
+    week: "W42"
+    tasks:
+      - task_id: "tuesday-paper-collect"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-10-14":
+    week: "W42"
+    tasks:
+      - task_id: "wednesday-filter"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-10-15":
+    week: "W42"
+    tasks:
+      - task_id: "thursday-paper-filter"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-10-16":
+    week: "W42"
+    tasks:
+      - task_id: "friday-report"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+      - task_id: "friday-paper-merge"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-10-17":
+    week: "W42"
+    tasks:
+      []  # rest day
+  "2026-10-18":
+    week: "W42"
+    tasks:
+      []  # rest day
+  "2026-10-19":
+    week: "W43"
+    tasks:
+      - task_id: "monday-collect"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-10-20":
+    week: "W43"
+    tasks:
+      - task_id: "tuesday-paper-collect"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-10-21":
+    week: "W43"
+    tasks:
+      - task_id: "wednesday-filter"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-10-22":
+    week: "W43"
+    tasks:
+      - task_id: "thursday-paper-filter"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-10-23":
+    week: "W43"
+    tasks:
+      - task_id: "friday-report"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+      - task_id: "friday-paper-merge"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-10-24":
+    week: "W43"
+    tasks:
+      []  # rest day
+  "2026-10-25":
+    week: "W43"
+    tasks:
+      []  # rest day
+  "2026-10-26":
+    week: "W44"
+    tasks:
+      - task_id: "monday-collect"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-10-27":
+    week: "W44"
+    tasks:
+      - task_id: "tuesday-paper-collect"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-10-28":
+    week: "W44"
+    tasks:
+      - task_id: "wednesday-filter"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-10-29":
+    week: "W44"
+    tasks:
+      - task_id: "thursday-paper-filter"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-10-30":
+    week: "W44"
+    tasks:
+      - task_id: "friday-report"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+      - task_id: "friday-paper-merge"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-10-31":
+    week: "W44"
+    tasks:
+      []  # rest day
+  "2026-11-01":
+    week: "W44"
+    tasks:
+      []  # rest day
+  "2026-11-02":
+    week: "W45"
+    tasks:
+      - task_id: "monday-collect"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-11-03":
+    week: "W45"
+    tasks:
+      - task_id: "tuesday-paper-collect"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-11-04":
+    week: "W45"
+    tasks:
+      - task_id: "wednesday-filter"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-11-05":
+    week: "W45"
+    tasks:
+      - task_id: "thursday-paper-filter"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-11-06":
+    week: "W45"
+    tasks:
+      - task_id: "friday-report"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+      - task_id: "friday-paper-merge"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-11-07":
+    week: "W45"
+    tasks:
+      []  # rest day
+  "2026-11-08":
+    week: "W45"
+    tasks:
+      []  # rest day
+  "2026-11-09":
+    week: "W46"
+    tasks:
+      - task_id: "monday-collect"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-11-10":
+    week: "W46"
+    tasks:
+      - task_id: "tuesday-paper-collect"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-11-11":
+    week: "W46"
+    tasks:
+      - task_id: "wednesday-filter"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-11-12":
+    week: "W46"
+    tasks:
+      - task_id: "thursday-paper-filter"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-11-13":
+    week: "W46"
+    tasks:
+      - task_id: "friday-report"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+      - task_id: "friday-paper-merge"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-11-14":
+    week: "W46"
+    tasks:
+      []  # rest day
+  "2026-11-15":
+    week: "W46"
+    tasks:
+      []  # rest day
+  "2026-11-16":
+    week: "W47"
+    tasks:
+      - task_id: "monday-collect"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-11-17":
+    week: "W47"
+    tasks:
+      - task_id: "tuesday-paper-collect"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-11-18":
+    week: "W47"
+    tasks:
+      - task_id: "wednesday-filter"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-11-19":
+    week: "W47"
+    tasks:
+      - task_id: "thursday-paper-filter"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-11-20":
+    week: "W47"
+    tasks:
+      - task_id: "friday-report"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+      - task_id: "friday-paper-merge"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-11-21":
+    week: "W47"
+    tasks:
+      []  # rest day
+  "2026-11-22":
+    week: "W47"
+    tasks:
+      []  # rest day
+  "2026-11-23":
+    week: "W48"
+    tasks:
+      - task_id: "monday-collect"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-11-24":
+    week: "W48"
+    tasks:
+      - task_id: "tuesday-paper-collect"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-11-25":
+    week: "W48"
+    tasks:
+      - task_id: "wednesday-filter"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-11-26":
+    week: "W48"
+    tasks:
+      - task_id: "thursday-paper-filter"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-11-27":
+    week: "W48"
+    tasks:
+      - task_id: "friday-report"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+      - task_id: "friday-paper-merge"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-11-28":
+    week: "W48"
+    tasks:
+      []  # rest day
+  "2026-11-29":
+    week: "W48"
+    tasks:
+      []  # rest day
+  "2026-11-30":
+    week: "W49"
+    tasks:
+      - task_id: "monday-collect"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-12-01":
+    week: "W49"
+    tasks:
+      - task_id: "tuesday-paper-collect"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-12-02":
+    week: "W49"
+    tasks:
+      - task_id: "wednesday-filter"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-12-03":
+    week: "W49"
+    tasks:
+      - task_id: "thursday-paper-filter"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-12-04":
+    week: "W49"
+    tasks:
+      - task_id: "friday-report"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+      - task_id: "friday-paper-merge"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-12-05":
+    week: "W49"
+    tasks:
+      []  # rest day
+  "2026-12-06":
+    week: "W49"
+    tasks:
+      []  # rest day
+  "2026-12-07":
+    week: "W50"
+    tasks:
+      - task_id: "monday-collect"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-12-08":
+    week: "W50"
+    tasks:
+      - task_id: "tuesday-paper-collect"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-12-09":
+    week: "W50"
+    tasks:
+      - task_id: "wednesday-filter"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-12-10":
+    week: "W50"
+    tasks:
+      - task_id: "thursday-paper-filter"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-12-11":
+    week: "W50"
+    tasks:
+      - task_id: "friday-report"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+      - task_id: "friday-paper-merge"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-12-12":
+    week: "W50"
+    tasks:
+      []  # rest day
+  "2026-12-13":
+    week: "W50"
+    tasks:
+      []  # rest day
+  "2026-12-14":
+    week: "W51"
+    tasks:
+      - task_id: "monday-collect"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-12-15":
+    week: "W51"
+    tasks:
+      - task_id: "tuesday-paper-collect"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-12-16":
+    week: "W51"
+    tasks:
+      - task_id: "wednesday-filter"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-12-17":
+    week: "W51"
+    tasks:
+      - task_id: "thursday-paper-filter"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-12-18":
+    week: "W51"
+    tasks:
+      - task_id: "friday-report"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+      - task_id: "friday-paper-merge"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-12-19":
+    week: "W51"
+    tasks:
+      []  # rest day
+  "2026-12-20":
+    week: "W51"
+    tasks:
+      []  # rest day
+  "2026-12-21":
+    week: "W52"
+    tasks:
+      - task_id: "monday-collect"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-12-22":
+    week: "W52"
+    tasks:
+      - task_id: "tuesday-paper-collect"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-12-23":
+    week: "W52"
+    tasks:
+      - task_id: "wednesday-filter"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-12-24":
+    week: "W52"
+    tasks:
+      - task_id: "thursday-paper-filter"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-12-25":
+    week: "W52"
+    tasks:
+      - task_id: "friday-report"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+      - task_id: "friday-paper-merge"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-12-26":
+    week: "W52"
+    tasks:
+      []  # rest day
+  "2026-12-27":
+    week: "W52"
+    tasks:
+      []  # rest day
+  "2026-12-28":
+    week: "W53"
+    tasks:
+      - task_id: "monday-collect"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-12-29":
+    week: "W53"
+    tasks:
+      - task_id: "tuesday-paper-collect"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-12-30":
+    week: "W53"
+    tasks:
+      - task_id: "wednesday-filter"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null
+  "2026-12-31":
+    week: "W53"
+    tasks:
+      - task_id: "thursday-paper-filter"
+        planned_status: "scheduled"
+        actual_status: "pending"
+        output_file: null
+        completed_at: null
+        notes: null

@@ -1,0 +1,86 @@
+# AI 开源情报分析系统 - Cron 任务配置
+# 文件位置: ~/.openclaw/workspace/intelligence-system/cron/jobs.json
+# 创建时间: 2026-04-12
+# 更新记录:
+#   2026-05-16: 统一文件名与 calendar.yaml 一致，移除飞书推送，增加执行日志自动更新
+
+[
+  {
+    "id": "intelligence-monday-collect",
+    "name": "周一情报收集",
+    "schedule": "0 9 * * 1",
+    "description": "自动搜索 GitHub Trending、Hugging Face Papers、中文技术媒体，收集本周 LLM/AI Agent 开源项目候选池",
+    "sessionTarget": "isolated",
+    "payload": {
+      "kind": "agentTurn",
+      "systemPrompt": "你是一名专业的 AI 开源情报分析师。执行周一情报收集任务。\n\n【文件名规范】输出文件: data/os-pool-$(date +%Y)-W$(date +%W).md（与 calendar.yaml 一致）\n\n步骤：\n1) 使用 web_search 搜索：'GitHub Trending LLM AI Agent 本周'、'Hugging Face Papers trending daily'、'machine learning 开源项目 机器之心 量子位 本周'。\n2) 按三段式格式输出《周一开源项目速览》：📊 数据概览（本周发现X个项目）、🎯 精选项目（3-5个）、💡 趋势洞察。\n3) 保存到 ~/.openclaw/workspace/intelligence-system/data/os-pool-$(date +%Y)-W$(date +%W).md。\n4) 任务完成后执行: python3 ~/.openclaw/workspace/intelligence-system/scripts/update-log.py --date $(date +%Y-%m-%d) --task-id monday-collect --status completed --output-file data/os-pool-$(date +%Y)-W$(date +%W).md --year $(date +%Y)\n\n结尾问：需要我针对某个项目做深度技术分析吗？",
+      "userMessage": "执行周一情报收集任务，搜索本周 LLM 和 AI Agent 领域的开源项目"
+    },
+    "enabled": true
+  },
+  {
+    "id": "intelligence-tuesday-paper-collect",
+    "name": "周二论文雷达",
+    "schedule": "0 9 * * 2",
+    "description": "访问arXiv cs.CL/cs.LG/cs.AI，搜索HuggingFace Papers和PaperWeekly，收集过去7天LLM与Agent相关论文，保存15-20篇到本周论文候选池",
+    "sessionTarget": "isolated",
+    "payload": {
+      "kind": "agentTurn",
+      "systemPrompt": "你是一名专业的AI学术情报分析师，熟悉NeurIPS/ICML/ICLR/ACL等顶级会议和预印本文化。执行周二论文雷达任务。\n\n【文件名规范】输出文件: data/paper-pool-$(date +%Y)-W$(date +%W).md（与 calendar.yaml 一致）\n\n步骤：\n1) 用 kimi_fetch 访问 https://arxiv.org/list/cs.CL/recent 获取最近7天论文。\n2) 访问 https://arxiv.org/list/cs.LG/recent 筛选LLM/Agent相关。\n3) 访问 https://arxiv.org/list/cs.AI/recent 筛选Multi-Agent/Reasoning相关。\n4) web_search 'Hugging Face Papers daily trending LLM Agent' 和 'PaperWeekly 本周精选 $(date +%Y-%m-%d)'。\n5) 按规则筛选论文。\n6) 保存到 ~/.openclaw/workspace/intelligence-system/data/paper-pool-$(date +%Y)-W$(date +%W).md。\n7) 任务完成后执行: python3 ~/.openclaw/workspace/intelligence-system/scripts/update-log.py --date $(date +%Y-%m-%d) --task-id tuesday-paper-collect --status completed --output-file data/paper-pool-$(date +%Y)-W$(date +%W).md --year $(date +%Y)",
+      "userMessage": "执行周二论文雷达任务，收集过去7天LLM与Agent相关论文"
+    },
+    "enabled": true
+  },
+  {
+    "id": "intelligence-wednesday-filter",
+    "name": "周三深度筛选",
+    "schedule": "0 14 * * 3",
+    "description": "从候选池筛选高质量项目，生成短名单，等待用户确认后继续",
+    "sessionTarget": "isolated",
+    "payload": {
+      "kind": "agentTurn",
+      "systemPrompt": "你是一名专业的 AI 开源情报分析师。执行周三深度筛选任务。\n\n【文件名规范】输入: data/os-pool-$(date +%Y)-W$(date +%W).md，输出: data/os-shortlist-$(date +%Y)-W$(date +%W).md（与 calendar.yaml 一致）\n\n步骤：\n1) 读取 ~/.openclaw/workspace/intelligence-system/data/os-pool-$(date +%Y)-W$(date +%W).md 中的候选池。\n2) 对每个项目验证：web_search '项目名 GitHub' 获取实时 Star 数、搜索 '项目名 review benchmark' 看技术测评、检查机器之心/InfoQ 解读。\n3) 按规则筛选：删除 Star < 100 且无媒体 coverage 的项目，标记有争议项目，保留 5-7 个高质量项目。\n4) 输出《周三精选短名单》表格格式。\n5) 保存到 ~/.openclaw/workspace/intelligence-system/data/os-shortlist-$(date +%Y)-W$(date +%W).md。\n6) 任务完成后执行: python3 ~/.openclaw/workspace/intelligence-system/scripts/update-log.py --date $(date +%Y-%m-%d) --task-id wednesday-filter --status completed --output-file data/os-shortlist-$(date +%Y)-W$(date +%W).md --year $(date +%Y)\n\n最后说明：【人工介入点】请确认以上短名单后，回复'继续'以执行下一步。",
+      "userMessage": "执行周三深度筛选任务，验证候选池项目并生成短名单"
+    },
+    "enabled": true
+  },
+  {
+    "id": "intelligence-thursday-paper-filter",
+    "name": "周四论文精选",
+    "description": "读取本周论文候选池，对每篇论文访问arXiv摘要页提取信息，生成中文一句话摘要（50字内），按论文评估打分表评分（创新性/实用性/技术深度/机构背书/代码可得性每项1-5分，总分25分），保留6-8篇进入精选池，标记与开源项目的关联，暂停等待用户确认",
+    "schedule": "0 14 * * 4",
+    "sessionTarget": "isolated",
+    "payload": {
+      "kind": "agentTurn",
+      "systemPrompt": "你是一名专业的AI学术情报分析师。执行周四论文精选任务。\n\n【文件名规范】输入: data/paper-pool-$(date +%Y)-W$(date +%W).md，输出: data/paper-shortlist-$(date +%Y)-W$(date +%W).md（与 calendar.yaml 一致）\n\n步骤：\n1) 读取 ~/.openclaw/workspace/intelligence-system/data/paper-pool-$(date +%Y)-W$(date +%W).md。\n2) 对每篇候选论文：用 kimi_fetch 访问 arxiv.org/abs/xxxx.xxxxx 提取信息；生成中文一句话摘要；按论文评估打分表评分（每项1-5分，总分25分）；关联分析标记'论文+代码'双料项目。\n3) 按总分排序保留6-8篇。\n4) 保存到 ~/.openclaw/workspace/intelligence-system/data/paper-shortlist-$(date +%Y)-W$(date +%W).md。\n5) 任务完成后执行: python3 ~/.openclaw/workspace/intelligence-system/scripts/update-log.py --date $(date +%Y-%m-%d) --task-id thursday-paper-filter --status completed --output-file data/paper-shortlist-$(date +%Y)-W$(date +%W).md --year $(date +%Y)\n\n最后暂停并提示：【人工介入点】请确认以上短名单，回复'继续'以执行下一步，或回复'删除X'/'深入解读X'调整。",
+      "userMessage": "执行周四论文精选任务，对候选论文进行深度分析、评分和筛选"
+    },
+    "enabled": true
+  },
+  {
+    "id": "intelligence-friday-report",
+    "name": "周五周报生成",
+    "schedule": "0 17 * * 5",
+    "description": "读取精选池，深度扫描项目详情，生成 AI 开源周报",
+    "sessionTarget": "isolated",
+    "payload": {
+      "kind": "agentTurn",
+      "systemPrompt": "你是一名专业的 AI 开源情报分析师。执行周五周报生成任务。\n\n【文件名规范】输出文件: data/weekly-report-$(date +%Y)-W$(date +%W).md（与 calendar.yaml 一致）\n\n步骤：\n1) 读取精选池中的项目（参考周三的 os-shortlist）。\n2) 对每个项目深度扫描：kimi_fetch GitHub README 提取核心介绍、功能、License、最近 commit 活跃度；搜索相关技术文章或论文；判断类型（工具类/模型类/框架类）。\n3) 按模板生成《AI 开源周报》：一、🚀 重磅推荐（1-2个） 二、🛠️ 工具框架类（2-3个） 三、🧠 模型与算法类（2-3个） 四、📈 数据观察（Star增长Top3、趋势标签） 五、📚 推荐阅读。\n4) 保存到 ~/.openclaw/workspace/intelligence-system/data/weekly-report-$(date +%Y)-W$(date +%W).md。\n5) 任务完成后执行: python3 ~/.openclaw/workspace/intelligence-system/scripts/update-log.py --date $(date +%Y-%m-%d) --task-id friday-report --status completed --output-file data/weekly-report-$(date +%Y)-W$(date +%W).md --year $(date +%Y)\n\n结尾问：需要我针对某个项目做深度技术分析吗？",
+      "userMessage": "执行周五周报生成任务，生成完整的 AI 开源周报"
+    },
+    "enabled": true
+  },
+  {
+    "id": "intelligence-friday-paper-merge",
+    "name": "周五论文-开源联动",
+    "description": "读取论文精选池和开源精选池，生成论文-开源映射表（A类官方代码/B类社区复现/C类论文先行/D类项目先行），按A-D优先级排序，生成合并周报",
+    "schedule": "0 19 * * 5",
+    "sessionTarget": "isolated",
+    "payload": {
+      "kind": "agentTurn",
+      "systemPrompt": "你是一名专业的AI开源与学术情报分析师。执行周五论文-开源联动分析任务。\n\n【文件名规范】输入: data/paper-shortlist-$(date +%Y)-W$(date +%W).md + data/os-shortlist-$(date +%Y)-W$(date +%W).md，输出: data/weekly-report-$(date +%Y)-W$(date +%W).md（与 calendar.yaml 一致）\n\n步骤：\n1) 读取 data/paper-shortlist-$(date +%Y)-W$(date +%W).md 和 data/os-shortlist-$(date +%Y)-W$(date +%W).md。\n2) 生成《论文-开源映射表》，分类标记：A类=论文+官方代码、B类=论文+社区复现、C类=论文先行、D类=项目先行。\n3) 按A-D优先级排序生成合并周报《AI开源情报周报》。\n4) 保存到 ~/.openclaw/workspace/intelligence-system/data/weekly-report-$(date +%Y)-W$(date +%W).md。\n5) 任务完成后执行: python3 ~/.openclaw/workspace/intelligence-system/scripts/update-log.py --date $(date +%Y-%m-%d) --task-id friday-paper-merge --status completed --output-file data/weekly-report-$(date +%Y)-W$(date +%W).md --year $(date +%Y)\n\n结尾问：需要我针对某篇论文或某个项目做深度技术分析吗？",
+      "userMessage": "执行周五论文-开源联动分析任务，生成合并周报"
+    },
+    "enabled": true
+  }
+]
