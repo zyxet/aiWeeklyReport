@@ -174,7 +174,7 @@
 | 2026-05-24 | 周日 | W21 | - | - | rest | ⏸ rest | - | - | - |
 | 2026-05-25 | 周一 | W22 | monday-collect | 周一情报收集 | scheduled | ⏳ pending | - | - | - |
 | 2026-05-26 | 周二 | W22 | tuesday-paper-collect | 周二论文雷达 | scheduled | ⏳ pending | - | - | - |
-| 2026-05-27 | 周三 | W22 | wednesday-filter | 周三深度筛选 | scheduled | ⏳ pending | - | - | - |
+| 2026-05-27 | 周三 | W22 | wednesday-filter | 周三深度筛选 | scheduled | ✅ completed | os-shortlist-2026-W22.md, paper-shortlist-2026-W22.md | 2026-05-27 14:00 | OS入选6/8，论文入选7/22 |
 | 2026-05-28 | 周四 | W22 | thursday-paper-filter | 周四论文精选 | scheduled | ⏳ pending | - | - | - |
 | 2026-05-29 | 周五 | W22 | friday-report | 周五周报生成 | scheduled | ⏳ pending | - | - | - |
 | 2026-05-29 | 周五 | W22 | friday-paper-merge | 周五论文-开源联动 | scheduled | ⏳ pending | - | - | - |
