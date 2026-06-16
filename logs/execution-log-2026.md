@@ -164,40 +164,40 @@
 | 2026-05-15 | 周五 | W20 | friday-paper-merge | 周五论文-开源联动 | scheduled | ✅ completed | data/weekly-report-2026-W20.md | 19:00 | - |
 | 2026-05-16 | 周六 | W20 | - | - | rest | ⏸ rest | - | - | - |
 | 2026-05-17 | 周日 | W20 | - | - | rest | ⏸ rest | - | - | - |
-| 2026-05-18 | 周一 | W21 | monday-collect | 周一情报收集 | scheduled | ⏳ pending | - | - | - |
-| 2026-05-19 | 周二 | W21 | tuesday-paper-collect | 周二论文雷达 | scheduled | ⏳ pending | - | - | - |
-| 2026-05-20 | 周三 | W21 | wednesday-filter | 周三深度筛选 | scheduled | ⏳ pending | - | - | - |
-| 2026-05-21 | 周四 | W21 | thursday-paper-filter | 周四论文精选 | scheduled | ⏳ pending | - | - | - |
-| 2026-05-22 | 周五 | W21 | friday-report | 周五周报生成 | scheduled | ⏳ pending | - | - | - |
-| 2026-05-22 | 周五 | W21 | friday-paper-merge | 周五论文-开源联动 | scheduled | ⏳ pending | - | - | - |
+| 2026-05-18 | 周一 | W21 | monday-collect | 周一情报收集 | scheduled | ✅ completed | data/os-pool-2026-W21.md | 10:16 | - |
+| 2026-05-19 | 周二 | W21 | tuesday-paper-collect | 周二论文雷达 | scheduled | ✅ completed | data/paper-pool-2026-W21.md | 10:23 | - |
+| 2026-05-20 | 周三 | W21 | wednesday-filter | 周三深度筛选 | scheduled | ✅ completed | data/os-shortlist-2026-W21.md | 14:01 | - |
+| 2026-05-21 | 周四 | W21 | thursday-paper-filter | 周四论文精选 | scheduled | ✅ completed | data/paper-shortlist-2026-W21.md | 14:05 | - |
+| 2026-05-22 | 周五 | W21 | friday-report | 周五周报生成 | scheduled | ✅ completed | data/weekly-report-2026-W21.md | 17:06 | - |
+| 2026-05-22 | 周五 | W21 | friday-paper-merge | 周五论文-开源联动 | scheduled | ✅ completed | data/weekly-report-2026-W21.md | 17:06 | - |
 | 2026-05-23 | 周六 | W21 | - | - | rest | ⏸ rest | - | - | - |
 | 2026-05-24 | 周日 | W21 | - | - | rest | ⏸ rest | - | - | - |
-| 2026-05-25 | 周一 | W22 | monday-collect | 周一情报收集 | scheduled | ⏳ pending | - | - | - |
-| 2026-05-26 | 周二 | W22 | tuesday-paper-collect | 周二论文雷达 | scheduled | ⏳ pending | - | - | - |
+| 2026-05-25 | 周一 | W22 | monday-collect | 周一情报收集 | scheduled | ✅ completed | data/os-pool-W21.md(周号标错) | 10:03 | - |
+| 2026-05-26 | 周二 | W22 | tuesday-paper-collect | 周二论文雷达 | scheduled | ✅ completed | data/paper-pool-2026-22.md(周号标错) | 10:12 | - |
 | 2026-05-27 | 周三 | W22 | wednesday-filter | 周三深度筛选 | scheduled | ✅ completed | os-shortlist-2026-W22.md, paper-shortlist-2026-W22.md | 2026-05-27 14:00 | OS入选6/8，论文入选7/22 |
-| 2026-05-28 | 周四 | W22 | thursday-paper-filter | 周四论文精选 | scheduled | ⏳ pending | - | - | - |
-| 2026-05-29 | 周五 | W22 | friday-report | 周五周报生成 | scheduled | ⏳ pending | - | - | - |
-| 2026-05-29 | 周五 | W22 | friday-paper-merge | 周五论文-开源联动 | scheduled | ⏳ pending | - | - | - |
+| 2026-05-28 | 周四 | W22 | thursday-paper-filter | 周四论文精选 | scheduled | ✅ completed | data/paper-shortlist-2026-W22.md | 14:13 | - |
+| 2026-05-29 | 周五 | W22 | friday-report | 周五周报生成 | scheduled | ✅ completed | data/weekly-report-2026-W22.md | 17:04 | - |
+| 2026-05-29 | 周五 | W22 | friday-paper-merge | 周五论文-开源联动 | scheduled | ✅ completed | data/weekly-report-2026-W22.md | 17:04 | - |
 | 2026-05-30 | 周六 | W22 | - | - | rest | ⏸ rest | - | - | - |
 | 2026-05-31 | 周日 | W22 | - | - | rest | ⏸ rest | - | - | - |
-| 2026-06-01 | 周一 | W23 | monday-collect | 周一情报收集 | scheduled | ⏳ pending | - | - | - |
-| 2026-06-02 | 周二 | W23 | tuesday-paper-collect | 周二论文雷达 | scheduled | ⏳ pending | - | - | - |
-| 2026-06-03 | 周三 | W23 | wednesday-filter | 周三深度筛选 | scheduled | ⏳ pending | - | - | - |
-| 2026-06-04 | 周四 | W23 | thursday-paper-filter | 周四论文精选 | scheduled | ⏳ pending | - | - | - |
-| 2026-06-05 | 周五 | W23 | friday-report | 周五周报生成 | scheduled | ⏳ pending | - | - | - |
-| 2026-06-05 | 周五 | W23 | friday-paper-merge | 周五论文-开源联动 | scheduled | ⏳ pending | - | - | - |
+| 2026-06-01 | 周一 | W23 | monday-collect | 周一情报收集 | scheduled | ✅ completed | data/os-pool-W23.md(命名不规范) | 10:03 | - |
+| 2026-06-02 | 周二 | W23 | tuesday-paper-collect | 周二论文雷达 | scheduled | ✅ completed | data/paper-pool-2026-W23.md | 10:05 | - |
+| 2026-06-03 | 周三 | W23 | wednesday-filter | 周三深度筛选 | scheduled | ✅ completed | data/os-shortlist-2026-W23.md | 14:05 | - |
+| 2026-06-04 | 周四 | W23 | thursday-paper-filter | 周四论文精选 | scheduled | ✅ completed | data/paper-shortlist-2026-W23.md | 14:09 | - |
+| 2026-06-05 | 周五 | W23 | friday-report | 周五周报生成 | scheduled | ✅ completed | data/weekly-report-2026-W23.md | 17:08 | - |
+| 2026-06-05 | 周五 | W23 | friday-paper-merge | 周五论文-开源联动 | scheduled | ✅ completed | data/weekly-report-2026-W23.md | 17:08 | - |
 | 2026-06-06 | 周六 | W23 | - | - | rest | ⏸ rest | - | - | - |
 | 2026-06-07 | 周日 | W23 | - | - | rest | ⏸ rest | - | - | - |
-| 2026-06-08 | 周一 | W24 | monday-collect | 周一情报收集 | scheduled | ⏳ pending | - | - | - |
-| 2026-06-09 | 周二 | W24 | tuesday-paper-collect | 周二论文雷达 | scheduled | ⏳ pending | - | - | - |
-| 2026-06-10 | 周三 | W24 | wednesday-filter | 周三深度筛选 | scheduled | ⏳ pending | - | - | - |
-| 2026-06-11 | 周四 | W24 | thursday-paper-filter | 周四论文精选 | scheduled | ⏳ pending | - | - | - |
-| 2026-06-12 | 周五 | W24 | friday-report | 周五周报生成 | scheduled | ⏳ pending | - | - | - |
-| 2026-06-12 | 周五 | W24 | friday-paper-merge | 周五论文-开源联动 | scheduled | ⏳ pending | - | - | - |
+| 2026-06-08 | 周一 | W24 | monday-collect | 周一情报收集 | scheduled | ✅ completed | data/os-pool-2026-W23.md(周号标错) | 10:01 | - |
+| 2026-06-09 | 周二 | W24 | tuesday-paper-collect | 周二论文雷达 | scheduled | ✅ completed | data/paper-pool-2026-24.md(周号标错) | 11:09 | - |
+| 2026-06-10 | 周三 | W24 | wednesday-filter | 周三深度筛选 | scheduled | ✅ completed | data/os-shortlist-2026-W24.md | 14:07 | - |
+| 2026-06-11 | 周四 | W24 | thursday-paper-filter | 周四论文精选 | scheduled | ✅ completed | data/paper-shortlist-2026-W24.md | 14:08 | - |
+| 2026-06-12 | 周五 | W24 | friday-report | 周五周报生成 | scheduled | ✅ completed | data/weekly-report-2026-W24.md | 17:04 | - |
+| 2026-06-12 | 周五 | W24 | friday-paper-merge | 周五论文-开源联动 | scheduled | ✅ completed | data/weekly-report-2026-W24.md | 17:04 | - |
 | 2026-06-13 | 周六 | W24 | - | - | rest | ⏸ rest | - | - | - |
 | 2026-06-14 | 周日 | W24 | - | - | rest | ⏸ rest | - | - | - |
-| 2026-06-15 | 周一 | W25 | monday-collect | 周一情报收集 | scheduled | ⏳ pending | - | - | - |
-| 2026-06-16 | 周二 | W25 | tuesday-paper-collect | 周二论文雷达 | scheduled | ⏳ pending | - | - | - |
+| 2026-06-15 | 周一 | W25 | monday-collect | 周一情报收集 | scheduled | ✅ completed | data/os-pool-2026-W25.md | 10:02 | - |
+| 2026-06-16 | 周二 | W25 | tuesday-paper-collect | 周二论文雷达 | scheduled | ✅ completed | data/paper-pool-2026-W24.md(周号标错) | 10:12 | - |
 | 2026-06-17 | 周三 | W25 | wednesday-filter | 周三深度筛选 | scheduled | ⏳ pending | - | - | - |
 | 2026-06-18 | 周四 | W25 | thursday-paper-filter | 周四论文精选 | scheduled | ⏳ pending | - | - | - |
 | 2026-06-19 | 周五 | W25 | friday-report | 周五周报生成 | scheduled | ⏳ pending | - | - | - |
@@ -432,4 +432,4 @@
 - 休息日: 104
 
 ---
-最后更新: 2026-05-16 22:53:57
+最后更新: 2026-06-16 10:50
