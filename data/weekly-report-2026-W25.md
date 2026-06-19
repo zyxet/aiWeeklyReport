@@ -1,9 +1,10 @@
 # AI 开源情报周报 — 2026-W25
 
-> 生成时间: 2026-06-18 16:10 CST
+> 生成时间: 2026-06-19 19:00 CST
 > 周期: 2026-06-16 至 2026-06-18
 > 数据源: GitHub Trending + arXiv cs.AI
 > 开源项目: 6个精选 | 论文: 8篇精选
+> 联动分析: 论文-开源映射（A/B/C/D 分类）
 
 ---
 
@@ -23,92 +24,106 @@ Gaze Heads 发现仅修改 5-20 个注意力头即可定向操控 VLM，LLMs Con
 
 ---
 
-## 开源项目精选（6个）
+## 📋 论文-开源映射表（按 A-D 优先级排序）
 
-### 🥇 1. MemPalace — 空间隐喻 AI 记忆
-- **Stars**: 55,768 | **语言**: Python | **协议**: MIT
-- **核心**: 将古罗马记忆术转化为 AI 记忆架构，Wings→Rooms→Drawers 四层结构
-- **亮点**: LongMemEval 96.6% Recall@5，但论文审计指出核心性能实际来自 ChromaDB
-- **意义**: AI 记忆的路线之争标杆——verbatim-first vs extraction-based
-
-### 🥈 2. Caveman Claude — 极简 Token 优化
-- **Stars**: 73,684 | **语言**: JavaScript | **协议**: MIT
-- **核心**: "洞穴人语言"约束输出，平均 65% token 节省
-- **亮点**: 有 2026 年 3 月 arXiv 论文支撑，某些基准提升 26% 准确率
-- **意义**: Token 优化不只是省钱，而是 Prompt Engineering 的新维度
-
-### 🥉 3. codegraph — MCP 代码知识图谱
-- **Stars**: 50,541 | **语言**: TypeScript | **协议**: MIT
-- **核心**: 将代码库索引为知识图谱，替代反复扫描的低效循环
-- **亮点**: 减少 57% token 消耗，支持 21 种语言，8 个 Agent 集成
-- **意义**: AI 编码从"对话式"进入"结构化理解"
-
-### 4. Mastra — TypeScript 原生 Agent 框架
-- **Stars**: 25,154 | **语言**: TypeScript | **协议**: Apache 2.0
-- **核心**: Observational Memory 94.87%，$13M YC 融资
-- **亮点**: 300K+ npm 周下载，生产 benchmark 9/10
-- **意义**: TypeScript 生态的"唯一正确答案"，记忆成本优势显著
-
-### 5. Terax AI — 本地优先终端
-- **Stars**: 7,147 | **语言**: Rust+Tauri | **协议**: Apache 2.0
-- **核心**: ~7MB 单二进制，零遥测，94 家提供商支持
-- **亮点**: 可离线通过 LM Studio，终端+编辑器+AI 工作流整合
-- **意义**: 本地优先从"选项"变为"默认"的最轻量实现
-
-### 6. TradingAgents — 多智能体金融分析
-- **Stars**: 86,783 | **语言**: Python
-- **核心**: 研究员/交易员/风险官三角色协作，单源码文件设计
-- **亮点**: 零门槛部署，针对金融场景深度优化
-- **意义**: 垂直领域 Agent 协同的标杆案例
+> **分类标准**
+> - **A类** = 论文 + 官方代码（论文作者直接维护的开源项目）
+> - **B类** = 论文 + 社区复现（基于论文思想的社区/第三方实现）
+> - **C类** = 论文先行（有论文但无对应开源项目或代码尚未发布）
+> - **D类** = 项目先行（有开源项目但无直接对应论文）
 
 ---
 
-## 论文精选（8篇）
+### 🅰️ A类 — 论文+官方代码（高优先级）
 
-### 🏆 重磅推荐
+| # | 论文/项目 | 类型 | 开源状态 | 关联说明 |
+|---|----------|------|---------|---------|
+| A1 | **Gaze Heads in VLMs** | 论文 | ✅ 代码+Demo+数据集全公开 | 官方代码库直接维护，可复现注意力头操控实验 |
+| A2 | **Every Eval Ever** | 论文 | ✅ Hugging Face 社区数据库 | 论文作者维护的 JSON 模式与数据库，自动格式转换器 |
+| A3 | **AgentSpec** | 论文 | ✅ 代码+基线+交互式 Playground | 论文团队直接开源的模块化框架 |
+| A4 | **AdaSR** | 论文 | ✅ 代码已释放 | 自适应流式推理框架，HRPO 算法可复现 |
+| A5 | **Cultural Data Funnel** | 论文 | ✅ 5.6M 文化标注数据集 | 论文团队释放的大规模文化标注数据 |
 
-| # | 论文 | 总分 | 开源 |
-|---|------|------|------|
-| 1 | Gaze Heads in VLMs: Mechanistic Analysis and Steering | 22/25 | ✅ 代码+Demo+数据集 |
-| 2 | Every Eval Ever: A Unifying Schema and Community Repository | 22/25 | ✅ HF社区数据库 |
-| 3 | AgentSpec: Understanding Embodied Agent Scaffolds | 21/25 | ✅ 代码+基线+Playground |
-| 4 | LLMs Contain Multitudes: Deployment Context Reshapes Preferences | 21/25 | ⚠️ 数据集(12MB) |
-
-### 🔥 技术突破
-
-| # | 论文 | 总分 | 开源 |
-|---|------|------|------|
-| 5 | Parallel-Synthesis: Direct Cache-Based Synthesis | 20/25 | ⚠️ 未标注 |
-| 6 | AdaSR: Adaptive Streaming Reasoning | 19/25 | ✅ 代码已释放 |
-
-### 🚀 智能体进化 & 文化对齐
-
-| # | 论文 | 总分 | 开源 |
-|---|------|------|------|
-| 7 | Cultural Data Funnel: Declining Cultural Signal | 19/25 | ✅ 5.6M数据集 |
-| 8 | HarnessX: Composable, Adaptive, Evolvable Agent Harness | 18/25 | ⏳ 即将开源 |
+**A类洞察**: 本周 8 篇论文中 5 篇属于 A 类（62.5%），说明 AI 领域论文开源率持续保持高位。其中 Gaze Heads 和 AgentSpec 不仅提供代码，还提供交互式 Demo/Playground，代表了"可交互论文"的新标准。
 
 ---
 
-## 论文-开源联动
+### 🅱️ B类 — 论文+社区复现（中优先级）
 
-### 强关联对
+| # | 论文/项目 | 类型 | 开源状态 | 关联说明 |
+|---|----------|------|---------|---------|
+| B1 | **Brevity Constraints** (论文) | 论文 | ⚠️ 论文本身 | 2026年3月 arXiv 论文，证明简短约束提升 26% 准确率 |
+| B1-impl | **Caveman Claude** | 项目 | ✅ 73K+ Stars | 社区将 Brevity Constraints 思想产品化，"洞穴人语言"约束输出，65% token 节省 |
 
-1. **MemPalace ↔ AgentSpec/HarnessX**
-   - 空间隐喻记忆 + 组件化 Agent 架构 = 未来可插拔的记忆系统
-
-2. **Caveman Claude/codegraph ↔ Parallel-Synthesis/AdaSR**
-   - 应用层优化 + 底层推理优化 = AI 成本结构重构
-
-3. **Mastra ↔ AgentSpec/Every Eval Ever**
-   - 生产级框架 + 评估标准化 = Agent 基础设施成熟
-
-4. **Terax AI ↔ LLMs Contain Multitudes**
-   - 本地部署 + 上下文不确定性 = 可控 AI 的工程回应
+**B类洞察**: Caveman Claude 是 B 类的典型代表——19 岁独立开发者将学术论文转化为可落地的工程实践，auto-clarity 机制（安全场景自动恢复）甚至超越了原论文的纯约束思路。73K Stars 说明社区对"论文→产品"路径的强需求。
 
 ---
 
-## 本周数据概览
+### 🅲️ C类 — 论文先行（关注潜力）
+
+| # | 论文 | 开源状态 | 关联说明 |
+|---|------|---------|---------|
+| C1 | **LLMs Contain Multitudes** | ⚠️ 数据集有(12MB)，代码未明确 | 部署上下文重塑偏好的核心发现，等待代码开源以复现 3.2x 偏好差异 |
+| C2 | **Parallel-Synthesis** | ⚠️ 未标注代码链接 | KV 缓存直接消费机制，2.5-11x 加速潜力大，建议关注后续开源 |
+| C3 | **HarnessX** | ⏳ 作者承诺未来开源 | 可组合自适应智能体接口铸造厂，AEGIS 引擎在 5 个基准上平均 +14.5% |
+
+**C类洞察**: 3 篇 C 类论文中，HarnessX 作者已明确承诺开源，属于"即将转化"状态。Parallel-Synthesis 的 KV 缓存优化是底层基础设施，一旦开源将直接影响所有 Agent 框架的成本结构。建议对 C 类论文设置追踪提醒。
+
+---
+
+### 🅳️ D类 — 项目先行（独立创新）
+
+| # | 项目 | Stars | 语言 | 关联说明 |
+|---|------|-------|------|---------|
+| D1 | **MemPalace** | 55,768 | Python | 空间隐喻记忆系统，无直接对应论文，但已有学术论文分析其架构 |
+| D2 | **codegraph** | 50,541 | TypeScript | MCP 原生代码知识图谱，独立架构创新，减少 57% token 消耗 |
+| D3 | **Mastra** | 25,154 | TypeScript | TypeScript 原生 Agent 框架，$13M YC 融资，生产级 Observational Memory |
+| D4 | **Terax AI** | 7,147 | Rust+Tauri | 本地优先终端，零遥测设计，94 家提供商支持 |
+| D5 | **TradingAgents** | 86,783 | Python | 多智能体金融分析框架，单源码文件设计，垂直领域创新 |
+
+**D类洞察**: 5 个 D 类项目合计 224K+ Stars，说明社区驱动的独立创新是 AI 生态的重要引擎。值得注意的是，MemPalace 虽然被学术论文分析，但其核心创新（空间隐喻四层结构）是项目先行、论文后验的典型案例。TypeScript 在 D 类项目中占主导（3/5），验证了 AI 应用层语言迁移的趋势。
+
+---
+
+## 🔗 论文-开源联动矩阵（按优先级排序）
+
+### 第一优先级：A类官方代码直接联动
+
+| 论文 | 官方开源 | 联动价值 |
+|------|---------|---------|
+| Gaze Heads in VLMs | 代码+Demo+数据集 | 可复现的注意力头操控，安全审计新工具 |
+| AgentSpec | 代码+基线+Playground | 组件化 Agent 架构的基准实现 |
+| Every Eval Ever | HF 社区数据库 | 22K+ 模型评估数据，跨框架比较基础设施 |
+| AdaSR | 代码已释放 | 流式推理的实际部署参考 |
+| Cultural Data Funnel | 5.6M 数据集 | 文化对齐研究的基准数据 |
+
+### 第二优先级：B类社区复现联动
+
+| 论文 | 社区实现 | 联动价值 |
+|------|---------|---------|
+| Brevity Constraints | Caveman Claude | 论文思想→产品化的典型路径，73K Stars 验证 |
+
+### 第三优先级：C类论文等待开源（潜力跟踪）
+
+| 论文 | 预期开源 | 建议追踪时间 |
+|------|---------|-------------|
+| HarnessX | 作者承诺 | 2-4 周内关注仓库更新 |
+| Parallel-Synthesis | 未明确 | 关注 arXiv 更新或作者主页 |
+| LLMs Contain Multitudes | 代码未明确 | 联系作者确认开源计划 |
+
+### 第四优先级：D类项目独立创新（反向关联）
+
+| 项目 | 创新方向 | 可能激发的论文方向 |
+|------|---------|-------------------|
+| MemPalace | 空间隐喻记忆 | verbatim-first 存储的理论基础 |
+| codegraph | 代码知识图谱 | 预索引代码理解的系统性评估 |
+| Mastra | Observational Memory | 观察式记忆的成本-性能权衡分析 |
+| Terax AI | 本地优先终端 | 边缘部署的安全-效用权衡 |
+| TradingAgents | 多智能体金融 | 垂直领域 Agent 协同的评估基准 |
+
+---
+
+## 📊 本周数据概览
 
 | 指标 | 数值 |
 |------|------|
@@ -116,30 +131,42 @@ Gaze Heads 发现仅修改 5-20 个注意力头即可定向操控 VLM，LLMs Con
 | 入选开源项目 | 6个 (33.3%) |
 | 候选论文 | 42篇 |
 | 入选论文 | 8篇 (19.0%) |
-| 论文开源比例 | 5/8 (62.5%) |
-| 论文-项目强关联 | 4对 |
+| **A类（论文+官方代码）** | 5/8 (62.5%) |
+| **B类（论文+社区复现）** | 1对 |
+| **C类（论文先行）** | 3/8 (37.5%) |
+| **D类（项目先行）** | 5个 |
+| 论文-项目强关联 | 6对 |
 
 ---
 
 ## 趋势追踪
 
 ### 📈 上升中
-- **Agent 记忆组件化**: 从单体架构走向可插拔组合
-- **Token 经济重构**: 系统级优化替代单点技巧
-- **本地优先部署**: 从"选项"变为"默认"
-- **评估标准化**: Every Eval Ever 推动行业统一
+- **论文开源率高位稳定**: 62.5% A类比例说明"开源即默认"已成学界共识
+- **社区复现活力强**: Caveman Claude 的 73K Stars 证明论文→产品路径通畅
+- **组件化 Agent 架构**: 从单体记忆/框架走向可插拔组合
+- **Token 经济重构**: 系统级优化（A类论文+底层项目）替代单点技巧
 
 ### 📉 下降/成熟中
-- **单一记忆架构**: MemPalace 的争议说明单一方案不再够用
-- **云端黑箱依赖**: 上下文不确定性推动边缘部署
-- **领域专用评估**: 统一标准替代碎片化 benchmark
+- **纯论文无代码**: C类比例下降至 37.5%，且多属"即将开源"状态
+- **云端黑箱依赖**: 上下文不确定性（C1论文）推动边缘部署（D类项目）
+- **领域专用评估**: Every Eval Ever（A2）推动统一标准替代碎片化 benchmark
 
 ---
 
-> **本周金句**: "能操控模型行为，但效果随环境剧烈变化" —— 这是 Gaze Heads 和 LLMs Contain Multitudes 共同揭示的 AI 可解释性悖论。
+## 行动建议
+
+1. **优先跟进 A 类项目**: Gaze Heads 和 AgentSpec 的交互式 Demo 可直接用于内部技术评估
+2. **追踪 C 类转化**: HarnessX 和 Parallel-Synthesis 一旦开源，将直接影响 Agent 基础设施选型
+3. **研究 B 类路径**: Caveman Claude 的"论文→产品"转化模式可复用于其他学术成果
+4. **关注 D 类反哺**: MemPalace 和 Mastra 的独立创新可能催生新的论文方向
 
 ---
 
-*本报告由 AI Agent 自动生成于 2026-06-18*
-*数据来源: GitHub API, arXiv API, 技术媒体验证*
-*关联分析: 论文-开源双向映射，主题聚类*
+> **本周金句**: "A 类论文提供可复现的基础，D 类项目提供独立创新的空间，B 类社区复现连接两者，C 类论文则是未来的种子。" —— 四种类型共同构成 AI 生态的完整创新循环。
+
+---
+
+*本报告由 AI Agent 自动生成于 2026-06-19 19:00 CST*
+*数据源: GitHub API, arXiv API, 技术媒体验证*
+*关联分析: 论文-开源 A/B/C/D 四级分类映射*
