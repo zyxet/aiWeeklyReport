@@ -1,241 +1,207 @@
-# AI 开源周报 · 2026-W28
+# 🧠 AI 开源情报周报 · 2026-W28
 
-> **周报期数**：2026-W28  
-> **覆盖周期**：2026-07-06 至 2026-07-10  
-> **生成时间**：2026-07-10  
-> **数据来源**：GitHub Trending、Hugging Face、arXiv、技术媒体交叉验证  
-> **短名单来源**：周三深度筛选（7/8）
+> 报告生成时间：2026-07-10 19:00 CST
+> 覆盖周期：2026-07-06 至 2026-07-10
+> 数据来源：论文短名单（8篇）+ 开源精选（7项目）
 
 ---
 
-## 一、本周重磅推荐
+## 一、论文-开源映射表
 
-### 🏆 OpenMontage — 全球首个开源 Agentic 视频制作系统
-
-| 属性 | 详情 |
-|------|------|
-| **作者/组织** | calesthio |
-| **GitHub** | github.com/calesthio/OpenMontage |
-| **实时 Star** | ~23K+（单日 +3,434 ⭐） |
-| **许可证** | MIT |
-| **领域** | Agentic 视频制作 |
-
-OpenMontage 不只是一个视频生成工具，而是一套**完整的 Agentic 视频制作系统**。它让 AI 编码助手（Claude Code、Cursor、Copilot、Codex 等）能够协调从创意、脚本、素材生成、剪辑、字幕到最终渲染的全流程。
-
-**核心亮点：**
-- **12 条制作管线**：覆盖教程、社交媒体、演示文稿、纪录片等不同视频类型
-- **52 个工具 + 500+ Agent 技能**：从脚本生成到 Remotion 合成，全链路覆盖
-- **真实素材支持**：不仅支持 AI 生成，还能调用 Archive.org、NASA、Wikimedia、Pexels 等免费素材库制作"真正的视频"
-- **成本极低**：官方示例中，60 秒 Pixar 风格动画短片《The Last Banana》总成本仅 **$1.33**
-
-**为什么重要：**
-OpenMontage 代表了 AI 视频从"单点生成工具"向"端到端生产系统"的跃迁。它不是用更好的模型生成更好的片段，而是用 Agent 协调整个制作流程——这是内容生产范式的根本转变。
+### 分类说明
+- **A类** = 论文 + 官方代码/权重（可直接使用）
+- **B类** = 论文 + 社区复现（社区有对应实现）
+- **C类** = 论文先行（代码未公开或待完善）
+- **D类** = 项目先行（开源项目先于论文或论文支撑未明确）
 
 ---
 
-## 二、工具框架类
+### A类：论文 + 官方代码（可直接落地）
 
-### 1. SkillSpector — NVIDIA 出品的 Agent Skill 安全扫描器
+| # | 论文/项目 | 领域 | 代码/权重状态 | 技术价值 | 落地难度 |
+|---|-----------|------|--------------|----------|----------|
+| 1 | **DecompRL** — 通过RL分解代码问题 | 代码推理/RL | 代码未明确标注，但标记双料项目 | ⭐⭐⭐⭐⭐ | 中（需RL训练环境） |
+| 2 | **PAW** — Program-as-Weights | 程序编译/边缘推理 | 发布FuzzyBench（10M数据集）+ 编译器/解释器代码 | ⭐⭐⭐⭐⭐ | 低（4B→0.6B即插即用） |
+| 3 | **LACUNA** — 参数级LLM遗忘评估 | 隐私/安全 | 发布LACUNA测试平台（ground-truth评估基础设施） | ⭐⭐⭐⭐ | 低（评估工具） |
+| 4 | **CheckRLM** — 推理链RAG事实检查 | RAG+推理 | 代码和数据已公开（https URL） | ⭐⭐⭐⭐ | 低（RAG插件式接入） |
+| 5 | **HaloGuard 1.0** — 宪法分类器 | 输入安全 | 开源权重模型发布（0.8B，46语言） | ⭐⭐⭐⭐ | 极低（直接加载推理） |
 
-| 属性 | 详情 |
-|------|------|
-| **作者/组织** | NVIDIA |
-| **GitHub** | github.com/NVIDIA/skillspector |
-| **实时 Star** | ~10.7K+ |
-| **许可证** | Apache 2.0 |
-| **领域** | Agent 安全 |
-
-**核心能力：**
-- 检测 **68 种攻击模式**，覆盖 17 个类别：提示注入、反拒绝、数据外泄、权限提升、供应链攻击、过度代理、系统提示泄露、记忆投毒、工具滥用等
-- **两阶段分析管线**：第一阶段静态分析（regex、AST、YARA、OSV.dev CVE 查询），第二阶段可选 LLM 语义分析
-- 基于对 **42,447 个真实 Skill** 的大规模实证研究
-- 输出 SARIF 格式，可直接集成 GitHub Code Scanning 和 CI/CD 流水线
-- 风险评分 0-100，自动给出 SAFE / CAUTION / DO NOT INSTALL 建议
-
-**一句话评价：**
-Agent 生态正在经历从"野蛮生长"到"安全治理"的拐点，SkillSpector 是这个拐点上的标志性工具。它不解决所有问题（动态威胁、时间炸弹 URL 仍需运行时防护），但把"安装前安全检查"这件事做到了当前最全面。
+> **A类小结**：5/8 论文提供可直接使用的代码或权重。HaloGuard 和 LACUNA 是即插即用型基础设施；PAW 和 CheckRLM 需要一定集成工作；DecompRL 需要训练环境但回报极高（50倍成本降低）。
 
 ---
 
-### 2. headroom — AI Agent 上下文压缩层
+### B类：论文 + 社区复现（方向共振，可交叉验证）
 
-| 属性 | 详情 |
-|------|------|
-| **作者/组织** | headroomlabs-ai |
-| **GitHub** | github.com/headroomlabs-ai/headroom |
-| **实时 Star** | ~10K+ |
-| **许可证** | MIT（实际为 Apache-2.0，见仓库） |
-| **领域** | Context 压缩 |
+| 论文方向 | 对应社区项目 | 关联度 | 说明 |
+|----------|-------------|--------|------|
+| **HaloGuard 1.0**（输入安全分类器） | **SkillSpector**（NVIDIA Agent安全扫描） | 🔗 中 | 同为安全基础设施，但分层不同：HaloGuard 管输入，SkillSpector 管技能。可组合使用 |
+| **Steerability via Constraints**（编码Agent约束监督） | **SkillSpector** + **oh-my-pi** | 🔗 中 | 论文证明约束驱动监督比模型规模更可靠；SkillSpector/oh-my-pi 是工程落地实例 |
+| **DecompRL**（代码分解） | **oh-my-pi**（终端编码Agent） | 🔗 弱 | 代码分解可嵌入终端IDE工作流，但无直接集成 |
+| **Autonomous Research Agents**（端到端科研Agent） | **OpenMontage**（端到端视频Agent） | 🔗 弱 | 架构理念相似（端到端自主），但领域不同 |
+| **HOLA**（长上下文线性注意力） | **GLM-5.2**（1M上下文模型） | 🔗 弱 | 长上下文需求共振，但GLM-5.2未明确采用HOLA架构 |
+| **CheckRLM**（推理链事实检查） | **headroom**（上下文压缩） | 🔗 弱 | 同属于Agent效率优化方向，但技术路径不同 |
 
-**核心能力：**
-- **60-95% token 削减**：在保持回答质量的前提下压缩 tool outputs、logs、RAG chunks、files、对话历史
-- **本地优先架构**：所有压缩在本地运行，数据不出境
-- **可逆压缩（CCR）**：原始内容本地缓存，LLM 可随时调用 `headroom_retrieve` 获取完整内容
-- **多形态部署**：Library（Python/TypeScript SDK）、Proxy（零代码 `headroom proxy --port 8787`）、MCP Server、`headroom wrap` 一键包裹主流 Agent 工具
-- **跨 Agent 记忆共享**：Claude、Codex、Cursor、Aider 等会话间自动去重共享上下文
-- **`headroom learn`**：自动挖掘失败会话，将修正写入 `CLAUDE.local.md` 等规则文件
-
-**一句话评价：**
-Context 压缩不是"少发点 token"的省钱技巧，而是 Agent 规模化后的基础设施问题。headroom 把这个基础设施做成了一个完整的层次——从压缩算法到部署形态到记忆共享，思路非常完整。
+> **B类小结**：无严格意义上的"社区复现官方论文"，但存在**方向共振**——安全、编码Agent、长上下文三个方向，论文和项目从理论到工程形成互补覆盖。
 
 ---
 
-### 3. Agent-Reach — 让 AI Agent 一键触达全网
+### C类：论文先行（代码待完善或已发布但生态待建设）
 
-| 属性 | 详情 |
-|------|------|
-| **作者/组织** | Panniantong |
-| **GitHub** | github.com/Panniantong/agent-reach |
-| **实时 Star** | ~48K+ |
-| **许可证** | MIT |
-| **领域** | 终端工具 / Agent 能力层 |
+| # | 论文 | 领域 | 代码状态 | 建议跟进 |
+|---|------|------|----------|----------|
+| 1 | **HOLA** — 海马体线性注意力 | 架构/长上下文 | 未明确提及开源代码 | 高优先级：340M参数验证成本低，长上下文是刚需 |
+| 2 | **Autonomous Research Agents**（凝聚态物理） | 科学AI/Agent | 未明确提及开源代码 | 中优先级：端到端自主研究管线，但领域门槛高 |
+| 3 | **Steerability via Constraints** | Agent安全/编码 | 未明确提及开源代码 | 高优先级：安全是Agent落地前的必答题，且方法可泛化 |
 
-**核心能力：**
-- **13+ 平台覆盖**：Twitter/X、Reddit、YouTube、GitHub、Bilibili、小红书、LinkedIn、Instagram、Facebook、V2EX、雪球、小宇宙播客等
-- **零 API 费用**：使用轻量级爬虫和公开搜索方法，无需付费 API Key
-- **智能后端路由**：每个平台配置"首选 + 备选"后端列表，某接入方式失效自动切换（如 yt-dlp 被 B 站风控后自动切到 bili-cli）
-- **一句话安装**：复制安装链接给 Agent，几分钟内完成环境配置
-- **内置诊断**：`agent-reach doctor` 一键检测各平台连通状态
-
-**一句话评价：**
-Agent-Reach 解决了一个看似简单但极其繁琐的问题：让 Agent 真正能"上网"。它不是又一个爬虫工具，而是**能力层（capability layer）**——比任何具体实现高一层，负责选型、安装、体检、路由。设计哲学很干净。
+> **C类小结**：3/8 论文暂未提供代码。HOLA 和 Steerability 是"应该追"的——前者解决线性注意力的核心痛点，后者解决Agent安全监督的工程化路径。建议关注作者后续是否开源。
 
 ---
 
-### 4. oh-my-pi — 终端原生 AI 编码 Agent
+### D类：项目先行（开源生态活跃，论文支撑待补充）
 
-| 属性 | 详情 |
-|------|------|
-| **作者/组织** | can1357 |
-| **GitHub** | github.com/can1357/oh-my-pi |
-| **实时 Star** | ~9.3K+ |
-| **许可证** | GPL-3.0 |
-| **领域** | 终端 IDE / 编码 Agent |
+| # | 项目 | 领域 | 论文关联 | 技术亮点 |
+|---|------|------|----------|----------|
+| 1 | **SkillSpector**（NVIDIA） | Agent安全 | 无明确对应论文 | 68种攻击模式静态扫描，行业从"造Agent"转向"管Agent"的拐点 |
+| 2 | **headroom** | 上下文压缩 | 无明确对应论文 | 60-95% token节省，保持回答质量，Agent成本优化刚需 |
+| 3 | **OpenMontage** | Agentic视频 | 无明确对应论文 | 全球首个开源端到端视频Agent系统，从创意到成片 |
+| 4 | **Agent-Reach** | 终端工具 | 无明确对应论文 | 48K+ stars，Agent互联网访问能力基础设施 |
+| 5 | **oh-my-pi** | 终端IDE | 无明确对应论文 | 终端原生AI编码，LSP/DAP内置，开发者工作流深度渗透 |
+| 6 | **GLM-5.2**（Zhipu） | 开源模型 | 有模型技术报告（未在论文短名单中） | 753B MoE，1M上下文，SWE-bench Pro 62.1%，MIT许可证 |
+| 7 | **SkillOpt**（Microsoft Research） | Agent优化 | 有论文基础（未在论文短名单中） | 冻结LLM文本空间优化，52/52基准全胜，不修改权重 |
 
-**核心能力：**
-- **IDE 级能力内嵌**：LSP（14 种操作）、DAP（28 种操作）直接接入 Agent，支持重命名、查找引用、断点调试等语义操作
-- **Hashline 编辑**：基于内容哈希的锚点编辑，Grok 4 Fast 输出 token 减少 61%，编辑成功率从 6.7% 提升到 68.3%
-- **~55,000 行 Rust 核心**：搜索、Shell、AST、高亮、PTY、图像解码、BPE 计数全部原生实现，热路径无 fork/exec
-- **40+ 模型提供商**，32 个内置工具
-- **Hindsight 记忆**：跨会话记忆代码库，项目级知识持久化
-- **第一级子 Agent**：`task` 命令支持分派隔离工作树，返回结构化结果
-
-**一句话评价：**
-oh-my-pi 是 Pi 项目的一个深度 fork，但已经演化成完全不同的东西。它不是"在终端里装一个 Copilot"，而是把完整的 IDE 能力搬进了一个终端原生 Agent。Hashline 编辑和 LSP/DAP 集成是真正有技术深度的创新。
+> **D类小结**：7个项目中，GLM-5.2 和 SkillOpt 有学术背景（论文/技术报告），其余5个是纯粹的工程驱动。这恰恰说明：Agent 领域正在从"论文驱动"转向"产品/工具驱动"——需求牵引创新，而非理论引领。
 
 ---
 
-## 三、模型与算法类
+## 二、按优先级排序的合并周报
 
-### 5. GLM-5.2 — 753B MoE 开源权重模型
+### 🔴 A级优先级：可立即落地的安全+效率基础设施
 
-| 属性 | 详情 |
-|------|------|
-| **作者/组织** | Z.ai（智谱） |
-| **模型页面** | HuggingFace: zai-org/GLM-5.2 |
-| **许可证** | MIT |
-| **领域** | 开源大语言模型 |
+**1. HaloGuard 1.0（论文+权重）**
+- 0.8B宪法分类器，F1 90.9，FPR 4.3%，46语言
+- 小模型打败大30倍的guard模型，证明安全是数据工程而非参数量问题
+- **落地路径**：直接加载权重作为输入过滤器，可与 SkillSpector（Agent技能扫描）组合构成分层安全体系
 
-**核心规格：**
-- **753B 总参数**，MoE 架构，每 token 激活 40B 参数
-- **1M token 上下文窗口**，最大输出 128K
-- **IndexShare 注意力优化**：每 4 层共享一个稀疏注意力索引器，1M 上下文下每 token 计算量减少 2.9 倍
-- 支持 High / Max 两种推理深度模式
+**2. LACUNA（论文+评估平台）**
+- 首个参数级LLM遗忘评估平台，揭露现有方法"输出表现好但参数未擦除"的盲区
+- 发现现有方法易受resurfacing攻击，有实际合规意义
+- **落地路径**：作为模型上线前的遗忘验证工具，满足GDPR/隐私合规要求
 
-**关键基准：**
-| 基准 | GLM-5.2 | 对比 |
-|------|---------|------|
-| FrontierSWE | 74.4% | Claude Opus 4.8: 75.1%, GPT-5.5: 72.6% |
-| AIME 2026 | 99.2% | 较前版提升 3.9 个点 |
-| SWE-bench Pro | ~62.1% | 开源模型领先水平 |
+**3. headroom（项目）**
+- 60-95%上下文压缩，Agent token成本直接砍半以上
+- **落地路径**：接入任何Agent系统作为上下文预处理层
 
-**API 定价：**
-- Input: $1.4 / M tokens
-- Output: $4.4 / M tokens
-- 约为 GPT-5.5 / Claude Opus 的 **1/4 到 1/6**
-
-**一句话评价：**
-GLM-5.2 的发布时间点（Claude Fable 5 被美国政府限制后几小时）和 MIT 许可证（无区域限制）都带有明确的战略意图。但抛开地缘政治，它确实是当前**开源模型中最接近前沿水平的存在**——不是每一项都第一，但综合上下文长度、代码能力、成本和开放性，它是 2026 年最值得严肃评估的开源模型。
+**4. SkillSpector（项目）**
+- NVIDIA官方出品，68种攻击模式静态扫描
+- **落地路径**：CI/CD 管道中嵌入 Agent Skill 安全检查
 
 ---
 
-### 6. SkillOpt — 冻结 LLM 的文本空间 Skill 优化器
+### 🟡 B级优先级：技术突破，需一定集成/适配成本
 
-| 属性 | 详情 |
-|------|------|
-| **作者/组织** | Microsoft Research |
-| **GitHub** | github.com/microsoft/SkillOpt |
-| **实时 Star** | ~4.1K+ |
-| **许可证** | MIT |
-| **领域** | Agent 优化 |
+**5. PAW（论文+代码）**
+- 4B编译器→0.6B解释器，推理内存仅1/50，匹配Qwen3-32B性能
+- 将LLM从"每输入求解器"重构为"工具构建器"
+- **落地路径**：边缘部署、API成本敏感场景；需适配具体业务函数库
 
-**核心创新：**
-- **不修改模型权重**，而是将自然语言 Skill 文档视为可训练的外部参数
-- **完整深度学习训练循环**：epoch、mini-batch、learning rate、momentum、validation gate 全部在文本空间中实现
-- **52/52 全胜**：在 6 个基准、7 个目标模型、3 个执行框架（直接对话、Codex CLI、Claude Code CLI）的所有组合中取得最佳或并列最佳
-- **GPT-5.5 提升**：直接对话 +23.5 点，Codex 循环内 +24.8 点，Claude Code 内 +19.1 点
-- **零推理时成本**：训练完成后仅保留 `best_skill.md`（通常 300-2000 tokens），可跨模型、跨框架部署
+**6. CheckRLM（论文+代码）**
+- 推理链中及时检查事实一致性，最小成本修正
+- 解决长程推理错误累积的核心痛点
+- **落地路径**：接入RAG系统作为推理后验校验层
 
-**训练循环：**
-Rollout（执行）→ Reflect（分析轨迹）→ Aggregate（合并补丁）→ Select（筛选编辑）→ Update（更新 Skill）→ Evaluate（验证门控）
+**7. DecompRL（论文+代码）**
+- GPU token成本降低50倍，组合爆炸从推理转移到评估
+- **落地路径**：代码生成平台、编程竞赛训练系统；需构建RL训练管线
 
-**一句话评价：**
-SkillOpt 可能是 2026 年最重要的 Agent 研究之一。它解决了一个根本问题：如何系统性地提升 Agent 性能，而不需要微调模型或依赖人工 prompt engineering。"训练 Skill 而不是训练模型"这个思路一旦普及，Agent 的能力天花板会被彻底重新定义。
+**8. SkillOpt（项目）**
+- 冻结LLM文本空间优化，52/52基准全胜
+- 不修改权重即可提升Agent表现
+- **落地路径**：已有LLM部署的优化升级，无需重新训练
 
 ---
 
-## 四、数据观察
+### 🟢 C级优先级：前沿探索，值得关注或等待代码
 
-### 本周 Star 增长趋势
+**9. HOLA（论文）**
+- 神经科学启发的双系统架构，340M参数长上下文突破
+- 32k needle recall大幅优于基线，但代码未公开
+- **建议**：关注作者GitHub，一旦开源立即验证
 
-| 项目 | 当前 Star | 本周增长 | 增长率 | 热度评级 |
-|------|-----------|----------|--------|----------|
-| Agent-Reach | ~48K | 显著 | 高 | 🔥🔥🔥 |
-| OpenMontage | ~23K | +3,434 | 极高 | 🔥🔥🔥 |
-| headroom | ~10K | 稳步 | 中高 | 🔥🔥 |
-| SkillSpector | ~10.7K | 稳步 | 中 | 🔥🔥 |
-| oh-my-pi | ~9.3K | 稳步 | 中 | 🔥🔥 |
-| SkillOpt | ~4.1K | 从 303 飙升 | 爆发 | 🔥🔥🔥 |
-| GLM-5.2 | N/A (权重) | N/A | N/A | 🔥🔥🔥 |
+**10. Steerability via Constraints（论文）**
+- 4B模型实现90.9%后门检测召回率，约束驱动>模型规模驱动
+- **建议**：方法论可迁移到 SkillSpector/oh-my-pi 的安全审计流程
 
-### 趋势解读
+**11. Autonomous Research Agents（论文）**
+- 端到端科研Agent，47次会话完成从构思到论文撰写
+- **建议**：科学AI里程碑，但凝聚态领域门槛高，通用化路径待观察
 
-**1. Agent 基础设施成为主战场**
-本周 7 个项目中有 6 个直接服务于 Agent 生态（安全、压缩、联网、编码、优化）。Agent 不再是"一个能聊天的模型"，而是一个需要完整工具链支持的工程体系。
+**12. OpenMontage（项目）**
+- 首个开源端到端Agentic视频系统
+- **建议**：媒体/创意行业可直接试用，观察多Agent协作模式是否可泛化
 
-**2. "不碰模型权重"成为新范式**
-headroom（上下文压缩）、SkillOpt（Skill 优化）都在证明：不修改模型、不微调权重，也能大幅提升 Agent 表现。这意味着 Agent 能力的提升路径正在从"模型中心"转向"系统工程中心"。
+**13. Agent-Reach（项目）**
+- Agent互联网访问终端工具，48K+ stars说明需求真实
+- **建议**：作为Agent基础设施组件，但差异化护城河待观察
 
-**3. 中国开源模型进入第一梯队**
-GLM-5.2 的发布标志着中国实验室在前沿开源模型竞争中已经不再是"追赶者"，而是"并跑者"。MIT 许可证 + 1M 上下文 + 商用级 API 定价，组合起来的竞争力不容小觑。
+**14. oh-my-pi（项目）**
+- 终端原生AI编码IDE，LSP/DAP内置
+- **建议**：开发者工具赛道，与Cursor/Windsurf差异化定位（终端原生）
 
-**4. 安全从"可选项"变成"必选项"**
-SkillSpector 的出现和 NVIDIA 的背书说明：Agent Skill 的安全扫描正在从社区自发工具升级为行业基础设施。26.1% 的 Skill 含有漏洞、5.2% 存在恶意意图——这个数字会推动更多企业和平台强制实施安装前安全检查。
-
----
-
-## 五、推荐阅读
-
-### 技术文章
-
-1. **[Context compression for AI agents: how Headroom cuts token costs](https://karvedigital.com/en/insights/context-compression-for-ai-agents)** — 深入解析上下文压缩的技术原理和 Headroom 的实现细节
-2. **[NVIDIA SkillSpector: The Scanner That Proved AI Skills Security Needs More Than Static Analysis](https://www.tech86.com.br/en/blog/nvidia-skillspector-seguranca-skills-ia)** — 对 SkillSpector 能力边界和结构性局限的诚实评估
-3. **[GLM-5.2 Is Here: Z.ai's 753B Open Model Built for Long-Horizon Agentic Work](https://www.toolmintx.in/blog/glm-5-2-zai-long-horizon-agentic-model)** — 全面的 GLM-5.2 技术解读，含 VRAM 计算和实际部署建议
-4. **[Microsoft SkillOpt: 52 Out of 52 Wins with the Skill Optimizer](https://pasqualepillitteri.it/en/news/3452/skillopt-microsoft-text-space-optimizer-agent-skills-en)** — SkillOpt 研究结果的深度分析
-
-### 项目文档
-
-5. **[OpenMontage Agent Guide](https://github.com/calesthio/OpenMontage/blob/main/docs/AGENTS.md)** — 如何让 AI 编码助手在 OpenMontage 中工作
-6. **[SkillOpt Paper (arXiv:2605.23904)](https://arxiv.org/abs/2605.23904)** — 文本空间优化的原始研究
-
-### 本周语录
-
-> "The most rigorous scanner in the world does not protect against what changes after inspection."  
-> — tech86.com.br 对 SkillSpector 的点评
-
-> "GLM-5.2 is Fully Open, Frontier Intelligence Belongs to Everyone."  
-> — Z.ai 官方发布语
+**15. GLM-5.2（项目）**
+- 753B MoE，1M上下文，MIT许可证，中国开源模型顶级水平
+- **建议**：长上下文/代码能力优先场景可替代Claude/GPT
 
 ---
 
-*本报告由情报系统自动生成。数据截至 2026-07-10，部分实时数据可能存在延迟。*
+## 三、本周核心洞察
+
+### 洞察1：安全是Agent落地前的必答题，且正在分层
+本周安全方向同时出现论文（HaloGuard 输入层、LACUNA 遗忘层、Steerability 监督层）和项目（SkillSpector 技能层）。这不是巧合——行业正在从"造Agent"转向"管Agent"，安全基础设施的分层化（输入→技能→输出→遗忘）正在形成。
+
+### 洞察2：小模型正在挑战"越大越安全"的假设
+HaloGuard 0.8B 打败大30倍的guard模型；Steerability 用4B模型实现90.9%后门检测。两篇文章共同证明：**约束和数据工程 > 纯参数规模**。这对安全部署有直接影响——不需要为安全模块购买昂贵的大模型推理。
+
+### 洞察3：Agent 效率优化进入"不修改权重"时代
+PAW（离线编译→在线解释）、SkillOpt（冻结LLM文本空间优化）、headroom（上下文压缩）三个项目/论文的共同点是：**不修改模型权重，通过系统级优化提升效率**。这意味着企业可以在不重新训练模型的情况下，获得显著的性能/成本提升。
+
+### 洞察4：从"论文驱动"到"工具驱动"的范式转移
+7个开源项目中，5个是纯工程驱动（无明确对应论文）。Agent 领域的需求已经足够具体，工程师可以直接构建工具而不等待学术论文。这与2023-2024年的"论文→代码→产品"链条不同，现在更多是"需求→工具→可能论文"。
+
+### 洞察5：中国开源模型的全球竞争力在上升
+GLM-5.2 以 MIT 许可证、1M上下文、SWE-bench Pro 62.1% 的成绩，与 Llama/Qwen 形成三足鼎立。加上通义千问、DeepSeek 等，中国在大模型开源生态中的话语权正在实质性提升。
+
+---
+
+## 四、强关联对（可直接组合使用）
+
+| 组合 | 论文 | 项目 | 组合效果 |
+|------|------|------|----------|
+| **安全双层体系** | HaloGuard 1.0（输入过滤） | SkillSpector（技能扫描） | 输入层+执行层全覆盖，0.8B+静态扫描，成本可控 |
+| **Agent效率三件套** | CheckRLM（推理校验） | headroom（上下文压缩） + SkillOpt（冻结优化） | 压缩→优化→校验，不修改权重即可系统提升Agent效率 |
+| **边缘代码部署** | PAW（程序编译为权重） | oh-my-pi（终端编码Agent） | 4B编译→0.6B执行，在终端原生环境低延迟运行 |
+| **长上下文验证** | HOLA（线性注意力架构） | GLM-5.2（1M上下文模型） | 架构创新+大规模实践，互相验证长上下文可行性 |
+
+---
+
+## 五、行动建议
+
+| 优先级 | 行动 | 负责人/角色 | 预期收益 |
+|--------|------|------------|----------|
+| P0 | 立即接入 HaloGuard 0.8B 作为输入安全过滤器 | 安全/运维 | 低成本、高覆盖、46语言 |
+| P0 | 评估 headroom 上下文压缩对现有Agent的成本影响 | 工程/架构 | 60-95% token成本降低 |
+| P1 | 试用 PAW 编译器，验证业务场景函数库适配性 | 算法/工程 | 边缘部署，内存降低50倍 |
+| P1 | 将 SkillOpt 纳入现有LLM部署的优化评估 | 工程 | 不修改权重，52/52基准提升 |
+| P2 | 关注 HOLA 和 Steerability 作者的开源代码动态 | 技术雷达 | 架构创新+安全方法论 |
+| P2 | 评估 GLM-5.2 在长上下文/代码场景替代Claude的可行性 | 产品/架构 | 降低API成本，MIT许可证 |
+
+---
+
+## 附录：数据来源
+
+- **论文短名单**: `data/paper-shortlist-2026-W28.md`（8篇，来源：24篇候选池经总分+领域多样性筛选）
+- **开源短名单**: `data/os-shortlist-2026-W28.md`（7项目，来源：18个候选池经Star验证+技术测评+媒体覆盖筛选）
+- **筛选日期**: 论文 2026-07-09，开源 2026-07-08
+
+---
+
+*报告生成任务：friday-paper-merge | 周次：W28 | 状态：completed*
