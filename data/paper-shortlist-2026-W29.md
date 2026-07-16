@@ -1,69 +1,94 @@
-# W29 论文精选短名单 (2026-07-15)
+# W29 论文短名单 (2026-07-08 ~ 2026-07-15)
 
-> 从 23 篇候选论文中精选 8 篇，优先：①与本周开源短名单（OpenCode Interpreter / n8n / Dify / Browser Use / MCP / CrewAI / Mastra）有直接关联；②代表新方向或重要突破；③有开源代码或重要会议接受。
+> 从 23 篇候选中按论文评估打分表（5项×5分，总分25分）筛选，保留前 8 篇。
+> 评分维度：创新性 / 与开源·Agent 相关度 / 实验质量·影响力 / 开源可及性 / 实用落地价值
 
 ---
 
-## 1. Early Adoption of Agentic Coding Tools by GitHub Projects
-- **arXiv**: 2607.14037 | **KDD 2026 Workshop SE 3.0**
-- **关联开源**: OpenCode Interpreter, n8n
-- **核心**：25,264 个 agentic PR（2,361 仓库）的实证分析。小项目参与率高于大项目；单人类监督占主导；密集采用仍集中在少数项目。**Agent 编码工具的实际落地图景，比 Star 数更能说明问题。**
+## 1. A Self-Evolving Agent for Longitudinal Personal Health Management (HealthClaw)
+- **arXiv**: 2607.13940
+- **日期**: 2026-07-15
+- **评分**: 23/25 (创新4 / 相关5 / 实验4 / 开源5 / 实用5)
+- **一句话**: 开源Agent架构，将共享安全规则与私有纵向记忆分离，长期健康管理准确率从0.2%提升至45.7%。
+- **代码**: https://github.com/HC-Guo/HealthClaw ⭐ 论文+代码双料
+- **关联**: CrewAI / Dify / 长期记忆 Agent
 
-## 2. Do Agent Optimizers Compound? (Terminal-Bench 2.0)
-- **arXiv**: 2607.14004 | **RELAI Technical Report**
-- **关联开源**: Mastra, CrewAI
-- **核心**：首次持续学习评估 Agent 优化器。GEPA 灾难性遗忘，Meta Harness 停滞，**RELAI-VCL 唯一实现正迁移 + 持续改进（76.4% vs 基线 58.7%）**。**关键洞察**：只有回归控制内置在优化循环中，收益才能累积。
-
-## 3. Experience Memory Graph: One-Shot Error Correction for Agents
-- **arXiv**: 2607.13899
-- **关联开源**: CrewAI, Mastra
-- **核心**：将 Agent 失败恢复重新定义为图匹配问题。提取成功工作流和失败修正路径存入记忆图，测试时**单次、无循环执行**。ALFWorld/ScienceWorld 上持续优于反射基线，无需测试时试错。**Agent 记忆从"反思"走向"图结构化经验复用"的关键一步。**
-
-## 4. CAVA: Canonical Action Verification for Runtime Governance
-- **arXiv**: 2607.13716
-- **关联开源**: MCP, A2A, Browser Use
-- **核心**：Agent 运行时治理的语义层。将异构运行时（SDK 工具、浏览器自动化、API 网关、工作流引擎）的活动统一转换为规范动作对象，定义审批绑定、收据完整性、语义模式检测。384-variant 基准验证。**Agent 行动可审计性的基础设施级框架。**
-
-## 5. AgentCompass: A Unified Evaluation Infrastructure
+## 2. AgentCompass: A Unified Evaluation Infrastructure for Agent Capabilities
 - **arXiv**: 2607.13705
-- **关联开源**: 通用
-- **核心**：开源、轻量、可扩展的 Agent 评估基础设施。Benchmark + Harness + Environment 三组件解耦，支持 20+ 基准覆盖 5 个能力维度。异步容错运行时 + 轨迹分析工具。**Agent 评估碎片化问题的工程化解决方案。**
+- **日期**: 2026-07-15
+- **评分**: 23/25 (创新4 / 相关5 / 实验4 / 开源5 / 实用5)
+- **一句话**: 开源、可扩展的Agent评估基础设施，支持20+基准，覆盖5个能力维度。
+- **代码**: 开源项目（arXiv页标注） ⭐ 论文+代码双料
+- **关联**: Agent 评估标准化 / Every Eval Ever
 
-## 6. DevicesWorld: Benchmarking Cross-Device Agents
-- **arXiv**: 2607.13465 | 代码开源
-- **关联开源**: Browser Use, MCP
-- **核心**：6,140 个跨设备协作任务（手机+桌面+IoT），最佳前沿 LLM-Agent **成功率仅 12.5%**。28.7% 的失败至少满足一个条件但未完成全部任务。Agent 在信息获取、设备混淆、界面操作上系统性失败。**跨设备是下一个 Agent 能力边界，而非当前强项。**
-- **代码**: https://github.com/AgenticOrgLab/DevicesWorld
+## 3. DevicesWorld: Benchmarking Cross-Device Agents
+- **arXiv**: 2607.13465
+- **日期**: 2026-07-15
+- **评分**: 23/25 (创新5 / 相关5 / 实验4 / 开源5 / 实用4)
+- **一句话**: 6,140个跨设备协作任务，整合手机/桌面/IoT三类环境，最佳Agent成功率仅12.5%。
+- **代码**: https://github.com/AgenticOrgLab/DevicesWorld ⭐ 论文+代码双料
+- **关联**: 跨设备 Agent / 评估
 
-## 7. How Agents Ask for Permission: User Permissions for AI Agents
-- **arXiv**: 2607.13718
-- **关联开源**: MCP, CrewAI, Dify
-- **核心**：调研 21 个权限系统提案，构建分类法（界面指定→内部推导→运行时执行）。对比 5 个商业 Agent 发现：**产品级统一策略无法满足用户级差异化需求**。识别多个研究空白，包括用户偏好动态更新、权限冲突解决、跨平台一致性。
+## 4. Partially Correlated Verifier Cascades in LLM Harnesses
+- **arXiv**: 2607.13918
+- **日期**: 2026-07-15
+- **评分**: 23/25 (创新5 / 相关5 / 实验4 / 开源5 / 实用4)
+- **一句话**: 证明验证器级联中独立性假设会严重低估失败率，k=10时约3000倍偏差；关键杠杆是去相关而非加门。
+- **代码**: https://github.com/jianganghan/harness-verifier-cascades ⭐ 论文+代码双料
+- **关联**: LLM 可靠性 / 验证器设计
 
-## 8. Generative Compilation: Compiler Feedback During AI Code Generation
-- **arXiv**: 2607.13921
-- **关联开源**: OpenCode Interpreter, Dify
-- **核心**：首次在**生成过程中**获得编译器反馈。提出"sealor"将部分程序转换为完整程序供标准编译器诊断。在 Rust 仓库级任务上减少非编译输出、提升功能正确性。**将编译器从"事后检查"变为"生成中的副驾驶"，对强类型语言代码 Agent 意义重大。**
+## 5. How Far Can Root Cause Analysis Go on Real-World Telemetry?
+- **arXiv**: 2607.13548
+- **日期**: 2026-07-15
+- **评分**: 22/25 (创新5 / 相关5 / 实验4 / 开源3 / 实用5)
+- **一句话**: 结构化多Agent RCA流程大幅超越基线，关键瓶颈是Agent正确推理能力而非数据获取。
+- **代码**: 未明确（可能随论文发布）
+- **关联**: 多 Agent 系统 / 可靠性
+
+## 6. The Refusal Residue: When Probes Catch Alignment Faking
+- **arXiv**: 2607.13346 | **ICML 2026 MI Workshop**
+- **日期**: 2026-07-15
+- **评分**: 22/25 (创新5 / 相关5 / 实验5 / 开源3 / 实用4)
+- **一句话**: 13模型扫描自然涌现的对齐伪造，仅Qwen3-32B和Llama-3.1-8B表现伪造；拒绝残留可被检测但难以操控。
+- **代码**: 发布五控制测量框架（可能开源）
+- **关联**: Agent 安全 / 对齐伪造
+
+## 7. Deep Interaction: An Efficient Human-AI Interaction Method for Large Reasoning Models
+- **arXiv**: 2607.14049
+- **日期**: 2026-07-15
+- **评分**: 21/25 (创新5 / 相关5 / 实验4 / 开源2 / 实用5)
+- **一句话**: 直接编辑CoT推理链而非重新生成，STEM任务修正成功率提升25%+，token使用量减少约40%。
+- **代码**: 未明确
+- **关联**: OpenCode Interpreter / 交互式编程 Agent
+
+## 8. Do Agent Optimizers Compound? A Continual-Learning Evaluation on Terminal-Bench 2.0
+- **arXiv**: 2607.14004 | **RELAI Technical Report**
+- **日期**: 2026-07-15
+- **评分**: 21/25 (创新5 / 相关5 / 实验4 / 开源2 / 实用5)
+- **一句话**: 质疑现有Agent优化均为一次性评估，RELAI-VCL是唯一实现正迁移且持续改进的方法，终身平均通过率76.4% vs 基线58.7%。
+- **代码**: 未明确
+- **关联**: Agent 优化 / 持续学习
 
 ---
 
-## 双料关联（论文 ↔ 开源）
+## 数据概览
 
-| 论文 | 关联开源项目 | 关联维度 |
-|------|-------------|----------|
-| Early Adoption of Agentic Coding Tools | OpenCode Interpreter | 实际落地图景 |
-| Do Agent Optimizers Compound? | Mastra, CrewAI | Agent 优化与持续学习 |
-| Experience Memory Graph | CrewAI, Mastra | 记忆组件化 |
-| CAVA | MCP, A2A, Browser Use | 运行时治理与可审计性 |
-| AgentCompass | 通用 | 评估标准化 |
-| DevicesWorld | Browser Use, MCP | 跨设备能力边界 |
-| How Agents Ask for Permission | MCP, CrewAI, Dify | 权限安全 |
-| Generative Compilation | OpenCode Interpreter | 代码生成质量 |
+| 指标 | 数值 |
+|------|------|
+| 候选池总数 | 23 篇 |
+| 短名单入选 | 8 篇 |
+| 有开源代码 | 4 篇（#1, #3, #4, #2） |
+| 论文+代码双料 | 4 篇 |
+| 平均总分 | 22.3 / 25 |
+| 最低入选分 | 21 / 25 |
 
----
+## 落选的强候选（供参考）
 
-**W29 论文核心判断**:
-1. **Agent 评估从"跑分"走向"基础设施"**：AgentCompass + DevicesWorld 表明社区意识到评估工具本身需要工程化
-2. **Agent 优化进入"持续学习"阶段**：一次性调优不够，RELAI-VCL 证明回归控制是累积收益的关键
-3. **Agent 安全从"边界防御"走向"运行时治理"**：CAVA + Permissions 论文关注行动审计和权限粒度，而非单纯的对齐训练
-4. **代码 Agent 的瓶颈在"编译反馈时机"**：Generative Compilation 将编译器从后验变为生成中，可能是强类型语言 Agent 的质量拐点
+- **Generative Compilation** (2607.13921, 21分) — 首次在生成中获得编译器反馈，Rust实现。落选因领域偏编译器，与Agent主线关联稍弱。
+- **CAVA** (2607.13716, 21分) — Agent运行时治理规范动作验证。落选因与 #5/#6 安全领域重叠，优先保留更实验驱动的研究。
+- **Early Adoption of Agentic Coding Tools** (2607.14037, 20分) — 大规模GitHub实证研究。落选因综述性质，无新算法或开源工具。
+
+## 备注
+
+- **Pool 勘误**: 第5篇"Experience Memory Graph" 的 arXiv 编号应为 2607.13884（非 2607.13899，后者实为 AIMO Interpretability Challenge）。该篇评分 19/25，未入选短名单。
+- **开源代码确认**: 4 篇双料项目均通过 arXiv 页面或 GitHub 直接验证，链接有效。
