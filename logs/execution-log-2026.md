@@ -236,15 +236,15 @@
 | 2026-07-17 | 周五 | W29 | friday-paper-merge | 周五论文-开源联动 | scheduled | ✅ completed | data/weekly-report-2026-W29.md | 19:03 |  |
 | 2026-07-18 | 周六 | W29 | - | - | rest | ⏸ rest | - | - | - |
 | 2026-07-19 | 周日 | W29 | - | - | rest | ⏸ rest | - | - | - |
-| 2026-07-20 | 周一 | W30 | monday-collect | 周一情报收集 | scheduled | ⏳ pending | - | - | - |
-| 2026-07-21 | 周二 | W30 | tuesday-paper-collect | 周二论文雷达 | scheduled | ⏳ pending | - | - | - |
-| 2026-07-22 | 周三 | W30 | wednesday-filter | 周三深度筛选 | scheduled | ⏳ pending | - | - | - |
-| 2026-07-23 | 周四 | W30 | thursday-paper-filter | 周四论文精选 | scheduled | ⏳ pending | - | - | - |
-| 2026-07-24 | 周五 | W30 | friday-report | 周五周报生成 | scheduled | ⏳ pending | - | - | - |
-| 2026-07-24 | 周五 | W30 | friday-paper-merge | 周五论文-开源联动 | scheduled | ⏳ pending | - | - | - |
+| 2026-07-20 | 周一 | W30 | monday-collect | 周一情报收集 | scheduled | ✅ completed | data/os-pool-2026-W30.md | 10:03 |  |
+| 2026-07-21 | 周二 | W30 | tuesday-paper-collect | 周二论文雷达 | scheduled | ✅ completed | data/paper-pool-2026-W30.md | 10:09 |  |
+| 2026-07-22 | 周三 | W30 | wednesday-filter | 周三深度筛选 | scheduled | ✅ completed | data/os-shortlist-2026-W30.md | 14:05 |  |
+| 2026-07-23 | 周四 | W30 | thursday-paper-filter | 周四论文精选 | scheduled | ✅ completed | data/paper-shortlist-2026-W30.md | 14:03 |  |
+| 2026-07-24 | 周五 | W30 | friday-report | 周五周报生成 | scheduled | ✅ completed | data/weekly-report-2026-W30.md | 17:08 |  |
+| 2026-07-24 | 周五 | W30 | friday-paper-merge | 周五论文-开源联动 | scheduled | ✅ completed | data/weekly-report-2026-W30.md | 19:05 |  |
 | 2026-07-25 | 周六 | W30 | - | - | rest | ⏸ rest | - | - | - |
 | 2026-07-26 | 周日 | W30 | - | - | rest | ⏸ rest | - | - | - |
-| 2026-07-27 | 周一 | W31 | monday-collect | 周一情报收集 | scheduled | ⏳ pending | - | - | - |
+| 2026-07-27 | 周一 | W31 | monday-collect | 周一情报收集 | scheduled | ✅ completed | data/os-pool-2026-W31.md | 10:07 |  |
 | 2026-07-28 | 周二 | W31 | tuesday-paper-collect | 周二论文雷达 | scheduled | ⏳ pending | - | - | - |
 | 2026-07-29 | 周三 | W31 | wednesday-filter | 周三深度筛选 | scheduled | ⏳ pending | - | - | - |
 | 2026-07-30 | 周四 | W31 | thursday-paper-filter | 周四论文精选 | scheduled | ⏳ pending | - | - | - |
