@@ -245,8 +245,8 @@
 | 2026-07-25 | 周六 | W30 | - | - | rest | ⏸ rest | - | - | - |
 | 2026-07-26 | 周日 | W30 | - | - | rest | ⏸ rest | - | - | - |
 | 2026-07-27 | 周一 | W31 | monday-collect | 周一情报收集 | scheduled | ✅ completed | data/os-pool-2026-W31.md | 10:07 |  |
-| 2026-07-28 | 周二 | W31 | tuesday-paper-collect | 周二论文雷达 | scheduled | ⏳ pending | - | - | - |
-| 2026-07-29 | 周三 | W31 | wednesday-filter | 周三深度筛选 | scheduled | ⏳ pending | - | - | - |
+| 2026-07-28 | 周二 | W31 | tuesday-paper-collect | 周二论文雷达 | scheduled | ✅ completed | data/paper-pool-2026-W31.md | 10:08 |  |
+| 2026-07-29 | 周三 | W31 | wednesday-filter | 周三深度筛选 | scheduled | ✅ completed | data/os-shortlist-2026-W31.md | 14:00 | - |
 | 2026-07-30 | 周四 | W31 | thursday-paper-filter | 周四论文精选 | scheduled | ⏳ pending | - | - | - |
 | 2026-07-31 | 周五 | W31 | friday-report | 周五周报生成 | scheduled | ⏳ pending | - | - | - |
 | 2026-07-31 | 周五 | W31 | friday-paper-merge | 周五论文-开源联动 | scheduled | ⏳ pending | - | - | - |
