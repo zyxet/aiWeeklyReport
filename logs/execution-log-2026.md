@@ -247,14 +247,14 @@
 | 2026-07-27 | 周一 | W31 | monday-collect | 周一情报收集 | scheduled | ✅ completed | data/os-pool-2026-W31.md | 10:07 |  |
 | 2026-07-28 | 周二 | W31 | tuesday-paper-collect | 周二论文雷达 | scheduled | ✅ completed | data/paper-pool-2026-W31.md | 10:08 |  |
 | 2026-07-29 | 周三 | W31 | wednesday-filter | 周三深度筛选 | scheduled | ✅ completed | data/os-shortlist-2026-W31.md | 14:00 | - |
-| 2026-07-30 | 周四 | W31 | thursday-paper-filter | 周四论文精选 | scheduled | ⏳ pending | - | - | - |
-| 2026-07-31 | 周五 | W31 | friday-report | 周五周报生成 | scheduled | ⏳ pending | - | - | - |
-| 2026-07-31 | 周五 | W31 | friday-paper-merge | 周五论文-开源联动 | scheduled | ⏳ pending | - | - | - |
+| 2026-07-30 | 周四 | W31 | thursday-paper-filter | 周四论文精选 | scheduled | ✅ completed | data/paper-shortlist-2026-W31.md | 14:04 |  |
+| 2026-07-31 | 周五 | W31 | friday-report | 周五周报生成 | scheduled | ✅ completed | data/weekly-report-2026-W31.md | 17:09 |  |
+| 2026-07-31 | 周五 | W31 | friday-paper-merge | 周五论文-开源联动 | scheduled | ✅ completed | data/weekly-report-2026-W31.md | 19:03 |  |
 | 2026-08-01 | 周六 | W31 | - | - | rest | ⏸ rest | - | - | - |
 | 2026-08-02 | 周日 | W31 | - | - | rest | ⏸ rest | - | - | - |
-| 2026-08-03 | 周一 | W32 | monday-collect | 周一情报收集 | scheduled | ⏳ pending | - | - | - |
-| 2026-08-04 | 周二 | W32 | tuesday-paper-collect | 周二论文雷达 | scheduled | ⏳ pending | - | - | - |
-| 2026-08-05 | 周三 | W32 | wednesday-filter | 周三深度筛选 | scheduled | ⏳ pending | - | - | - |
+| 2026-08-03 | 周一 | W32 | monday-collect | 周一情报收集 | scheduled | ✅ completed | data/os-pool-2026-W32.md | 10:10 |  |
+| 2026-08-04 | 周二 | W32 | tuesday-paper-collect | 周二论文雷达 | scheduled | ✅ completed | data/paper-pool-2026-W32.md | 10:08 |  |
+| 2026-08-05 | 周三 | W32 | wednesday-filter | 周三深度筛选 | scheduled | ✅ completed | data/os-shortlist-2026-W32.md | 14:05 |  |
 | 2026-08-06 | 周四 | W32 | thursday-paper-filter | 周四论文精选 | scheduled | ⏳ pending | - | - | - |
 | 2026-08-07 | 周五 | W32 | friday-report | 周五周报生成 | scheduled | ⏳ pending | - | - | - |
 | 2026-08-07 | 周五 | W32 | friday-paper-merge | 周五论文-开源联动 | scheduled | ⏳ pending | - | - | - |
