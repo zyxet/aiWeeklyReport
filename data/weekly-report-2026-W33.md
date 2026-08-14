@@ -13,6 +13,7 @@
 |------|------|
 | 精选项目数 | 7 |
 | 论文精选数 | 8 |
+| 强关联对 | 6 对（A类1组 / C类7组 / D类7组）|
 | 覆盖领域 | Agent框架、开源模型、边缘计算、安全审计、工作桌面 |
 | 本周关键词 | **Agent框架爆发**、**开源模型Scaling**、**边缘Agent**、**安全审计** |
 
@@ -257,6 +258,47 @@ NanoClaw完全颠覆了安全边界的位置——不是在应用层用中间件
 - iFixAi（独立审计）
 - NanoClaw（沙箱隔离）
 - 本周论文：Sharding策略（LLM Judge安全）、Latent Fact-Checking（激活工程检测）
+
+---
+
+## 🔗 论文-开源联动
+
+本周8篇精选论文与7个开源项目形成6组强关联，覆盖Agent框架自动化、模型Scaling、安全栈、RAG范式转移、边缘协作五大方向。
+
+### 联动分类概览
+
+| 类别 | 数量 | 说明 |
+|------|------|------|
+| **A类** | 1组 | 论文+官方代码：Latent Fact-Checking已开源 |
+| **C类** | 7组 | 论文先行：ADIAS/READ/Skaling Law/TEXAS/FutureBridge/Sharding/CreativeInstruct |
+| **D类** | 7组 | 项目先行：Kimi K3/MAF/ZeroClaw/Mastra/OpenWork/NanoClaw/iFixAi |
+
+### 六大主题联动速览
+
+| 主题 | 核心论文 | 核心项目 | 联动强度 |
+|------|----------|----------|----------|
+| **Agent框架自动化** | ADIAS | MAF, Mastra, NanoClaw, ZeroClaw | ⭐⭐⭐⭐⭐ |
+| **模型Scaling与效率** | Skaling Law, TEXAS | Kimi K3 | ⭐⭐⭐⭐⭐ |
+| **安全与可解释性** | Sharding, Latent Fact-Checking | iFixAi, NanoClaw | ⭐⭐⭐⭐⭐ |
+| **RAG与文档智能** | READ | OpenWork, MAF, Mastra | ⭐⭐⭐⭐ |
+| **边缘与轻量部署** | FutureBridge | ZeroClaw | ⭐⭐⭐⭐ |
+| **训练与创造性** | CreativeInstruct | — | ⭐⭐⭐ |
+
+### 四大核心信号
+
+**信号1: Agent框架"四极分化"遇上自动化设计**
+MAF(企业级)+Mastra(产品级)+ZeroClaw(边缘级)+NanoClaw(安全级)四极分化，ADIAS的持久化问题状态设计哲学恰好解决"框架越复杂，设计越困难"的痛点。
+
+**信号2: 开源模型进入"周边技术"竞争时代**
+Kimi K3的2.8T权重已开放，但训练门槛极高。Skaling Law（预测）+ TEXAS（适应）等周边技术将成为生态差异化的关键。
+
+**信号3: Agent安全三层栈成型**
+Sharding（Judge安全）+ Latent Fact-Checking（内容安全）+ iFixAi/NanoClaw（行为安全）= 输入安全+内容安全+行为安全的完整栈。
+
+**信号4: RAG范式转移——从相似度到操作轨迹**
+READ证明780页财报稠密检索仅15.7%准确率，MCP+确定性操作达58.8%——RAG正从"嵌入匹配"转向"可审计操作"。
+
+> 详细联动分析见 `output/paper-os-linkage-2026-W33.md`
 
 ---
 
