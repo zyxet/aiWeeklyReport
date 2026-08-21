@@ -274,7 +274,7 @@
 | 2026-08-19 | 周三 | W34 | wednesday-filter | 周三深度筛选 | scheduled | ⏳ pending | - | - | - |
 | 2026-08-20 | 周四 | W34 | thursday-paper-filter | 周四论文精选 | scheduled | ✅ completed | data/paper-shortlist-2026-W34.md | 14:05 |  |
 | 2026-08-21 | 周五 | W34 | friday-report | 周五周报生成 | scheduled | ✅ completed | data/weekly-report-2026-W34.md | 17:00 | - |
-| 2026-08-21 | 周五 | W34 | friday-paper-merge | 周五论文-开源联动 | scheduled | ✅ completed | output/weekly-report-paper-os-2026-W34.md | 17:00 | - |
+| 2026-08-21 | 周五 | W34 | friday-paper-merge | 周五论文-开源联动 | scheduled | ✅ completed | output/paper-os-linkage-2026-W34.md | 19:04 |  |
 | 2026-08-22 | 周六 | W34 | - | - | rest | ⏸ rest | - | - | - |
 | 2026-08-23 | 周日 | W34 | - | - | rest | ⏸ rest | - | - | - |
 | 2026-08-24 | 周一 | W35 | monday-collect | 周一情报收集 | scheduled | ⏳ pending | - | - | - |
