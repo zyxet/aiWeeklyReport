@@ -277,8 +277,8 @@
 | 2026-08-21 | 周五 | W34 | friday-paper-merge | 周五论文-开源联动 | scheduled | ✅ completed | output/paper-os-linkage-2026-W34.md | 19:04 |  |
 | 2026-08-22 | 周六 | W34 | - | - | rest | ⏸ rest | - | - | - |
 | 2026-08-23 | 周日 | W34 | - | - | rest | ⏸ rest | - | - | - |
-| 2026-08-24 | 周一 | W35 | monday-collect | 周一情报收集 | scheduled | ⏳ pending | - | - | - |
-| 2026-08-25 | 周二 | W35 | tuesday-paper-collect | 周二论文雷达 | scheduled | ⏳ pending | - | - | - |
+| 2026-08-24 | 周一 | W35 | monday-collect | 周一情报收集 | scheduled | ✅ completed | data/os-pool-2026-W35.md | 10:02 |  |
+| 2026-08-25 | 周二 | W35 | tuesday-paper-collect | 周二论文雷达 | scheduled | ✅ completed | data/paper-pool-2026-W35.md | 10:13 |  |
 | 2026-08-26 | 周三 | W35 | wednesday-filter | 周三深度筛选 | scheduled | ⏳ pending | - | - | - |
 | 2026-08-27 | 周四 | W35 | thursday-paper-filter | 周四论文精选 | scheduled | ⏳ pending | - | - | - |
 | 2026-08-28 | 周五 | W35 | friday-report | 周五周报生成 | scheduled | ⏳ pending | - | - | - |
