@@ -202,3 +202,53 @@ Cactus Compute 推出的 Needle 2 是一款**45M 参数、14MB 二进制、28MB 
 ---
 
 > **趋势判断：** W35 的核心信号是 Agent 栈的「系统化」。单一工具的时代正在过去，记忆、治理、技能、推理、执行正在被整合为统一平台。下一步的竞争将围绕「谁的 Agent 能从经验中持续学习」展开。
+
+---
+
+## 五、论文-开源联动分析
+
+> 本节由周五论文-开源联动任务自动生成，对本周8篇精选论文与7个开源项目进行交叉映射分析。
+
+### 联动分类总览
+
+| 类型 | 定义 | 数量 |
+|------|------|------|
+| **A类** | 论文+官方代码/数据 | 0 |
+| **B类** | 论文+社区复现/互补项目 | 8（全部入选论文） |
+| **C类** | 论文先行，尚无对应开源 | 0 |
+| **D类** | 项目先行（论文滞后或独立） | 0 |
+
+### 核心联动对
+
+| 论文 | 开源项目 | 联动类型 | 关联强度 |
+|------|----------|----------|----------|
+| Weighted Memory Tree | TencentDB-Agent-Memory, semantica | B类 | ⭐⭐⭐⭐ |
+| Evaluating Skills, Not Just Agents | anthropic/skills | B类 | ⭐⭐⭐⭐ |
+| AEGIS: MCP Cross-Domain Security | prime-agent, MCP 生态 | B类 | ⭐⭐⭐⭐ |
+| Self-Speculation for Faster Reasoning | FlashKDA | B类 | ⭐⭐⭐ |
+| SDAD: Spec-Driven Agentic Development | prime-agent | B类 | ⭐⭐⭐⭐ |
+| Knowledge-Graph-Gated Defactualization | code-graph-rag | B类 | ⭐⭐⭐ |
+| Personalized Privacy Control via Attention Heads | openhuman, needle | B类 | ⭐⭐⭐ |
+| Two Heads: Multi-agent TTS | prime-agent | B类 | ⭐⭐⭐ |
+
+### 六大主题速览
+
+1. **Agent 记忆与上下文基础设施**: 论文加权记忆树 + TencentDB/semantica/macro 三项目互补
+2. **Skills 标准化与持续评估**: 论文 Skill 评估框架 + Anthropic Skills 标准形成闭环
+3. **Agent 安全与 MCP 治理**: AEGIS 填补 MCP 协议层安全空白，prime-agent 等驻留 Agent 急需
+4. **推理加速双轨策略**: Self-Speculation 算法层 + FlashKDA 硬件层可叠加
+5. **代码 Agent 工程化跃迁**: SDAD 方法论 + prime-agent 实践 + Two Heads 多 Agent 协作
+6. **隐私保护与本地优先**: 注意力头级隐私控制 + openhuman/needle 市场力量
+
+### 详细联动分析报告
+
+完整分析（含联动矩阵、趋势判断、行动建议）见：
+📄 `output/paper-os-linkage-2026-W35.md`
+
+---
+
+*周报完*
+
+*本报告由 intelligence-system 自动生成  
+*数据来源: arXiv / GitHub API / 技术媒体交叉验证  
+*生成时间: 2026-08-28 19:00 CST*
