@@ -285,7 +285,7 @@
 | 2026-08-28 | 周五 | W35 | friday-paper-merge | 周五论文-开源联动 | scheduled | ✅ completed | data/weekly-report-2026-W35.md | 19:04 |  |
 | 2026-08-29 | 周六 | W35 | - | - | rest | ⏸ rest | - | - | - |
 | 2026-08-30 | 周日 | W35 | - | - | rest | ⏸ rest | - | - | - |
-| 2026-08-31 | 周一 | W36 | monday-collect | 周一情报收集 | scheduled | ⏳ pending | - | - | - |
+| 2026-08-31 | 周一 | W36 | monday-collect | 周一情报收集 | scheduled | ✅ completed | data/os-pool-2026-W36.md | 10:00 | - |
 | 2026-09-01 | 周二 | W36 | tuesday-paper-collect | 周二论文雷达 | scheduled | ⏳ pending | - | - | - |
 | 2026-09-02 | 周三 | W36 | wednesday-filter | 周三深度筛选 | scheduled | ⏳ pending | - | - | - |
 | 2026-09-03 | 周四 | W36 | thursday-paper-filter | 周四论文精选 | scheduled | ⏳ pending | - | - | - |
