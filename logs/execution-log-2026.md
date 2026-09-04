@@ -286,11 +286,11 @@
 | 2026-08-29 | 周六 | W35 | - | - | rest | ⏸ rest | - | - | - |
 | 2026-08-30 | 周日 | W35 | - | - | rest | ⏸ rest | - | - | - |
 | 2026-08-31 | 周一 | W36 | monday-collect | 周一情报收集 | scheduled | ✅ completed | data/os-pool-2026-W36.md | 10:00 | - |
-| 2026-09-01 | 周二 | W36 | tuesday-paper-collect | 周二论文雷达 | scheduled | ⏳ pending | - | - | - |
-| 2026-09-02 | 周三 | W36 | wednesday-filter | 周三深度筛选 | scheduled | ⏳ pending | - | - | - |
-| 2026-09-03 | 周四 | W36 | thursday-paper-filter | 周四论文精选 | scheduled | ⏳ pending | - | - | - |
+| 2026-09-01 | 周二 | W36 | tuesday-paper-collect | 周二论文雷达 | scheduled | ✅ completed | data/paper-pool-2026-W36.md | 10:11 |  |
+| 2026-09-02 | 周三 | W36 | wednesday-filter | 周三深度筛选 | scheduled | ✅ completed | data/os-shortlist-2026-W36.md | 14:13 |  |
+| 2026-09-03 | 周四 | W36 | thursday-paper-filter | 周四论文精选 | scheduled | ✅ completed | data/paper-shortlist-2026-W36.md | 14:07 |  |
 | 2026-09-04 | 周五 | W36 | friday-report | 周五周报生成 | scheduled | ⏳ pending | - | - | - |
-| 2026-09-04 | 周五 | W36 | friday-paper-merge | 周五论文-开源联动 | scheduled | ⏳ pending | - | - | - |
+| 2026-09-04 | 周五 | W36 | friday-paper-merge | 周五论文-开源联动 | scheduled | ✅ completed | data/weekly-report-2026-W36.md | 19:11 |  |
 | 2026-09-05 | 周六 | W36 | - | - | rest | ⏸ rest | - | - | - |
 | 2026-09-06 | 周日 | W36 | - | - | rest | ⏸ rest | - | - | - |
 | 2026-09-07 | 周一 | W37 | monday-collect | 周一情报收集 | scheduled | ⏳ pending | - | - | - |
