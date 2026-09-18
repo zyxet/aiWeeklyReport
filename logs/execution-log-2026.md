@@ -304,9 +304,9 @@
 | 2026-09-14 | 周一 | W38 | monday-collect | 周一情报收集 | scheduled | ✅ completed | data/os-pool-2026-W38.md | 10:05 |  |
 | 2026-09-15 | 周二 | W38 | tuesday-paper-collect | 周二论文雷达 | scheduled | ✅ completed | data/paper-pool-2026-W38.md | 10:21 |  |
 | 2026-09-16 | 周三 | W38 | wednesday-filter | 周三深度筛选 | scheduled | ✅ completed | data/os-shortlist-2026-W38.md | 14:05 |  |
-| 2026-09-17 | 周四 | W38 | thursday-paper-filter | 周四论文精选 | scheduled | ⏳ pending | - | - | - |
-| 2026-09-18 | 周五 | W38 | friday-report | 周五周报生成 | scheduled | ⏳ pending | - | - | - |
-| 2026-09-18 | 周五 | W38 | friday-paper-merge | 周五论文-开源联动 | scheduled | ⏳ pending | - | - | - |
+| 2026-09-17 | 周四 | W38 | thursday-paper-filter | 周四论文精选 | scheduled | ✅ completed | data/paper-shortlist-2026-W38.md | 14:11 |  |
+| 2026-09-18 | 周五 | W38 | friday-report | 周五周报生成 | scheduled | ✅ completed | data/weekly-report-2026-W38.md | 17:05 |  |
+| 2026-09-18 | 周五 | W38 | friday-paper-merge | 周五论文-开源联动 | scheduled | ✅ completed | data/weekly-report-2026-W38.md | 19:06 |  |
 | 2026-09-19 | 周六 | W38 | - | - | rest | ⏸ rest | - | - | - |
 | 2026-09-20 | 周日 | W38 | - | - | rest | ⏸ rest | - | - | - |
 | 2026-09-21 | 周一 | W39 | monday-collect | 周一情报收集 | scheduled | ⏳ pending | - | - | - |
