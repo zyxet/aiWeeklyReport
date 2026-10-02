@@ -1,284 +1,265 @@
-# AI 开源周报 · 2026 年第 40 周（W40）
+# AI开源情报周报 | 2026-W40
 
-> 生成时间：2026-10-02 | 数据来源：GitHub Trending / arXiv / HN  
-> 本周入选开源项目 7 个 | 精选论文 8 篇
+> 报告周期：2026-09-28 至 2026-10-04
+> 生成时间：2026-10-02 19:15 CST
+> 数据来源：论文精选（8篇，46候选，入选率17.4%）+ 开源精选（7个，10候选）
+> 联动分析：output/paper-os-linkage-2026-W40.md
+> 编排方式：按 A-D 联动优先级排序（A=论文+官方代码 → D=项目先行）
+> 项目 Star 数据：GitHub API 实时（2026-10-02 19:10 CST）
 
 ---
 
 ## 📋 本周概览
 
-本周 AI 开源的主旋律非常清晰：**Agent 基础设施正在从"框架"进化为"操作系统"**。
-
-三个信号值得注意：
-
-1. **Agent 编排进入"控制面"时代**。paperclip（90.9K ⭐）不满足于做聊天工具，而是要做 AI 员工的劳动力控制面；Google AX 把 Agent 当作 Kubernetes 工作负载来调度。两者的共同判断是：Agent 不是应用，是基础设施。
-2. **System 1 决策模型爆发**。Laya 以单次前向传播（33ms）完成类型化决策，用 Apache 2.0 开源权重直接对标 Jev 的闭源 API。这类"不生成文本、只做判断"的模型正在成为 Agent 流水线中的标准组件。
-3. **Agent 记忆从"能记住"进化为"能学习"**。Hindsight 在 LongMemEval 上突破 91.4%，靠的不是向量检索，而是反思式记忆固化——Agent 开始拥有"经验"。
-
----
-
-## 🏆 重磅推荐
-
-### 1. paperclipai/paperclip ⭐ 90.9K
-
-**一句话**：自我进化的 AI 劳动力控制面——75 个内置专家 Agent 在同一平台上协作，目标是让企业与 AI 员工共存。
-
-| 维度 | 详情 |
+| 维度 | 数据 |
 |------|------|
-| **技术栈** | TypeScript · MIT License |
-| **核心定位** | AI Workforce Control Plane（AI 劳动力控制面） |
-| **热度** | 近 24h +9,824 ⭐，日均增长数千 |
-| **官网** | paperclip.ing |
+| 精选开源项目 | 7 个（10 候选） |
+| 精选论文 | 8 篇（46 候选，入选率 17.4%） |
+| 入选项目总 Star | 332,453（周五 19:10 实时） |
+| 论文+代码双料 | 4 个（ACG / ScopeIF / Choir / FRAIL） |
+| A类强关联 | 4 对 |
+| B类中关联 | 4 对 |
+| D类项目先行 | 7 个 |
+| 本周最热话题 | 五层基础设施成形 · 记什么↔怎么记 · 模型热切换 · Agent 社会学 |
 
-**什么是"自我进化"？**
+**本周关键词**：Agent 操作系统 · 一致性图 · 记忆巩固 · KV 翻译 · 个体理性与集体崩溃 · 确定性优先
 
-Paperclip 不是一个 Agent 框架，而是一个完整的 AI 员工管理系统。75 个内置专家 Agent 覆盖财务、运营、分析、销售等职能，通过消息总线在共享工作区协作。它的核心创新在于**终身记忆系统**：
-
-- Agent 从每次交互中提取语义记忆，形成个性化知识库
-- 行为日志追踪每个 Agent 的决策轨迹，支持回溯审计
-- 技能系统允许动态加载工具包，Agent 可以"学习"新能力
-- 自动化工作流与审批路径让人类管理者可以介入关键决策
-
-**为什么值得关注**：过去的 Agent 框架关心"怎么让 Agent 做事"，Paperclip 关心"怎么管理一万个 Agent"。这个视角切换意味着 Agent 正在从工具变成劳动力，而劳动力需要管理系统。
-
-**联动论文**：[ACG: Agentic AI with Reinforced Context Graphs](https://arxiv.org/abs/2609.32754)——论文提出的强化上下文图方法可以直接用于 Paperclip 的多 Agent 记忆检索场景，解决大规模 Agent 协同时的上下文不一致问题。
-
-**GitHub**: https://github.com/paperclipai/paperclip
+**本周一号事件**：Agent 基础设施**五层结构本周全部立起标杆项目**——执行（orca 兼容 25+ CLI Agent）→ 编排（google/ax）→ 组织管理（paperclip 96K★）→ 记忆（hindsight 巩固四杠杆）→ 决策（laya 33ms 判定引擎）——而论文侧罕见地为其中三层同时提供了理论（ACG→记忆层、Choir→编排层、FRAIL→组织层）。工程立杆、理论到货，同周发生。
 
 ---
 
-### 2. stablyai/orca ⭐ 81.1K
+## 🏆 A类：论文+官方代码（强关联，优先关注）
 
-**一句话**：Agent Development Environment（ADE）——在桌面和手机上同时驾驭多个并行编码 Agent 的工作台。
+### A1 | ACG：长 horizon Agent 的自适应一致性图
+- **论文**：https://arxiv.org/abs/2609.32754（22/25）
+- **代码**：✓ 论文声明代码开源
+- **评分**：22/25（创新4 | 实用5 | 深度4 | 背书4 | 代码5）
+- **关联项目**：hindsight（⭐⭐⭐ 记什么↔怎么记）/ paperclip（⭐⭐⭐）
+- **一句话**：自适应一致性图维护长序列 Agent 执行状态，GPT-5.6-luna 上 44.5%→50.2%（+5.7pp）。
+- **⚡ 为什么本周最重要**：它与 hindsight 构成完美互补——ACG 回答长任务中"哪些状态必须以什么一致性级别维护"，hindsight 的巩固四杠杆回答"怎么持久化"。生产级长任务 Agent 的两个必要组件本周同时到齐，缺一即跛。
 
-| 维度 | 详情 |
+### A2 | ScopeIF：范围感知的精确指令遵循
+- **论文**：https://arxiv.org/abs/2609.32189（22/25）
+- **代码**：✓ 论文声明 code and data available
+- **评分**：22/25（创新4 | 实用5 | 深度4 | 背书4 | 代码5）
+- **关联项目**：paperclip / orca / ax（⭐⭐）/ open-code-review（⭐⭐）
+- **一句话**：约束分解为 Scope/Target/Range 三维 + 工具验证 + 分级奖励，Qwen3-4B/8B 在范围感知指令遵循上比肩 Gemini-2.5-Pro。
+- **⚡ 信号**：在"一个任务扇出给几十个 Agent"的世界里，scope 精度就是事故率。ScopeInstruct 数据集可直接改造成 paperclip/orca 这类平台的回归测试集。
+
+### A3 | Choir：分布式多 Agent 数学形式化的开放协议
+- **论文**：https://arxiv.org/abs/2609.31903（21/25）
+- **代码**：✓ 全量开源（协议 + Lean 4 / Isabelle / Rocq 三适配）
+- **评分**：21/25（创新4 | 实用3 | 深度5 | 背书4 | 代码5）
+- **关联项目**：orca（⭐⭐⭐）/ ax（⭐⭐⭐）/ paperclip（⭐⭐）
+- **一句话**：开放协议实现分布式多 Agent 数学形式化，打破单一团队集中运行的算力瓶颈。
+- **⚡ 判断**：与 orca（IDE 路线）、ax（运行时路线）构成"协议 vs 环境 vs 运行时"的三位一体——TCP/IP 与 Kubernetes 当年也是这两种思路，最后分层共存。
+
+### A4 | FRAIL：LLM Agent 社会的金融脆弱性
+- **论文**：https://arxiv.org/abs/2609.30940（21/25）
+- **代码**：✓ 论文声明 Code available
+- **评分**：21/25（创新5 | 实用4 | 深度4 | 背书4 | 代码4）
+- **关联项目**：paperclip（⭐⭐⭐）/ orca / ax（⭐⭐）
+- **一句话**：个体理性 Agent 无需恶意指令即可导致集体崩溃——银行挤兑基线失败率 77%；三种稳定化机制成功时共享同一时序模式：**广泛承诺必须在防御行为自我强化之前形成**。
+- **⚡ 信号**：paperclip 的预算控制、审批路径、审计留痕不只是管理功能，是多 Agent 系统的稳定化机制——而且必须在 Agent 学会自我封盘之前配置好。
+
+---
+
+## 🔗 B类：论文+社区复现（中关联，关注落地）
+
+### B1 | CoWindow Attention：全因果覆盖是头集成的集体属性
+- **论文**：https://arxiv.org/abs/2609.32704（22/25）
+- **代码**：△ 部分开源
+- **评分**：22/25（创新5 | 实用5 | 深度5 | 背书4 | 代码3）
+- **关联项目**：laya（⭐⭐）
+- **一句话**：远程窗口在 KV heads 间互补分配，128K 训练加速 7.4x、推理 3.0x，0.6B-14B scaling law 与 FullAttn 几乎重合。
+- **判断**：如果可复现，注意力架构"全员全因果"的默认假设即被打破。与 laya 同属"效率 ≠ 更大模型"阵营——一个在架构层省计算，一个在决策路径消灭自回归。
+
+### B2 | KV-Lingo：跨模型 KV 缓存翻译器
+- **论文**：https://arxiv.org/abs/2609.32610（21/25）
+- **代码**：△ 部分开源
+- **评分**：21/25（创新5 | 实用5 | 深度4 | 背书4 | 代码3）
+- **关联项目**：orca / ax（⭐⭐⭐）
+- **一句话**：学习线性映射把源模型 KV cache 翻译为目标模型可读表示，模型切换首 token 延迟降 9.6-29x。
+- **⚡ 为什么本周最工程友好**：orca 支持 25+ CLI Agent、ax 的 Model 原语天然多 provider——两个项目都在做模型切换，KV-Lingo 让切换从冷启动变热启动。"小模型先行、大模型接管"的动态路由因此从论文设想变成工程可选项。
+
+### B3 | SphereGate：后训练各向异性的分工结构
+- **论文**：https://arxiv.org/abs/2609.32792（21/25）
+- **代码**：△ 部分开源
+- **评分**：21/25（创新5 | 实用4 | 深度5 | 背书4 | 代码3）
+- **关联项目**：laya（⭐⭐⭐）/ open-code-review（⭐⭐）
+- **一句话**：~5% 残差通道构成相干基底（移除后 PPL 10→10⁶），SFT 重塑它、RL 保持它不动；仅训练 0.1M 参数即超全模型 GRPO（MATH-500 领先 2.0-7.3 分）。
+- **判断**："冻结大模型 + 微门控小参数"正是 laya 的架构哲学在 post-training 侧的镜像——小模块有效不是巧合，是结构。
+
+### B4 | BSD：信念自蒸馏提取用户模型
+- **论文**：https://arxiv.org/abs/2609.31603（21/25）
+- **代码**：△ 部分开源
+- **评分**：21/25（创新5 | 实用4 | 深度5 | 背书4 | 代码3）
+- **关联项目**：paperclip / hindsight（⭐⭐）
+- **一句话**：提取 LLM 隐式用户信念，可读可写——保持请求不变、仅改变用户信念即可改变安全拒绝；跨模型共享表示几何。
+- **⚡ 安全含义**：记忆系统写入"用户画像"类记忆的那一刻，就成了行为操控面。可写用户信念必须先过安全审计再谈产品化。
+
+---
+
+## 🚀 C类：论文先行（观察池）
+
+本周入选 8 篇全部有官方 artifact，无严格 C 类。以下关注级论文处于 C 类边界：
+
+| 论文 | 分数 | 跟踪理由 |
+|------|:---:|---------|
+| Decomposition Tax（2609.32825） | 19 | 四阶段 pipeline 接口损失 40.5 点。orca 的扇出、paperclip 的跨职能协作全是 pipeline，全在付接口税；✗无代码 |
+| Alignment Paradox（2609.32617） | 20 | 后训练对齐使高置信错误增 10-35 倍——给 OCR 的"确定性优先"哲学一个严格理论注脚；△ |
+| Stale-Doc Poisoning（候选池#22） | 19 | 过期检索文档翻转 30-75% 答案——记忆系统的投毒威胁模型；△ |
+| Mandela-Bench（2609.32763） | 20 | 36 个 VLM 记住而非"看到"经典图像——AI 安全评估新维度 |
+
+---
+
+## 🏗️ D类：项目先行（独立演进，观察论文跟进）
+
+### D1 | paperclipai/paperclip —— AI 劳动力控制面
+- **GitHub**：https://github.com/paperclipai/paperclip ⭐ **96,040**（周三快照 ~90.9K，两天 +5.1K）· Fork 16,276 · MIT · TypeScript
+- **定位**：Agent 管理层独立成层——"雇佣"Claude Code / OpenClaw / Codex 执行，自带任务分配、预算控制、审计留痕
+- **本周动态**：+1,853★/日的增长仍在继续；8 月 CVE-2026-41679（CVSS 10.0）已修复
+- **关联论文**：FRAIL（⭐⭐⭐ Agent 劳动力经济学）、ACG（⭐⭐⭐ 大规模协作一致性）、ScopeIF（⭐⭐ 任务范围精度）
+- **风险**：96K★ 项目承载"企业 AI 员工"叙事，一旦多 Agent 集体故障（FRAIL 模式），叙事反噬会非常快
+- **一句话**：它不替代执行端，它管执行端——Agent 从工具变劳动力的第一个管理系统样本。
+
+### D2 | stablyai/orca —— 并行 Agent 舰队 ADE
+- **GitHub**：https://github.com/stablyai/orca ⭐ **83,513**（+2.4K/两日）· Fork 5,402 · MIT · TypeScript
+- **定位**：Agent Development Environment——一个 prompt 扇出到 5 个 Agent，隔离 git worktree 并行，对比合并
+- **本周动态**：移动端伴侣 + Design Mode（Chromium 元素直送 prompt）；4 周涨 28K，YC 押注
+- **关联论文**：Choir（⭐⭐⭐ 协议化的并行协作）、KV-Lingo（⭐⭐⭐ 多模型热切换）、Decomposition Tax（⭐⭐ 扇出-合并的接口税）
+- **一句话**："一台机器一个 Agent"到"一个舰队几十个 Agent"的范式转移的操作台。
+
+### D3 | vectorize-io/hindsight —— 会自我学习的 Agent 记忆
+- **GitHub**：https://github.com/vectorize-io/hindsight ⭐ **44,498**（周三 38.6K，+5.9K/两日，本周增速王）· Fork 5,861 · Apache 2.0 · Python
+- **定位**：RAG"检索即记忆"→"记忆需要巩固"：重要性/合并/衰减/淘汰四杠杆
+- **本周动态**：9/28 单日 +4,520★（全榜最高增速）
+- **关联论文**：ACG（⭐⭐⭐ 记什么↔怎么记）、BSD（⭐⭐ 信念写入=操控面）、Stale-Doc Poisoning（⭐⭐ 遗忘正确性欠账）
+- **风险**：记忆巩固四杠杆的消融评测之外，安全评测（篡改/操控）完全空白——本周两篇论文恰好各戳一个
+- **一句话**：Agent 从"单次对话"走向"长期雇员"的前提，2026 Q4 最被低估的基础设施。
+
+### D4 | NandhaKishorM/laya —— 非自回归 System 1 决策引擎
+- **GitHub**：https://github.com/NandhaKishorM/laya ⭐ **30,027** · Fork 2,611 · Apache 2.0 · Python
+- **定位**：不生成文本、只做判定——单次前向 33ms，零 token 成本，支持 100+ 语言
+- **本周动态**：typed-decisions 0.766 反超 Jev 0.727；9/22 进 AUR
+- **关联论文**：SphereGate（⭐⭐⭐ 小模块接管子空间的机制证据）、CoWindow（⭐⭐）、KV-Lingo（⭐⭐ 大小模型协同的另一半）
+- **短板**：>20 选项标签空间性能下降（每标签仅 3-4 tokens）——学术侧值得接手
+- **一句话**：开源对闭源 Jev 最锋利的一击；"用大模型生成 vs 用小模型判定"的架构分层正在确立。
+
+### D5 | alibaba/open-code-review —— 确定性优先的 AI 评审
+- **GitHub**：https://github.com/alibaba/open-code-review ⭐ **43,264**（9/12 快照 22.4K，三周近翻倍）· Fork 3,116 · Apache 2.0 · Go
+- **定位**：确定性工程 × LLM Agent 混合架构——同模型 precision 4.7× Claude Code，token 仅 1/9
+- **本周动态**：HN 主串 284 分；阿里内部 2 年实战验证
+- **关联论文**：ScopeIF（⭐⭐ 工具验证式约束）、SphereGate（⭐⭐ 小门控大作用）、Alignment Paradox（⭐⭐ 对齐提升自信非正确——确定性组件是必要纠偏层）
+- **争议**：recall 故意压低是设计选择；Martian 第三方评测 12% 精度 vs 官方 33.9%，修复后尚无独立复验——保持标注
+- **一句话**："harness 比模型更重要"迄今最有力的实证，分阶段混合架构的生产级教科书。
+
+### D6 | dream-num/univer —— Agent 的 Office Harness
+- **GitHub**：https://github.com/dream-num/univer ⭐ **22,287** · Fork 1,870 · Apache 2.0 · TypeScript
+- **定位**：电子表格/文档/演示一体化 SDK——Agent 操作 Office 文件像调 API
+- **本周动态**：已有 DeepSeek Harness 与 OpenClaw 官方集成；MCP 分类趋势榜 #2
+- **关联论文**：本周论文横向关联为零——不是缺陷，是它站在"结构化文档可验证性"这个独立象限；Decomposition Tax 的重定位修复思路与公式引擎 oracle 化是最接近的接入点
+- **一句话**：梦行科技（中国团队）在 Agent 工具链的结构化深水区拿到全球开源话语权。
+
+### D7 | google/ax —— Agent 编排运行时
+- **GitHub**：https://github.com/google/ax ⭐ **12,824** · Fork 629 · Apache 2.0 · Go
+- **定位**：声明式 YAML 三原语（Task/Workspace/Model），CLI 对标 kubectl，"kubectl for agents"
+- **本周动态**：v0.3.1；**最后一次 push 停在 9/27（已 5 天）**——对比前三周的迭代速度值得留意
+- **关联论文**：Choir（⭐⭐⭐ 协议路线 vs 运行时路线对照）、FRAIL（⭐⭐ 资源限额=稳定化机制）、KV-Lingo（⭐⭐⭐ Model 原语的热切换）、ScopeIF（⭐⭐ YAML Task 的范围精度）
+- **风险**：Google 明示 stable 前会有重大 breaking changes；Agent Substrate 依赖是最大部署门槛
+- **一句话**：大厂第一次把 Agent 当作"一类新的工作负载"来做基础设施。
+
+---
+
+## 🔑 本周核心洞察
+
+### 洞察1：五层结构不是叙事，是事实——且论文侧同步到了货
+
+执行（orca）→ 编排（ax）→ 组织管理（paperclip）→ 记忆（hindsight）→ 决策（laya），五层本周各有标杆。更罕见的是论文侧为三层同时提供理论：ACG→记忆层、Choir→编排层、FRAIL→组织层。W38 我们记录 Harness 三层清晰化，W39 记录 Skill 分层，W40 记录五层完工——**周周递进，这不是分析师的叙事，是生态自己在收敛**。
+
+### 洞察2：两条效率路线的同榜会师
+
+"生成更便宜"（CoWindow 7.4x 训练加速 / KV-Lingo 29x 切换提速）与"干脆不生成"（laya 33ms 判定）本周同榜。Agent 双系统架构（System 1 判定 + System 2 生成）第一次有了两端的现成开源组件，SphereGate 从机制侧给了统一解释：大模型内部本就存在可供小模块接管的结构化子空间。
+
+### 洞察3：Agent 社会学的第一周
+
+FRAIL 证明个体理性 Agent 会集体崩溃（77% 挤兑失败率），稳定化的时序规律（广泛承诺先于防御行为）直接适用于 paperclip 的预算/审批设计；Choir 证明信任可以被协议化。**多 Agent 治理的两条路线——经济学（承诺/激励）与协议学（验证/合规）——同周到货，"Agent 社会学"从科幻词汇变成可立项的学科。**
+
+### 洞察4：记忆层的高光与欠账同框
+
+hindsight +5.9K/两日登顶增速王，同时被两篇论文各戳一个安全欠账：Stale-Doc Poisoning（陈旧记忆=投毒向量）与 BSD（用户信念写入=操控面）。**记住一切的前提是能安全地忘掉该忘的，以及写入的用户模型必须可审计。巩固四杠杆解决了前半句的一半，后半句还没开始。**
+
+---
+
+## 📊 数据汇总
+
+| 指标 | 数值 |
 |------|------|
-| **技术栈** | TypeScript · MIT License |
-| **核心定位** | 并行 Agent 编排的集成开发环境 |
-| **热度** | 上榜 GitHub Trending 56 天，累计 +43.6K |
+| 本周入选论文 | 8篇（46候选，入选率17.4%） |
+| 本周入选开源项目 | 7个（10候选） |
+| A类（论文+官方代码） | 4对 |
+| B类（论文+社区复现） | 4对 |
+| D类（项目先行） | 7个 |
+| 强关联（⭐⭐⭐） | 8对 |
+| 论文-代码双料 | 4个 |
+| 入选项目总 Star | 332,453 |
 
-**解决什么痛点？** 你已经有了 Claude Code、Codex、Kimi Code 等多个 CLI Agent，但一次只能跑一个任务，切换起来手忙脚乱。Orca 的方案：
+### Star 快照（GitHub API 实时，2026-10-02 19:10 CST）
 
-- **并行 Worktree**：一个 Prompt 扇出到 5 个 Agent，各自在隔离的 git worktree 中工作，对比结果后合并最优方案
-- **移动伴侣**：iOS/Android 应用随时监控和引导 Agent，收到通知后远程发送后续指令
-- **Design Mode**：在真实 Chromium 窗口中点击任意 UI 元素，将 HTML/CSS/截图直接送入 Agent 上下文
-- **SSH Worktree**：在远程服务器上运行 Agent，本地只做监控
+| 项目 | 周三快照 | 周五实时 | Δ | Fork | License | 最后 push |
+|------|---------:|---------:|---:|-----:|---------|-----------|
+| paperclip | ~90,887 | 96,040 | +5,153 | 16,276 | MIT | 10/02 |
+| orca | 81,114 | 83,513 | +2,399 | 5,402 | MIT | 10/02 |
+| hindsight | 38,600 | 44,498 | +5,898 | 5,861 | Apache 2.0 | 10/02 |
+| laya | 28,336 | 30,027 | +1,691 | 2,611 | Apache 2.0 | 10/01 |
+| open-code-review | 22,389* | 43,264 | +20,875* | 3,116 | Apache 2.0 | 10/01 |
+| univer | 16,327 | 22,287 | +5,960 | 1,870 | Apache 2.0 | 10/02 |
+| ax | 11,313 | 12,824 | +1,511 | 629 | Apache 2.0 | 09/27 |
 
-支持几乎所有 CLI Agent：Claude Code、Codex、Kimi Code、OpenCode、Cline、Goose 等 25+ 种。
+> *ocr 周三值为 9/12 flowtivity 快照，三周近翻倍；univer 周三值来自 rebang.today 快照，各源口径存在差异。ax 最后 push 停在 9/27，是 7 个项目中唯一 5 天未更新的——与其 v0.3.1 时期的迭代速度不符，列入观察。
 
-**为什么值得关注**：当 Agent 数量超过 3 个，管理成本就超过了 Agent 本身的价值。Orca 是第一个认真解决"Agent 舰队操作台"问题的开源项目。
+### 分布观察
 
-**GitHub**: https://github.com/stablyai/orca
-
----
-
-## 🔧 工具框架类
-
-### 3. vectorize-io/hindsight ⭐ 38.6K
-
-**一句话**：让 Agent 不仅会"记住"，还会"学习"的记忆系统——LongMemEval 基准首个突破 90% 的开源方案。
-
-| 维度 | 详情 |
-|------|------|
-| **技术栈** | Python · Apache 2.0 |
-| **核心定位** | 仿生 Agent 长期记忆系统 |
-| **基准** | LongMemEval 91.4%（首个突破 90% 的系统） |
-
-**技术亮点**：
-
-- **TEMPR**（时间实体记忆启动检索）：基于时间和实体的上下文感知记忆召回
-- **CARA**（连贯自适应推理 Agent）：Agent 专属反思机制，从成功和失败中学习
-- 四种记忆类型：世界知识、经验、观点、观察——对应人类区分事实、信念和习得洞察的方式
-
-与 RAG/向量数据库方案的本质区别：Hindsight 不做相似度搜索，而是模拟人类"提取关键信息 → 反思经验 → 应用洞察"的学习过程。结果是在相同模型下，Agent 表现随时间推移而提升，而非保持一致。
-
-已在财富 500 强企业中投入生产使用。Washington Post 和 Virginia Tech 独立复现了基准结果。
-
-**联动论文**：[ACG: Agentic AI with Reinforced Context Graphs](https://arxiv.org/abs/2609.32754)——论文的强化上下文图与 Hindsight 的反思式记忆可以互补：前者解决"该记什么"，后者解决"怎么记住"。
-
-**GitHub**: https://github.com/vectorize-io/hindsight
+- **Agent 相关度**：7/7。连续第二周全榜 Agent 化——Agent 基础设施已经不是赛道，是生态主干道
+- **License**：Apache 2.0 × 5，MIT × 2——Agent 基础设施首选 Apache 2.0 的趋势延续
+- **语言**：TypeScript × 3，Go × 2，Python × 2——控制面/前端类 TS，运行时类 Go，模型/算法类 Python 的分工稳定
+- **中国团队**：univer（梦行科技）+ open-code-review（阿里）+ laya——三席，全球话语权持续
 
 ---
 
-### 4. alibaba/open-code-review ⭐ 22.4K
+## 📎 推荐阅读
 
-**一句话**：阿里巴巴内部孵化的 AI 代码审查 CLI——确定性流水线 + LLM Agent 的混合架构，用 1/9 的 Token 达到比 Claude Code 更高的审查精度。
-
-| 维度 | 详情 |
-|------|------|
-| **技术栈** | Go · Apache 2.0 |
-| **核心定位** | AI 驱动的代码审查 CLI（`ocr` 命令） |
-| **基准** | AACR-Bench：200 PR / 10 语言 / 1,505 条人工标注 |
-
-**架构设计**：核心哲学是**"能用确定性方案解决的，绝不用 AI"**。审查流程被拆分为多个阶段：
-
-- **确定性组件**：文件选择、打包策略、规则匹配、评论行号定位
-- **LLM Agent**：跨文件深度分析、语义级缺陷识别
-
-内置规则集覆盖 NPE（空指针）、线程安全、XSS、SQL 注入等，支持 10 种编程语言。兼容 OpenAI 和 Anthropic API。
-
-**关键数据**：在同模型对比下，Precision 比 Claude Code 高 4.7 倍（33.9% vs 7.2%），Token 消耗仅为 1/9。代价是 Recall 故意压低——项目方明确说这不是 bug，是设计选择。
-
-**争议**：独立第三方评测（Martian Benchmark）曾报告 12% 精度，维护者归因于 tool-call 异常并已修复，但尚无修复后的独立验证。社区评价其"透明披露 recall 劣势比大多数同类项目更诚实"。
-
-**GitHub**: https://github.com/alibaba/open-code-review
+1. **[ACG](https://arxiv.org/abs/2609.32754)** —— 记什么↔怎么记的另一半，hindsight 用户必读
+2. **[FRAIL](https://arxiv.org/abs/2609.30940)** —— 个体理性→集体崩溃的系统性证据，做多 Agent 平台的先把"广泛承诺先于防御行为"抄进设计文档
+3. **[KV-Lingo](https://arxiv.org/abs/2609.32610)** —— 模型热切换的最后一块拼图，orca/ax 集成预测的原始论文
+4. **[Choir](https://arxiv.org/abs/2609.31903)** —— 多 Agent 协作的协议形态，对照 ax 的运行时形态一起看
+5. **[Alibaba Open Code Review 深度评测](https://www.infoq.com/news/2026/09/alibaba-opencodereview/)** —— InfoQ 架构分析；确定性×LLM 混合架构案例
+6. **[SphereGate](https://arxiv.org/abs/2609.32792)** —— 0.1M 参数超 GRPO 的机制解释，小模型路线的理论支撑
+7. **[BSD](https://arxiv.org/abs/2609.31603)** —— 用户信念可写=安全拒绝可变；记忆系统产品的安全审计起点
 
 ---
 
-### 5. dream-num/univer ⭐ 16.3K
+## 📜 本周金句
 
-**一句话**：AI Agent 的 Office 工具带——电子表格、文档、演示文稿一体化 SDK，让 Agent 操作 Office 文件像调用 API 一样自然。
+> "广泛承诺必须在防御行为自我强化之前形成。" — FRAIL
 
-| 维度 | 详情 |
-|------|------|
-| **技术栈** | TypeScript · Apache 2.0 |
-| **核心定位** | 可嵌入的 Office 生产力 SDK |
-| **热度** | MCP 分类趋势榜 #2，+902 ⭐/天 |
-
-**为什么 Agent 需要 Office SDK？** 越来越多 Agent 需要读写电子表格、生成报告、操作文档。Univer 提供：
-
-- **统一运行时**：Spreadsheet / Docs / Slides / Bases 共享存储和计算引擎
-- **Canvas 渲染 + 公式引擎**：在浏览器和 Node.js 上使用同一套 API
-- **AI SDK**：Agent 工作流可以直接检查、编辑、验证 Office 内容
-- **univer-mcp**：通过自然语言驱动 Univer Sheets 的 MCP 集成
-
-开源核心覆盖基础编辑功能，Pro 版提供协作、导入导出、图表、透视表等企业级能力。Luckysheet 的继任者。
-
-**GitHub**: https://github.com/dream-num/univer
+这句话本周值 21 分。它同时是多 Agent 系统的设计约束、paperclip 的部署 checklist 第一条、以及"Agent 社会学"这门新学科的第一条定理。
 
 ---
 
-### 6. google/ax ⭐ 11.3K
+## 附：本周淘汰与观察池
 
-**一句话**：Google 出品的声明式 Agent 编排器——像 Kubernetes 管理容器一样管理 Agent 工作负载。
-
-| 维度 | 详情 |
-|------|------|
-| **技术栈** | Go · Apache 2.0 |
-| **核心定位** | 集群级 Agent 编排基础设施 |
-| **版本** | v0.3.1（7 个 release，迭代极快） |
-
-**三个核心原语**：
-
-| 原语 | 作用 |
-|------|------|
-| **Task** | 在隔离沙箱中运行不可信 Agent 代码，带 CPU/内存限制 |
-| **Workspace** | 预配置 Git 仓库、MCP 服务器和技能包，Agent 启动即就绪 |
-| **Model** | 通过 Kubernetes Secret 配置 LLM 提供商和凭证 |
-
-**Agent 专属操作**：`ax suspend/resume` 检查点/恢复 Agent 状态，`ax ssh` 直接进入运行中的沙箱查看 Agent 在做什么，`ax watch` 实时流式输出状态变化。
-
-README 开宗明义：Agent 既不是无状态微服务，也不是跑完即退的批处理任务——它们会积累状态、需要严格隔离、会在无人看管时烧钱。**所以需要专门的基础设施**。
-
-**⚠️ 注意**：仍处 v1alpha1 阶段，Google 明确警告 stable 之前会有重大 breaking changes。适合评估，不适合生产。
-
-**GitHub**: https://github.com/google/ax
+| 项目/论文 | 处理 | 理由 |
+|-----------|------|------|
+| NVIDIA/Model-Optimizer | 淘汰 | 成熟项目，本周无新突破 |
+| mvschwarz/openrig | 淘汰 | 与 orca 赛道重叠，体量悬殊（2.4K vs 83.5K） |
+| superdesigndev/treg | 淘汰 | 概念极早期（2.7K★），生态验证不足 |
+| Decomposition Tax（2609.32825） | 关注级→C类边界 | pipeline 接口税 40.5 点，✗无代码；若放代码可升档 |
+| Stale-Doc Poisoning（候选池#22） | 关注级→C类边界 | 记忆投毒威胁模型，hindsight 类项目的必答题 |
+| Alignment Paradox（2609.32617） | 关注级 | 对齐放大高置信错误 10-35 倍，可复现则影响深远 |
+| Mandela-Bench（2609.32763） | 关注级 | VLM"记住而非看到"，安全评估新维度 |
 
 ---
 
-## 🧠 模型与算法类
-
-### 7. NandhaKishorM/laya ⭐ 28.7K
-
-**一句话**：非自回归 System 1 决策引擎——33ms 单次前向传播完成类型化决策（选择/评分/是非），支持 100+ 语言，Apache 2.0 开源权重。
-
-| 维度 | 详情 |
-|------|------|
-| **技术栈** | Python · Apache 2.0 |
-| **核心定位** | System 1 快速决策层（对标 Jev） |
-| **推理速度** | p50 33ms（英文）/ 7.2ms（批量） |
-
-**这是什么？** 一种新型模型：不生成文本，只做判断。输入一段文本或 JSON，输出类型化的选择、评分或是非判断——单次前向传播，无需自回归解码。
-
-**三个检查点**：
-
-| 模型 | 参数 | 用途 |
-|------|------|------|
-| laya | 421M (ModernBERT-large) | 英文 |
-| laya-multilingual | 322M (mmBERT-base) | 100+ 语言，速度快 2 倍 |
-| laya-typed-decisions | — | 通用类型化决策 |
-
-**与 Jev 对比**（Laya README 数据）：
-
-| 指标 | Jev 1.13.0 | Laya (routed) |
-|------|-----------|---------------|
-| typed-decisions 准确率 | 0.727 | **0.766** |
-| AG News 分类 | 0.910 | **0.950** |
-| ECE（校准误差，越低越好） | 0.246 | **0.081** |
-| p50 延迟 | 236-276ms | **33ms**（快 7.8 倍） |
-| 单次调用成本 | $0.042/1M tokens | **$0（自托管）** |
-
-**已知短板**：超高基数标签空间（>20 选项）下不如 Jev，因为选项共享固定的 token 预算（每标签仅 3-4 tokens）。解决方案是用 `predict_shortlist` 先缩小范围再决策。
-
-**联动论文**：[SphereGate: A Geometric Safety Gate for Function Calling](https://arxiv.org/abs/2609.32792)——SphereGate 的安全门控可以直接嵌入 Laya 的决策流程，在快速分类的同时实现安全的函数调用过滤。
-
-**GitHub**: https://github.com/NandhaKishorM/laya
-
----
-
-## 📊 数据观察
-
-### 本周项目分布
-
-| 分类 | 数量 | 项目 |
-|------|------|------|
-| Agent 编排/管理 | 3 | paperclip, orca, google/ax |
-| Agent 记忆/学习 | 1 | hindsight |
-| Agent 决策层 | 1 | laya |
-| Agent 工具集成 | 1 | univer |
-| AI 代码审查 | 1 | open-code-review |
-
-**7 个入选项目中 6 个与 Agent 直接相关。** Agent 基础设施已经不是一个赛道，而是整个 AI 开源生态的主干道。
-
-### 语言与 License 分布
-
-- **TypeScript** 3 个（paperclip, orca, univer）→ MIT × 2, Apache 2.0 × 1
-- **Python** 2 个（hindsight, laya）→ 均 Apache 2.0
-- **Go** 2 个（open-code-review, google/ax）→ 均 Apache 2.0
-
-**License 趋势**：Apache 2.0 占 5/7，成为 Agent 基础设施类项目的首选。MIT 集中在面向开发者的工具型项目。
-
-### Star 增速 TOP 3
-
-1. **paperclip**: +9,824/24h（仍在爆发期）
-2. **orca**: 日均 +792，持续 56 天
-3. **laya**: 单周从 0 到 28.7K（9/18 发布后爆量）
-
-### 与论文的交叉信号
-
-本周 8 篇精选论文中，以下方向与开源项目形成直接呼应：
-
-| 论文方向 | 对应开源项目 | 交叉点 |
-|----------|-------------|--------|
-| Agent 记忆/上下文图 | Hindsight, Paperclip | 大规模 Agent 的长期记忆管理 |
-| 高效注意力机制 | Laya | 快速决策 + 长上下文处理 |
-| Agent 安全与可靠性 | Open Code Review | 函数调用安全门控 / 代码审查 |
-| 多 Agent 协作与故障归因 | Paperclip, Orca | Agent 舰队管理 |
-
----
-
-## 📖 推荐阅读
-
-1. **[Alibaba Open Code Review 深度评测](https://www.infoq.com/news/2026/09/alibaba-opencodereview/)** — InfoQ 对 OCR 的架构分析，Shopify 高级工程师的评价值得参考："架构针对真实 Agent 故障模式设计，公开披露 recall 劣势是比同类项目更好的证据行为。"
-
-2. **[Laya vs Jev 经济学分析](https://note.com/genelab_999/n/n97cb6ae0e4e7)** — 一篇日本工程师的成本分析：自建 Laya 的盈亏平衡点是每月 5,260 万次请求。对大多数公司来说买 API 更划算，但开源替代的存在改变了谈判桌。
-
-3. **[Google AX 实战指南](https://juliangoldie.com/google-ax-github/)** — Julian Goldie 对 Google AX 的完整拆解，包括 v0.3.1 的最新变化（Redis Streams 已从核心路径移除）。
-
-4. **[Orca ADE 详解](https://dev.to/arshtechpro/orca-explained-the-agent-development-environment-for-running-ai-coding-agents-in-parallel-440n)** — dev.to 社区对 Orca 的深入解读，适合评估是否适合你的工作流。
-
-5. **[ACG: Agentic AI with Reinforced Context Graphs](https://arxiv.org/abs/2609.32754)** — 本周最高分论文（22 分），强化上下文图与多 Agent 记忆管理的直接关联。
-
----
-
-## 🔜 下周关注
-
-- **paperclip** 的 Star 增速能否突破 100K？以及社区对其"AI 员工"叙事的实际反馈
-- **google/ax** 的 v0.4.x 是否会移除 Agent Substrate 依赖（目前最大部署门槛）
-- **laya** 在超高基数标签空间的改进（社区呼声最高的 feature request）
-- **univer-mcp** 的独立发布进度（目前嵌在 monorepo 中）
-
----
-
-*周报由 Kimi Claw 自动生成于 2026-10-02*  
-*数据源：GitHub Trending / kimi_search / arXiv / InfoQ / HN*
+*Generated by friday-paper-merge | Week 40, 2026 | A-D联动优先级编排*
+*联动分析详情见 output/paper-os-linkage-2026-W40.md*
