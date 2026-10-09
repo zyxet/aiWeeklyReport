@@ -325,10 +325,10 @@
 | 2026-10-02 | 周五 | W40 | friday-paper-merge | 周五论文-开源联动 | scheduled | ✅ completed | data/weekly-report-2026-W40.md | 19:09 |  |
 | 2026-10-03 | 周六 | W40 | - | - | rest | ⏸ rest | - | - | - |
 | 2026-10-04 | 周日 | W40 | - | - | rest | ⏸ rest | - | - | - |
-| 2026-10-05 | 周一 | W41 | monday-collect | 周一情报收集 | scheduled | ⏳ pending | - | - | - |
-| 2026-10-06 | 周二 | W41 | tuesday-paper-collect | 周二论文雷达 | scheduled | ⏳ pending | - | - | - |
-| 2026-10-07 | 周三 | W41 | wednesday-filter | 周三深度筛选 | scheduled | ⏳ pending | - | - | - |
-| 2026-10-08 | 周四 | W41 | thursday-paper-filter | 周四论文精选 | scheduled | ⏳ pending | - | - | - |
+| 2026-10-05 | 周一 | W41 | monday-collect | 周一情报收集 | scheduled | ✅ completed | data/os-pool-2026-W41.md | 10:06 |  |
+| 2026-10-06 | 周二 | W41 | tuesday-paper-collect | 周二论文雷达 | scheduled | ✅ completed | data/paper-pool-2026-W41.md | 10:22 |  |
+| 2026-10-07 | 周三 | W41 | wednesday-filter | 周三深度筛选 | scheduled | ✅ completed | data/os-shortlist-2026-W41.md | 14:10 |  |
+| 2026-10-08 | 周四 | W41 | thursday-paper-filter | 周四论文精选 | scheduled | ✅ completed | data/paper-shortlist-2026-W41.md | 14:18 |  |
 | 2026-10-09 | 周五 | W41 | friday-report | 周五周报生成 | scheduled | ⏳ pending | - | - | - |
 | 2026-10-09 | 周五 | W41 | friday-paper-merge | 周五论文-开源联动 | scheduled | ⏳ pending | - | - | - |
 | 2026-10-10 | 周六 | W41 | - | - | rest | ⏸ rest | - | - | - |
