@@ -333,8 +333,8 @@
 | 2026-10-09 | 周五 | W41 | friday-paper-merge | 周五论文-开源联动 | scheduled | ✅ completed | data/weekly-report-2026-W41.md | 19:07 |  |
 | 2026-10-10 | 周六 | W41 | - | - | rest | ⏸ rest | - | - | - |
 | 2026-10-11 | 周日 | W41 | - | - | rest | ⏸ rest | - | - | - |
-| 2026-10-12 | 周一 | W42 | monday-collect | 周一情报收集 | scheduled | ⏳ pending | - | - | - |
-| 2026-10-13 | 周二 | W42 | tuesday-paper-collect | 周二论文雷达 | scheduled | ⏳ pending | - | - | - |
+| 2026-10-12 | 周一 | W42 | monday-collect | 周一情报收集 | scheduled | ✅ completed | data/os-pool-2026-W42.md | 10:04 |  |
+| 2026-10-13 | 周二 | W42 | tuesday-paper-collect | 周二论文雷达 | scheduled | ✅ completed | data/paper-pool-2026-W42.md | 10:14 |  |
 | 2026-10-14 | 周三 | W42 | wednesday-filter | 周三深度筛选 | scheduled | ⏳ pending | - | - | - |
 | 2026-10-15 | 周四 | W42 | thursday-paper-filter | 周四论文精选 | scheduled | ⏳ pending | - | - | - |
 | 2026-10-16 | 周五 | W42 | friday-report | 周五周报生成 | scheduled | ⏳ pending | - | - | - |
