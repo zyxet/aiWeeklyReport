@@ -346,7 +346,7 @@
 | 2026-10-21 | 周三 | W43 | wednesday-filter | 周三深度筛选 | scheduled | ✅ completed | data/os-shortlist-2026-W43.md | 14:04 |  |
 | 2026-10-22 | 周四 | W43 | thursday-paper-filter | 周四论文精选 | scheduled | ✅ completed | data/paper-shortlist-2026-W43.md | 14:06 |  |
 | 2026-10-23 | 周五 | W43 | friday-report | 周五周报生成 | scheduled | ✅ completed | data/weekly-report-2026-W43.md | 17:10 |  |
-| 2026-10-23 | 周五 | W43 | friday-paper-merge | 周五论文-开源联动 | scheduled | ⏳ pending | - | - | - |
+| 2026-10-23 | 周五 | W43 | friday-paper-merge | 周五论文-开源联动 | scheduled | ✅ completed | data/weekly-report-2026-W43.md | 19:07 |  |
 | 2026-10-24 | 周六 | W43 | - | - | rest | ⏸ rest | - | - | - |
 | 2026-10-25 | 周日 | W43 | - | - | rest | ⏸ rest | - | - | - |
 | 2026-10-26 | 周一 | W44 | monday-collect | 周一情报收集 | scheduled | ⏳ pending | - | - | - |
