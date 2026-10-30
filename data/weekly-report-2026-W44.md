@@ -23,6 +23,34 @@
 
 ---
 
+## 论文-开源映射表（A-D 分类）
+
+> 详细联动分析见 output/paper-os-linkage-2026-W44.md（含六大主题 + 联动矩阵 + 趋势判断）
+
+**A类：论文 + 官方代码（6 篇）— 可立即复现**
+
+| 论文 | 分数 | 联动开源项目 | 联动方式 |
+|------|------|-------------|---------|
+| Agent S4 🏆 | 23 | K3.1 Pro / Nemotron / OpenCode 2.0 | 进化框架直接部署于开源基座 |
+| LEMS 🏆 | 22 | Muse Spark Open / FLUX Klein | SVD 秩分配压缩直接应用 |
+| TopKLoRA 🏆 | 22 | K3.1 Pro / Nemotron / Muse | 稀疏 latent 后门清零，安全微调 |
+| RSIHub 🏆 | 20 | K3.1 Pro / Nemotron | 统一进化评估，可对接后训练管线 |
+| Omni-Woodpecker 🏆 | 20 | Nemotron 3.5 Super VL | 免训练幻觉消除，即插即用 |
+| MemPilot 🏆 | 19 | Muse Spark / K3.1 Pro（1M ctx） | RL 记忆操作策略 |
+
+**C类：论文先行（2 篇）— 代码未随论文发布**
+
+| 论文 | 分数 | 对应方向 | 跟进建议 |
+|------|------|---------|---------|
+| NgramRL | 19 | GRPO rollout 加速 | 关注官方仓库；方法论可先行借鉴 |
+| Prompt Injection Timing | 19 | Agent 安全评测方法论 | 冲击单次 run benchmark，评测方应先行吸收 |
+
+**D类：项目先行（7 个）— 暂无对应论文**：Kimi K3.1 Pro、Muse Spark Open、Nemotron 3.5 Super VL、FLUX 3 Image Klein、llm-d 1.0、OpenCode 2.0、hallmark
+
+**B类（社区复现）本周为空** — 入选论文两极分化：6/8 官方直接放代码，2/8 完全不放，无社区接力中间地带。
+
+---
+
 ## 🔥 重磅推荐
 
 ### Kimi K3.1 Pro — 开源 Agent 编码新上限
