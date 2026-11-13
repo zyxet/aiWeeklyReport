@@ -25,15 +25,16 @@
 
 ## 论文-开源映射表（A-D 分类）
 
-> 详细联动分析见 output/weekly-report-paper-os-2026-W46.md（含三大主题 + 联动矩阵）
+> 详细联动分析见 output/paper-os-linkage-2026-W46.md（含六大主题 + 联动矩阵 + 趋势判断）
+> 本周结构：**A类 3 · B类 0 · C类 5 · D类 7**
 
 **A类：论文 + 官方代码（3 篇）— 可立即复现**
 
-| 论文 | 分数 | 联动开源项目 | 联动方式 |
-|------|------|-------------|---------|
-| AMP1 🏆 | 24 | OpenMausBot / agent-browser | 通用模型直接操控机械臂 → Agent 获得"手"的工程范式 |
-| BitDecoding-FP4 🏆 | 23 | K3.1 Pro | FP4 KV cache 直接降低自托管推理成本 |
-| QGPM 🏆 | 20 | K3.1 Pro | training-free 缓解 1M 上下文 lost-in-the-middle |
+| 论文 | 分数 | 官方代码 | 联动开源项目 | 联动方式 |
+|------|------|---------|-------------|---------|
+| AMP1 🏆 | 24 | ✅ apple-aiml-research/ml-amp | OpenMausBot / agent-browser | 通用模型原生操控机械臂（RoboLab-120 85.6%）→ 工程侧两种原生环境表示：VM 桌面与 a11y tree |
+| BitDecoding-FP4 🏆 | 23 | ✅ OpenBitSys/BitDecoding-FP4（MIT） | K3.1 Pro / VibeVoice | FP4 KV cache 吞吐 2.4-3.0× 直击自托管成本；与 ASR-BitNet 低精度互证 |
+| QGPM 🏆 | 20 | ✅ 论文提及开源（仓库地址待核实） | K3.1 Pro / claude-mem | training-free 缓解 1M 上下文 lost-in-the-middle，即插即用 |
 
 **C类：论文先行（5 篇）— 代码未随论文发布**
 
@@ -47,7 +48,9 @@
 
 **D类：项目先行（7 个）— 暂无对应论文**：Kimi K3.1 Pro、agent-browser、google/skills、claude-mem、worktrunk、OpenMausBot、VibeVoice
 
-**本周观察**：论文代码开放率 3/8（W45 为 5/8），C 类占比上升至 62.5%——NeurIPS 2026 截稿季刚过，大量工作尚未释放代码，后续跟进有价值。
+**B类（社区复现）连续第三周空缺** — 放码策略呈"全放/不放"两极分化（3/8 vs 5/8），社区复现中间地带持续缺席。
+
+**本周观察**：论文代码开放率 3/8（W45 为 5/8），C 类占比升至 62.5%——NeurIPS 2026 截稿季刚过，大量工作尚未释放代码，未来 2-4 周是 C 类论文代码跟踪窗口。本周三源同周互证的最强联动：AMP1（学术证明通用模型原生操控）× agent-browser（a11y tree 工程路线）× OpenMausBot（VM 桌面工程路线）——Agent 环境操控的"原生动作空间"范式拿到学术+工程双背书。另注意 C 类中 3/5 为评测治理向（Phantom Consensus / Knowing When to Intervene / MCQ Safety），学术正在集中攻击 agent 系统的可信度层。
 
 ---
 
@@ -261,5 +264,6 @@ W45 为 5/8（62.5%），本周降至 3/8（37.5%）。NeurIPS 2026 截稿季后
 
 ---
 
-*由 friday-report 任务自动生成 | intelligence-system*
+*由 friday-paper-merge 任务生成（在 friday-report 主周报基础上合并论文-开源联动分析）| intelligence-system*
 *数据源：data/os-shortlist-2026-W46.md + data/paper-shortlist-2026-W46.md*
+*联动分析：output/paper-os-linkage-2026-W46.md*
