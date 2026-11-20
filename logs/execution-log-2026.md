@@ -375,10 +375,10 @@
 | 2026-11-15 | 周日 | W46 | - | - | rest | ⏸ rest | - | - | - |
 | 2026-11-16 | 周一 | W47 | monday-collect | 周一情报收集 | scheduled | ✅ completed | data/os-pool-2026-W47.md | 10:10 |  |
 | 2026-11-17 | 周二 | W47 | tuesday-paper-collect | 周二论文雷达 | scheduled | ✅ completed | data/paper-pool-2026-W47.md | 10:09 |  |
-| 2026-11-18 | 周三 | W47 | wednesday-filter | 周三深度筛选 | scheduled | ⏳ pending | - | - | - |
-| 2026-11-19 | 周四 | W47 | thursday-paper-filter | 周四论文精选 | scheduled | ⏳ pending | - | - | - |
-| 2026-11-20 | 周五 | W47 | friday-report | 周五周报生成 | scheduled | ⏳ pending | - | - | - |
-| 2026-11-20 | 周五 | W47 | friday-paper-merge | 周五论文-开源联动 | scheduled | ⏳ pending | - | - | - |
+| 2026-11-18 | 周三 | W47 | wednesday-filter | wednesday-filter | scheduled | ✅ completed | data/os-shortlist-2026-W47.md | 14:06 |  |
+| 2026-11-19 | 周四 | W47 | thursday-paper-filter | 周四论文精选 | scheduled | ✅ completed | data/paper-shortlist-2026-W47.md | 14:04 |  |
+| 2026-11-20 | 周五 | W47 | friday-report | 周五周报生成 | scheduled | ✅ completed | data/weekly-report-2026-W47.md | 17:13 |  |
+| 2026-11-20 | 周五 | W47 | friday-paper-merge | 周五论文-开源联动 | scheduled | ✅ completed | output/paper-os-linkage-2026-W47.md, data/weekly-report-2026-W47.md | 19:05 |  |
 | 2026-11-21 | 周六 | W47 | - | - | rest | ⏸ rest | - | - | - |
 | 2026-11-22 | 周日 | W47 | - | - | rest | ⏸ rest | - | - | - |
 | 2026-11-23 | 周一 | W48 | monday-collect | 周一情报收集 | scheduled | ⏳ pending | - | - | - |
