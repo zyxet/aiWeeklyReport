@@ -381,7 +381,7 @@
 | 2026-11-20 | 周五 | W47 | friday-paper-merge | 周五论文-开源联动 | scheduled | ✅ completed | output/paper-os-linkage-2026-W47.md, data/weekly-report-2026-W47.md | 19:05 |  |
 | 2026-11-21 | 周六 | W47 | - | - | rest | ⏸ rest | - | - | - |
 | 2026-11-22 | 周日 | W47 | - | - | rest | ⏸ rest | - | - | - |
-| 2026-11-23 | 周一 | W48 | monday-collect | 周一情报收集 | scheduled | ⏳ pending | - | - | - |
+| 2026-11-23 | 周一 | W48 | monday-collect | 周一情报收集 | scheduled | ✅ completed | data/os-pool-2026-W48.md | 10:03 |  |
 | 2026-11-24 | 周二 | W48 | tuesday-paper-collect | 周二论文雷达 | scheduled | ⏳ pending | - | - | - |
 | 2026-11-25 | 周三 | W48 | wednesday-filter | 周三深度筛选 | scheduled | ⏳ pending | - | - | - |
 | 2026-11-26 | 周四 | W48 | thursday-paper-filter | 周四论文精选 | scheduled | ⏳ pending | - | - | - |
