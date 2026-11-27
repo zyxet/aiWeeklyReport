@@ -386,7 +386,7 @@
 | 2026-11-25 | 周三 | W48 | wednesday-filter | 周三深度筛选 | scheduled | ✅ completed | data/os-shortlist-2026-W48.md | 14:08 |  |
 | 2026-11-26 | 周四 | W48 | thursday-paper-filter | 周四论文精选 | scheduled | ✅ completed | data/paper-shortlist-2026-W48.md | 14:06 |  |
 | 2026-11-27 | 周五 | W48 | friday-report | 周五周报生成 | scheduled | ✅ completed | data/weekly-report-2026-W48.md | 17:10 |  |
-| 2026-11-27 | 周五 | W48 | friday-paper-merge | 周五论文-开源联动 | scheduled | ⏳ pending | - | - | - |
+| 2026-11-27 | 周五 | W48 | friday-paper-merge | 周五论文-开源联动 | scheduled | ✅ completed | data/weekly-report-2026-W48.md | 19:02 | A5 B0 C3 D6 跨界1 |
 | 2026-11-28 | 周六 | W48 | - | - | rest | ⏸ rest | - | - | - |
 | 2026-11-29 | 周日 | W48 | - | - | rest | ⏸ rest | - | - | - |
 | 2026-11-30 | 周一 | W49 | monday-collect | 周一情报收集 | scheduled | ⏳ pending | - | - | - |
